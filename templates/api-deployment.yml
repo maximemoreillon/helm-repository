@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-manager
+  template:
+    metadata:
+      labels:
+        app: user-manager
+    spec:
+      containers:
+      - name: user-manager
+        image: moreillon/user-manager-mongoose
+        # Pull new image on restart
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        # Get environment variables from secret
+        env:
+        - name: MONGODB_URL
+          value: http://mongo
