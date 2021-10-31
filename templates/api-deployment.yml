@@ -23,3 +23,5 @@ spec:
         env:
         - name: MONGODB_URL
           value: http://mongo
+        - name: JWT_SECRET
+          value: {{ .Values.jwt_secret }}
