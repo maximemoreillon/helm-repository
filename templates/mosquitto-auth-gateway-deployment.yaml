@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto-auth-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mosquitto-auth-gateway
+  template:
+    metadata:
+      labels:
+        app: mosquitto-auth-gateway
+    spec:
+      containers:
+      - name: mosquitto-auth-gateway
+        image: moreillon/mosquitto-auth-gateway
+        ports:
+        - containerPort: 80
+        env:
+        - name: USER_MANAGER_API_URL
+          value: http://user-manager

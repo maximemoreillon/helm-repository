@@ -1,0 +1,6 @@
+# Default values for mosquitto-user-manager-mongoose.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+jwt_secret: keyboardcat
+domain: test.maximemoreillon.com

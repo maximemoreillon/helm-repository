@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mosquitto-config
+data:
+  mosquitto.conf: |
+
+    persistence true
+    persistence_location /mosquitto/data/
+
+    log_dest stdout
+
+    # Raw MQTT with TLS (MQTTS)
+    listener 8883
+    protocol mqtt
+
+    # /mosquitto/certs is mounted as a secrets
+    cafile /mosquitto/certs/ca.crt
+    keyfile /mosquitto/certs/tls.key
+    certfile /mosquitto/certs/tls.crt
+
+    allow_anonymous false
+
+    # Configuration of the mosquitto authentication plugin
+    auth_plugin /mosquitto/go-auth.so
+    auth_opt_log_dest stdout
+    auth_opt_log_level debug
+
+    auth_opt_backends http
+
+    auth_opt_http_host mosquitto-auth-gateway
+    auth_opt_http_port 80
+    auth_opt_http_getuser_uri /getuser
+    auth_opt_http_aclcheck_uri /aclcheck
+    auth_opt_http_superuser_uri /superuser
+
+    # MQTT over Websocket using TLS (WSS)
+    # Not too sure why has to be defined after and options dont need to be repeated
+    listener 9001
+    protocol websockets
