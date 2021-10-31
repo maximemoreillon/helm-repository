@@ -1,0 +1,10 @@
+# Default values for user-manager-neo4j.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+neo4j:
+  username: neo4j
+  password: neo4Jpassword
+
+port: 30017
+token_secret: keyboardcat
