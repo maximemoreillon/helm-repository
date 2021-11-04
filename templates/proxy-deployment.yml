@@ -15,7 +15,6 @@ spec:
       containers:
       - name: api-proxy
         image: moreillon/api-proxy
-        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
