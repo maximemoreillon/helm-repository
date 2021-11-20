@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: user-manager
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: user-manager
   ports:
   - port: 80
+    nodePort: {{ .Values.nodePorts.api }}

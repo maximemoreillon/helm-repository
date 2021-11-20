@@ -1,1 +1,4 @@
 User manager (Neo4J version)
+Ports:
+- GUI: {{ .Values.nodePorts.gui }}
+- API: {{ .Values.nodePorts.api }}

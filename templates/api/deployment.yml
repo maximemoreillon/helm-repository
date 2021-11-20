@@ -19,13 +19,9 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        # Get environment variables from secret
+        envFrom:
+        - secretRef:
+           name: credentials
         env:
-        - name: JWT_SECRET
-          value: {{ .Values.token_secret }}
         - name: NEO4J_URL
           value: bolt://neo4j:7687
-        - name: NEO4J_USERNAME
-          value: {{ .Values.neo4j.username }}
-        - name: NEO4J_PASSWORD
-          value: {{ .Values.neo4j.password }}

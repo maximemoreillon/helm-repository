@@ -8,4 +8,4 @@ spec:
     app: api-proxy
   ports:
   - port: 80
-    nodePort: {{ .Values.port }}
+    nodePort: {{ .Values.nodePorts.gui }}
