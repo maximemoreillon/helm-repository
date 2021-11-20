@@ -17,8 +17,9 @@ spec:
         image: moreillon/user-manager-mongoose
         ports:
         - containerPort: 80
+        envFrom:
+        - secretRef:
+           name: credentials
         env:
         - name: MONGODB_URL
           value: mongodb://mongo
-        - name: JWT_SECRET
-          value: {{ .Values.jwt_secret }}

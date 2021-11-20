@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: mosquitto-mqtts
 spec:
-  # ClusterIP for now
-  type: ClusterIP
+  type: NodePort
   selector:
     app: mosquitto
   ports:
   - port: 8883
-    #nodePort: 30883
+    nodePort: {{ .Values.mosquitto.nodePort }}
