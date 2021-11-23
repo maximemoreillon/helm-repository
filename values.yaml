@@ -15,4 +15,4 @@ mosquitto:
   pvcSize: 10Gi
   nodePort: 30884
 
-domain: test.maximemoreillon.com
+domain: test.home.maximemoreillon.com
