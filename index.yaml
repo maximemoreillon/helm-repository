@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2021-10-31T14:22:28.422343986Z"
+entries:
+  user-manager-mongoose:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-11-23T12:36:46.07095868Z"
+    description: A Helm chart for Kubernetes
+    digest: b6cf78456501e0d4ced3642fd3dafdb3f61e3a753a5de23632d7a0b3fdc759e7
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - user-manager-mongoose-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-11-23T12:36:46.07039836Z"
