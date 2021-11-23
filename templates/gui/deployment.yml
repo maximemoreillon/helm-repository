@@ -15,8 +15,6 @@ spec:
       containers:
       - name: user-manager-front
         image: moreillon/user-manager-front
-        # Pull new image on restart
-        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
