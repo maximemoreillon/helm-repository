@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: face-recognition
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-recognition
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: face-recognition
+  template:
+    metadata:
+      labels:
+        app: face-recognition
+    spec:
+      containers:
+      - name: face-recognition
+        image: moreillon/face-recognition-fastapi:x86
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGODB_URL
+          value: mongodb://mongo
+        # - name: AUTHENTICATION_URL
+        #   value: https://api.authentication.maximemoreillon.com/whoami
+        volumeMounts:
+        - mountPath: /usr/src/app/uploads
+          name: face-recognition
+      volumes:
+      - name: face-recognition
+        persistentVolumeClaim:
+          claimName: face-recognition
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: face-recognition
+spec:
+  type: ClusterIP
+  selector:
+    app: face-recognition
+  ports:
+  - port: 80
