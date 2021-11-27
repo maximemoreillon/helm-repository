@@ -14,12 +14,9 @@ spec:
     spec:
       containers:
       - name: face-recognition-front
-        image: moreillon/face-recognition-front
+        image: moreillon/face-recognition-fastapi-front
         ports:
         - containerPort: 80
-        envFrom:
-        - secretRef:
-           name: environment-variables
         env:
         - name: VUE_APP_API_URL
           value: /proxy/api
