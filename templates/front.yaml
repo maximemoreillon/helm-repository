@@ -21,7 +21,7 @@ spec:
         - name: VUE_APP_API_URL
           value: /proxy/api
         - name: PROXY_API
-          value: http://face-recongition
+          value: http://face-recognition
 ---
 apiVersion: v1
 kind: Service
