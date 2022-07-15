@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: user-manager
-        image: moreillon/user-manager-mongoose
+        image: moreillon/user-manager-mongoose:cf5b2164
         ports:
         - containerPort: 80
         envFrom:

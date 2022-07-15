@@ -13,7 +13,7 @@ spec:
         app: user-manager-proxy
     spec:
       containers:
-      - name: user-manager-proxy
+      - name: user-manager-proxy:a3e8b41e
         image: moreillon/api-proxy
         imagePullPolicy: Always
         ports:
