@@ -1,0 +1,15 @@
+# Default values for mqtt-logger.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+credentials:
+  username: example
+  password: keyboardcat
+
+influxdb:
+  token:
+  org: example
+  bucket: mqtt-logger
+
+mqtt:
+  broker: mqtt://mqtt.example.com:8883
