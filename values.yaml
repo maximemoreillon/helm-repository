@@ -9,7 +9,7 @@ credentials:
 influxdb:
   token:
   org: example
-  bucket: mqtt-logger
+  bucket: mqtt_logger
 
 mqtt:
   broker: mqtt://mqtt.example.com:8883

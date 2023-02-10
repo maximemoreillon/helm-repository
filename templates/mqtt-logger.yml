@@ -13,30 +13,31 @@ spec:
         app: mqtt-logger
     spec:
       containers:
-      - name: mqtt-logger
-        image: moreillon/mqtt-logger:ff648578
-        env:
-        # InfluxDB
-        - name: INFLUXDB_URL
-          value: http://influxdb
-        - name: INFLUXDB_TOKEN
-          value: {{ .Values.influxdb.token }}
-        - name: INFLUXDB_ORG
-          value: {{ .Values.influxdb.org }}
-        - name: INFLUXDB_BUCKET
-          value: {{ .Values.influxdb.bucket }}
-        # MongoDB
-        - name: MONGODB_URL
-          value: mongodb://mongo
-        # MQTT
-        - name: MQTT_URL
-          value: {{ .Values.mqtt.broker }}
-        - name: MQTT_USERNAME
-          value: {{ .Values.credentials.username }}
-        - name: MQTT_PASSWORD
-          value: {{ .Values.credentials.password }}
-        ports:
-        - containerPort: 80
+        - name: mqtt-logger
+          image: moreillon/mqtt-logger:ff648578
+          env:
+            # InfluxDB
+            - name: INFLUXDB_URL
+              value: http://influxdb
+            - name: INFLUXDB_TOKEN
+              value: {{.Values.influxdb.token}}
+            - name: INFLUXDB_ORG
+              value: {{.Values.influxdb.org}}
+            - name: INFLUXDB_BUCKET
+              value: {{.Values.influxdb.bucket}}
+            # MongoDB
+            - name: MONGODB_URL
+              value: mongodb://mongo
+            # MQTT
+            # TODO: allow to use broker deployed with this chart
+            - name: MQTT_URL
+              value: {{.Values.mqtt.broker}}
+            - name: MQTT_USERNAME
+              value: {{.Values.credentials.username}}
+            - name: MQTT_PASSWORD
+              value: {{.Values.credentials.password}}
+          ports:
+            - containerPort: 80
 
 ---
 apiVersion: v1
@@ -48,5 +49,6 @@ spec:
   selector:
     app: mqtt-logger
   ports:
-  - port: 80
-    nodePort: 31882
+    - port: 80
+      # TODO: user customizable
+      nodePort: 31882
