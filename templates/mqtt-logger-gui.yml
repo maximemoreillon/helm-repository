@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mqtt-logger-front
+  name: {{.Values.name}}-front
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mqtt-logger-front
+      app: {{.Values.name}}-front
   template:
     metadata:
       labels:
-        app: mqtt-logger-front
+        app: {{.Values.name}}-front
     spec:
       containers:
-        - name: mqtt-logger-front
+        - name: {{.Values.name}}-front
           image: moreillon/mqtt-logger-front:50030b8b
           env:
             - name: VUE_APP_MQTT_LOGGER_API_URL
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mqtt-logger-front
+  name: {{.Values.name}}-front
 spec:
   type: ClusterIP
   selector:
-    app: mqtt-logger-front
+    app: {{.Values.name}}-front
   ports:
     - port: 80

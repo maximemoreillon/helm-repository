@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mqtt-logger-proxy
+  name: {{.Values.name}}-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mqtt-logger-proxy
+      app: {{.Values.name}}-proxy
   template:
     metadata:
       labels:
-        app: mqtt-logger-proxy
+        app: {{.Values.name}}-proxy
     spec:
       containers:
-        - name: mqtt-logger-proxy
+        - name: {{.Values.name}}-proxy
           image: moreillon/api-proxy:e80c1d87
           env:
             - name: PROXY_API
-              value: http://mqtt-logger
+              value: http://{{.Values.name}}
             - name: PROXY_ROOT
-              value: http://mqtt-logger-front
+              value: http://{{.Values.name}}-front
           ports:
             - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mqtt-logger-proxy
+  name: {{.Values.name}}-proxy
 spec:
   type: NodePort
   selector:
-    app: mqtt-logger-proxy
+    app: {{.Values.name}}-proxy
   ports:
     - port: 80
       nodePort: {{.Values.frontEnd.nodePort}}

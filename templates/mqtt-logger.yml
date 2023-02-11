@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mqtt-logger
+  name: {{.Values.name}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mqtt-logger
+      app: {{.Values.name}}
   template:
     metadata:
       labels:
-        app: mqtt-logger
+        app: {{.Values.name}}
     spec:
       containers:
-        - name: mqtt-logger
+        - name: {{.Values.name}}
           image: moreillon/mqtt-logger:9ffbf718
           env:
             # InfluxDB
@@ -44,11 +44,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mqtt-logger
+  name: {{.Values.name}}
 spec:
   type: NodePort
   selector:
-    app: mqtt-logger
+    app: {{.Values.name}}
   ports:
     - port: 80
       # TODO: default

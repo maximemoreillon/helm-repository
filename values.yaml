@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# TODO: PVC sizes
+name: "mqtt-logger"
 
 backEnd:
   nodePort: 30400
@@ -17,6 +17,10 @@ influxdb:
   org: mqtt_logger
   bucket: mqtt_logger
   nodePort: 30402
+  pvc: 100Gi
+
+mongo:
+  pvc: 50Gi
 
 mqtt:
   broker: mqtt://mosquitto:1883
@@ -25,6 +29,7 @@ mqtt:
 
 # Integrated MQTT broker
 mosquitto:
+  pvc: 10Gi
   nodePort:
     mqtt: 30403
     ws: 30404
