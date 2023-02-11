@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mqtt-logger-front
-          image: moreillon/mqtt-logger-front:341e90be
+          image: moreillon/mqtt-logger-front:50030b8b
           env:
             - name: VUE_APP_MQTT_LOGGER_API_URL
               value: /proxy/api
@@ -27,9 +27,8 @@ kind: Service
 metadata:
   name: mqtt-logger-front
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: mqtt-logger-front
   ports:
     - port: 80
-      nodePort: 31881

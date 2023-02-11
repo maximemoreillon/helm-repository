@@ -35,9 +35,9 @@ spec:
             - name: DOCKER_INFLUXDB_INIT_MODE
               value: setup
             - name: DOCKER_INFLUXDB_INIT_USERNAME
-              value: {{.Values.credentials.username}}
+              value: {{.Values.influxdb.username}}
             - name: DOCKER_INFLUXDB_INIT_PASSWORD
-              value: {{.Values.credentials.password}}
+              value: {{.Values.influxdb.password}}
             - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
               value: {{.Values.influxdb.token}}
             - name: DOCKER_INFLUXDB_INIT_ORG
@@ -56,8 +56,8 @@ metadata:
 spec:
   ports:
     - port: 8086
-      # TODO: user customizable
-      nodePort: 30086
+      # TODO: default
+      nodePort: {{.Values.influxdb.nodePort}}
   selector:
     app: influxdb
   type: NodePort

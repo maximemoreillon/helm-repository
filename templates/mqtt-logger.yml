@@ -14,17 +14,18 @@ spec:
     spec:
       containers:
         - name: mqtt-logger
-          image: moreillon/mqtt-logger:ff648578
+          image: moreillon/mqtt-logger:9ffbf718
           env:
             # InfluxDB
             - name: INFLUXDB_URL
-              value: http://influxdb
-            - name: INFLUXDB_TOKEN
-              value: {{.Values.influxdb.token}}
+              # NOTE: port is necessary
+              value: http://influxdb:8086
             - name: INFLUXDB_ORG
               value: {{.Values.influxdb.org}}
             - name: INFLUXDB_BUCKET
               value: {{.Values.influxdb.bucket}}
+            - name: INFLUXDB_TOKEN
+              value: {{.Values.influxdb.token}}
             # MongoDB
             - name: MONGODB_URL
               value: mongodb://mongo
@@ -33,9 +34,9 @@ spec:
             - name: MQTT_URL
               value: {{.Values.mqtt.broker}}
             - name: MQTT_USERNAME
-              value: {{.Values.credentials.username}}
+              value: {{.Values.mqtt.username}}
             - name: MQTT_PASSWORD
-              value: {{.Values.credentials.password}}
+              value: {{.Values.mqtt.password}}
           ports:
             - containerPort: 80
 
@@ -50,5 +51,5 @@ spec:
     app: mqtt-logger
   ports:
     - port: 80
-      # TODO: user customizable
-      nodePort: 31882
+      # TODO: default
+      nodePort: {{.Values.backEnd.nodePort}}

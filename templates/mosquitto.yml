@@ -31,10 +31,9 @@ spec:
             - containerPort: 1883 # MQTT
             - containerPort: 9001 # WSS
           volumeMounts:
-            - mountPath: "/mosquitto/config/"
+            - mountPath: /mosquitto/config/
               name: config
-
-            - mountPath: "/mosquitto/data/"
+            - mountPath: /mosquitto/data/
               name: data
       volumes:
         - name: config
@@ -79,7 +78,7 @@ spec:
   ports:
     - name: mqtt
       port: 1883
-      nodePort: 31883
+      nodePort: {{.Values.mosquitto.nodePort.mqtt}}
     - name: ws
       port: 9001
-      nodePort: 31884
+      nodePort: {{.Values.mosquitto.nodePort.ws}}

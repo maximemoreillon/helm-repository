@@ -2,14 +2,27 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-credentials:
-  username: example
-  password: keyboardcat
+backEnd:
+  nodePort: 30400
+
+frontEnd:
+  nodePort: 30401
 
 influxdb:
-  token:
-  org: example
+  username: admin
+  password: keyboardcat
+  token: 5Qlnkzp3kW6RDVMHlktMzDCQEG5CBGHf59J-5x5lK2g9BVCtoYdgrI9aqnYi5fNIB0EfJoUDQ0bWHkGqkr5qRA==
+  org: mqtt_logger
   bucket: mqtt_logger
+  nodePort: 30402
 
 mqtt:
-  broker: mqtt://mqtt.example.com:8883
+  broker: mqtt://mosquitto:1883
+  #username: myUsername
+  #password: mypassword
+
+# Integrated MQTT broker
+mosquitto:
+  nodePort:
+    mqtt: 30403
+    ws: 30404
