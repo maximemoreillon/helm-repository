@@ -19,7 +19,8 @@ spec:
             # InfluxDB
             - name: INFLUXDB_URL
               # NOTE: port is necessary
-              value: http://influxdb:8086
+              # TODO: allow user to use their own influxDB
+              value: http://{{.Values.name}}-influxdb:8086
             - name: INFLUXDB_ORG
               value: {{.Values.influxdb.org}}
             - name: INFLUXDB_BUCKET
@@ -28,15 +29,15 @@ spec:
               value: {{.Values.influxdb.token}}
             # MongoDB
             - name: MONGODB_URL
-              value: mongodb://mongo
+              value: mongodb://{{.Values.name}}-mongo
             # MQTT
             # TODO: allow to use broker deployed with this chart
             - name: MQTT_URL
-              value: {{.Values.mqtt.broker}}
+              value: {{.Values.backEnd.mqtt.broker}}
             - name: MQTT_USERNAME
-              value: {{.Values.mqtt.username}}
+              value: {{.Values.backEnd.mqtt.username}}
             - name: MQTT_PASSWORD
-              value: {{.Values.mqtt.password}}
+              value: {{.Values.backEnd.mqtt.password}}
           ports:
             - containerPort: 80
 

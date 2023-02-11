@@ -2,15 +2,21 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-name: "mqtt-logger"
+name: mqtt-logger
 
 backEnd:
   nodePort: 30400
+  # TODO: allow user to configure their own InfluxDB
+  mqtt:
+    broker: mqtt://mosquitto:1883
+    #username: myUsername
+    #password: mypassword
 
 frontEnd:
   nodePort: 30401
 
 influxdb:
+  enabled: true
   username: admin
   password: keyboardcat
   token: 5Qlnkzp3kW6RDVMHlktMzDCQEG5CBGHf59J-5x5lK2g9BVCtoYdgrI9aqnYi5fNIB0EfJoUDQ0bWHkGqkr5qRA==
@@ -22,13 +28,9 @@ influxdb:
 mongo:
   pvc: 50Gi
 
-mqtt:
-  broker: mqtt://mosquitto:1883
-  #username: myUsername
-  #password: mypassword
-
 # Integrated MQTT broker
 mosquitto:
+  enabled: true
   pvc: 10Gi
   nodePort:
     mqtt: 30403
