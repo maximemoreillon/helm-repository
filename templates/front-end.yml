@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}-gui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}-gui
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}-gui
+    spec:
+      containers:
+      - name: {{ .Values.name }}-gui
+        image: moreillon/food-manager-front
+        ports:
+        - containerPort: 80
+        env:
+        - name: VUE_APP_FOOD_MANAGER_API_URL
+          value: /proxy/api
+        - name: PROXY_API
+          value: http://{{ .Values.name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-gui
+spec:
+  type: NodePort
+  selector:
+    app: {{ .Values.name }}-gui
+  ports:
+  - port: 80
+    nodePort: {{.Values.nodePort}}
