@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  mqtt-logger:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-11T09:41:15.141314252+09:00"
+    description: A Helm chart for Kubernetes
+    digest: e0f628c6cc4148efdaa61723f1fc4940a7280f95c43dd4b393e6fbc47cfc5e55
+    name: mqtt-logger
+    type: application
+    urls:
+    - mqtt-logger-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-02-11T09:41:15.140654066+09:00"
