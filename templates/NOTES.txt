@@ -1,1 +1,3 @@
 MQTT Logger
+
+GUI can be access on port {{.Values.frontEnd.nodePort}}

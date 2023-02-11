@@ -82,3 +82,4 @@ spec:
     - name: ws
       port: 9001
       nodePort: {{.Values.mosquitto.nodePort.ws}}
+{{- end }}
