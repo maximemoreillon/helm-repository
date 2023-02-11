@@ -3,9 +3,19 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-11T16:40:48.41100066+09:00"
+    created: "2023-02-12T00:41:02.037146257+09:00"
     description: A Helm chart for Kubernetes
-    digest: a3ef3f67c04e7da4d6aba34e5e57b263f297f45526aa559efb1ecca3137b5345
+    digest: 1aa3d075b9c95672fd1b07bfd56673598baa8f98825306941b51024f81c0681a
+    name: mqtt-logger
+    type: application
+    urls:
+    - mqtt-logger-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-12T00:41:02.036499072+09:00"
+    description: A Helm chart for Kubernetes
+    digest: e9023631b809c57eb99bd5e254e2c68a275d975e4c30bb72cf307b17474eb223
     name: mqtt-logger
     type: application
     urls:
@@ -13,7 +23,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-11T16:40:48.410485662+09:00"
+    created: "2023-02-12T00:41:02.035733223+09:00"
     description: A Helm chart for Kubernetes
     digest: 646428fd5e270087682758dde011433c065a8beced7468b0f2b5fb85266dca48
     name: mqtt-logger
@@ -21,4 +31,4 @@ entries:
     urls:
     - mqtt-logger-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-11T16:40:48.409769166+09:00"
+generated: "2023-02-12T00:41:02.035018469+09:00"
