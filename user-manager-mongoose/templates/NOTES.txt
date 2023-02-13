@@ -1,1 +1,4 @@
 User manager (Mongoose version)
+
+
+GUI available on port {{ .Values.nodePorts.gui}}
