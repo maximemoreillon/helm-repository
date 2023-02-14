@@ -33,7 +33,7 @@ spec:
     app: face-recognition-front
   ports:
   - port: 80
-    nodePort: {{ default 3041 .Values.nodePorts.front}}
+    nodePort: {{ default 30041 .Values.nodePorts.gui}}
 ---
 # apiVersion: extensions/v1beta1
 # kind: Ingress

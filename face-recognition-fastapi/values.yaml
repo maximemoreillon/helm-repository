@@ -6,4 +6,4 @@ pvcSizes:
   db: 200Gi
 
 nodePorts:
-  front: 30041
+  gui: 30041
