@@ -13,10 +13,10 @@ spec:
         app: user-manager-front
     spec:
       containers:
-      - name: user-manager-front
-        image: moreillon/user-manager-mongoose-front:1cab30ea
-        ports:
-        - containerPort: 80
-        env:
-        - name: VUE_APP_USER_MANAGER_API_URL
-          value: /proxy/api
+        - name: user-manager-front
+          image: moreillon/user-manager-front:1cab30ea
+          ports:
+            - containerPort: 80
+          env:
+            - name: VUE_APP_USER_MANAGER_API_URL
+              value: /proxy/api
