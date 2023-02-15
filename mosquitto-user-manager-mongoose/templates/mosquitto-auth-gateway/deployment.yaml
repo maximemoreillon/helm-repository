@@ -13,10 +13,11 @@ spec:
         app: mosquitto-auth-gateway
     spec:
       containers:
-      - name: mosquitto-auth-gateway
-        image: moreillon/mosquitto-auth-gateway
-        ports:
-        - containerPort: 80
-        env:
-        - name: USER_MANAGER_API_URL
-          value: http://user-manager
+        - name: mosquitto-auth-gateway
+          image: moreillon/mosquitto-auth-gateway
+          ports:
+            - containerPort: 80
+          env:
+            - name: USER_MANAGER_API_URL
+              value: http://user-manager
+              #value: http://user-manager-api

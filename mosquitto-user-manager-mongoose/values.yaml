@@ -2,17 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-jwt_secret: keyboardcat
-
-admin:
-  username: admin
-  password: admin
-
-mongodb:
-  pvcSize: 100Gi
-
 mosquitto:
   pvcSize: 10Gi
-  nodePort: 30884
+  nodePorts:
+    mqtts: 30884
+    mqtt: 30885
 
-domain: test.home.maximemoreillon.com
+ingress:
+  enabled: true
+  host: test.mqtt.home.maximemoreillon.com

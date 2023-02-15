@@ -1,10 +1,8 @@
-Mosquitto with authentication using user manager
+Mosquitto with user management system
 
 Mosquitto can be accessed using the following:
 
-- WSS: wss://mqtt.{{ .Values.domain }}
-- MQTTS: mqtts://mqtt.{{ .Values.domain }}:{{ .Values.mosquitto.nodePort }}
+- MQTT: mqtt://YOUR_SERVER_IP:{{ .Values.mosquitto.nodePort.mqtt }}
+- WSS: wss://mqtt.{{ .Values.ingress.host }}
+- MQTTS: mqtts://mqtt.{{ .Values.ingress.host }}:{{ .Values.mosquitto.nodePort.mqtts }}
 
-The user management service is available at the following URLS
-- GUI: https://users.{{ .Values.domain }}
-- API: https://api.users.{{ .Values.domain }}

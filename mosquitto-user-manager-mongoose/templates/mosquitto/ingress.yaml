@@ -1,4 +1,6 @@
-apiVersion: extensions/v1beta1
+
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mosquitto
@@ -8,13 +10,17 @@ metadata:
 spec:
   tls:
   - hosts:
-    - mqtt.{{ .Values.domain }}
+    - {{ .Values.ingress.host }}
     secretName: mosquitto-certs
   rules:
-  - host: mqtt.{{ .Values.domain }}
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: mosquitto-wss
-          servicePort: 9001
+          service:
+            name: mosquitto-wss
+            port: 
+              number: 9001
+{{- end }}

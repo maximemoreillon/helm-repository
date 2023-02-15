@@ -10,6 +10,10 @@ data:
 
     log_dest stdout
 
+    # Raw MQTT (Unencrypted)
+    listener 1883
+    protocol mqtt
+
     # Raw MQTT with TLS (MQTTS)
     listener 8883
     protocol mqtt
