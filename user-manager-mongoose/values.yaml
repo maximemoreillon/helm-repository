@@ -1,12 +1,18 @@
-# Default values for user-manager-mongoose.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+name: user-manager
 
 jwt_secret: keyboardcat
 
-pvcSizes:
-  db: 100Gi
+# TODO: allow to use existing mongoDB
+# api:
+
+mongo:
+  enabled: true # TODO: find a better name like "integrated"
+  pvc: 100Gi
 
 nodePorts:
   api: 30070
   gui: 30080
+
+ingress:
+  enabled: true
+  host: test.users.home.maximemoreillon.com

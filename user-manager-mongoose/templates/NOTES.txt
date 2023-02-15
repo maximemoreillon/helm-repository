@@ -1,4 +1,12 @@
 User manager (Mongoose version)
 
 
+{{- if .Values.ingress.enabled }}
+
+GUI available at {{ .Values.ingress.host }}
+
+{{- else }}
+
 GUI available on port {{ .Values.nodePorts.gui}}
+
+{{- end }}

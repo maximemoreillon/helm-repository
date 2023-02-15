@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-manager
+  name: {{ .Values.name }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user-manager
+      app: {{ .Values.name }}-api
   template:
     metadata:
       labels:
-        app: user-manager
+        app: {{ .Values.name }}-api
     spec:
       containers:
-      - name: user-manager
+      - name: {{ .Values.name }}-api
+        # TODO: tag
         image: moreillon/user-manager-mongoose
         ports:
         - containerPort: 80
         env:
         - name: MONGODB_URL
-          value: mongodb://mongo
+          value: mongodb://{{ .Values.name }}-mongo
         - name: JWT_SECRET
           value: {{ .Values.jwt_secret }}

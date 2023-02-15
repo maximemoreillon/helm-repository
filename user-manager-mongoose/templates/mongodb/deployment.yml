@@ -1,26 +1,30 @@
+{{- if .Values.mongo.enabled -}}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo
+  name: {{ .Values.name }}-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo
+      app: {{ .Values.name }}-mongo
   template:
     metadata:
       labels:
-        app: mongo
+        app: {{ .Values.name }}-mongo
     spec:
       containers:
-      - name: mongo
-        image: mongo
+      - name: {{ .Values.name }}-mongo
+        image: mongo:4
         ports:
         - containerPort: 27017
         volumeMounts:
-        - mountPath: "/data/db"
-          name: mongo
+        - mountPath: /data/db
+          name: {{ .Values.name }}-mongo
       volumes:
-      - name: mongo
+      - name: {{ .Values.name }}-mongo
         persistentVolumeClaim:
-          claimName: mongo
+          claimName: {{ .Values.name }}-mongo
+
+{{- end }}
