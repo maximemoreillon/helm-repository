@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}-proxy
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}-proxy
+    spec:
+      containers:
+      - name: {{ .Values.name }}-proxy
+        # TODO: tag
+        image: moreillon/api-proxy
+        ports:
+        - containerPort: 80
+        env:
+        - name: PROXY_ROOT
+          value: http://{{ .Values.name }}-gui
+        - name: PROXY_API
+          value: http://{{ .Values.name }}-api
+        - name: PROXY_USER_MANAGER
+          value: http://user-manager-api

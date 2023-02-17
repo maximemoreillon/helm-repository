@@ -1,0 +1,6 @@
+dependencies:
+- name: user-manager-neo4j
+  repository: https://maximemoreillon.github.io/user-manager-neo4j-helm-chart/
+  version: 0.1.3
+digest: sha256:d7a92abd3629612aa6bea517488b3ec6877a20d3495f3445dbb85707a4de6b63
+generated: "2023-02-18T07:51:34.076178737+09:00"
