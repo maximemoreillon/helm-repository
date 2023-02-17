@@ -3,3 +3,4 @@
 Ports:
 - GUI: {{ .Values.nodePorts.gui }}
 - API: {{ .Values.nodePorts.api }}
+- User manager GUI: {{ toYaml (index .Values "user-manager-neo4j" "nodePorts" "gui" ) }}
