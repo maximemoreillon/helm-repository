@@ -24,4 +24,16 @@ spec:
         - name: PROXY_API
           value: http://{{ .Values.name }}-api
         - name: PROXY_USER_MANAGER
-          value: http://user-manager-api
+          value: http://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-api
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-proxy
+spec:
+  type: NodePort
+  selector:
+    app: {{ .Values.name }}-proxy
+  ports:
+  - port: 80
+    nodePort: {{ .Values.nodePorts.gui }}

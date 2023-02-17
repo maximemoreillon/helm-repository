@@ -19,13 +19,12 @@ spec:
         - containerPort: 80
         envFrom:
         - secretRef:
-           name: credentials
+           name: {{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-credentials
         env:
         - name: NEO4J_URL
-          value: bolt://neo4j:7687
-        # TODO: connecting to the user manager
+          value: bolt://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-neo4j:7687
         - name: IDENTIFICATION_URL
-          value: http://user-manager/v2/users/self
+          value: http://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-api/v2/users/self
 ---
 apiVersion: v1
 kind: Service
