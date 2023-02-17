@@ -2,7 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+name: user-manager
 
+# TODO: allow users to not deploy Neo4J
 neo4j:
   username: neo4j
   password: neo4Jpassword

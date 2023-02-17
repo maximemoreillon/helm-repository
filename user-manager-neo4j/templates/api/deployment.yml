@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-manager
+  name: {{ .Values.name }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user-manager
+      app: {{ .Values.name }}-api
   template:
     metadata:
       labels:
-        app: user-manager
+        app: {{ .Values.name }}-api
     spec:
       containers:
-      - name: user-manager
+      - name: {{ .Values.name }}-api
         image: moreillon/user-manager
         ports:
         - containerPort: 80
         envFrom:
         - secretRef:
-           name: credentials
+           name: {{.Values.name}}-credentials
         env:
         - name: NEO4J_URL
-          value: bolt://neo4j:7687
+          value: bolt://{{.Values.name}}-neo4j:7687

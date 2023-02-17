@@ -13,13 +13,12 @@ spec:
         app: api-proxy
     spec:
       containers:
-      - name: api-proxy
-        image: moreillon/api-proxy
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-        env:
-        - name: PROXY_API
-          value: http://user-manager
-        - name: PROXY_ROOT
-          value: http://user-manager-front
+        - name: api-proxy
+          image: moreillon/api-proxy
+          ports:
+            - containerPort: 80
+          env:
+            - name: PROXY_API
+              value: http://{{.Values.name}}-api
+            - name: PROXY_ROOT
+              value: http://{{.Values.name}}-gui
