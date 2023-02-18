@@ -11,6 +11,8 @@ otherwise, prefix is simply releaseName
 {{- else }}
 {{- if .Values.prefix }}
 {{- printf "%s-%s" .Release.Name .Values.prefix | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{- end }}
