@@ -17,3 +17,16 @@ otherwise, prefix is simply releaseName
 {{- end }}
 {{- end }}
 
+
+{{/*
+Ingress host
+subdomain.host if both are provided
+host if subdomain is omitted
+*/}}
+{{- define "ingress.host.full" -}}
+{{- if .Values.ingress.subdomain }}
+{{- printf "%s.%s" .Values.ingress.subdomain .Values.ingress.host }}
+{{- else }}
+{{- .Values.ingress.host }}
+{{- end }}
+{{- end }}

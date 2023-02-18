@@ -1,12 +1,8 @@
 User manager (Mongoose version)
 
-
 {{- if .Values.ingress.enabled }}
-
-GUI available at {{ .Values.ingress.host }}
-
+GUI available at {{ include "ingress.host.full" . }}
+API available at api.{{ include "ingress.host.full" . }}
 {{- else }}
-
 GUI available on port {{ .Values.nodePorts.gui}}
-
 {{- end }}

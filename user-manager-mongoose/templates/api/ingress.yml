@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - api.{{ .Values.ingress.host }}
+        - api.{{ include "ingress.host.full" . }}
       secretName: {{ include "resources.prefix" . }}-api
   rules:
-    - host: api.{{ .Values.ingress.host }}
+    - host: api.{{ include "ingress.host.full" . }}
       http:
         paths:
           - path: /

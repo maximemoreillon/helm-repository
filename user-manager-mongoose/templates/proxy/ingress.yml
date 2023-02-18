@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - {{ .Values.ingress.host }}
+        - {{ include "ingress.host.full" . }}
       secretName: {{ include "resources.prefix" . }}-proxy
   rules:
-    - host: {{ .Values.ingress.host }}
+    - host: {{ include "ingress.host.full" . }}
       http:
         paths:
           - path: /

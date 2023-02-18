@@ -15,4 +15,5 @@ nodePorts:
 
 ingress:
   enabled: true
-  host: test.users.home.maximemoreillon.com
+  host: users.test.home.maximemoreillon.com
+  #subdomain: sub
