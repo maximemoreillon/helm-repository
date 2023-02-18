@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{.Values.name}}
+  name: {{include "resources.prefix" .}}
 spec:
   accessModes:
     - ReadWriteMany
@@ -13,41 +13,44 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}
+  name: {{include "resources.prefix" .}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}
+      app: {{include "resources.prefix" .}}
   template:
     metadata:
       labels:
-        app: {{.Values.name}}
+        app: {{include "resources.prefix" .}}
     spec:
       containers:
-        - name: {{.Values.name}}
+        - name: {{include "resources.prefix" .}}
           image: moreillon/food-manager
           env:
-            # MongoDB
+            # DB
             - name: MONGODB_URL
-              value: mongodb://{{ .Values.name }}-db
+              value: mongodb://{{ include "resources.prefix" . }}-db
+            # Auth
+            - name: IDENTIFICATION_URL
+              value: http://{{ include "resources.prefix" . }}-user-manager-api/users/self
           ports:
             - containerPort: 80
           volumeMounts:
             - mountPath: /usr/src/app/uploads
-              name: {{.Values.name}}
+              name: {{include "resources.prefix" .}}
       volumes:
-        - name: {{.Values.name}}
+        - name: {{include "resources.prefix" .}}
           persistentVolumeClaim:
-            claimName: {{.Values.name}}
+            claimName: {{include "resources.prefix" .}}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}
+  name: {{include "resources.prefix" .}}
 spec:
   type: ClusterIP
   selector:
-    app: {{.Values.name}}
+    app: {{include "resources.prefix" .}}
   ports:
     - port: 80

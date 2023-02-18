@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.name }}-db
+  name: {{ include "resources.prefix" . }}-db
 spec:
   accessModes:
     - ReadWriteOnce
@@ -12,37 +12,37 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-db
+  name: {{ include "resources.prefix" . }}-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-db
+      app: {{ include "resources.prefix" . }}-db
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-db
+        app: {{ include "resources.prefix" . }}-db
     spec:
       volumes:
-        - name: {{ .Values.name }}-db
+        - name: {{ include "resources.prefix" . }}-db
           persistentVolumeClaim:
-            claimName: {{ .Values.name }}-db
+            claimName: {{ include "resources.prefix" . }}-db
       containers:
-        - name: {{ .Values.name }}-db
+        - name: {{ include "resources.prefix" . }}-db
           image: mongo:4
           ports:
             - containerPort: 27017
           volumeMounts:
             - mountPath: /data/db
-              name: {{ .Values.name }}-db
+              name: {{ include "resources.prefix" . }}-db
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-db
+  name: {{ include "resources.prefix" . }}-db
 spec:
   ports:
     - port: 27017
   selector:
-    app: {{ .Values.name }}-db
+    app: {{ include "resources.prefix" . }}-db
   type: ClusterIP

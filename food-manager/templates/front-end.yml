@@ -1,36 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-gui
+  name: {{ include "resources.prefix" . }}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-gui
+      app: {{ include "resources.prefix" . }}-gui
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-gui
+        app: {{ include "resources.prefix" . }}-gui
     spec:
       containers:
-      - name: {{ .Values.name }}-gui
+      - name: {{ include "resources.prefix" . }}-gui
         image: moreillon/food-manager-front
         ports:
         - containerPort: 80
         env:
         - name: VUE_APP_FOOD_MANAGER_API_URL
           value: /proxy/api
+        - name: VUE_APP_LOGIN_URL
+          value: /proxy/user-manager/auth/login
+        - name: VUE_APP_IDENTIFICATION_URL
+          value: /proxy/user-manager/users/self
         - name: PROXY_API
-          value: http://{{ .Values.name }}
+          value: http://{{ include "resources.prefix" . }}
+        # TODO: use helper
+        - name: PROXY_USER_MANAGER
+          value: http://{{ include "resources.prefix" . }}-user-manager-api
+        
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-gui
+  name: {{ include "resources.prefix" . }}-gui
 spec:
   type: NodePort
   selector:
-    app: {{ .Values.name }}-gui
+    app: {{ include "resources.prefix" . }}-gui
   ports:
   - port: 80
     nodePort: {{.Values.nodePort}}
+---
+#TODO: Ingress

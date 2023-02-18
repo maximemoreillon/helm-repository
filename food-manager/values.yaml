@@ -4,3 +4,6 @@
 
 name: food-manager
 nodePort: 30400
+
+user-manager-mongoose:
+  prefix: user-manager
