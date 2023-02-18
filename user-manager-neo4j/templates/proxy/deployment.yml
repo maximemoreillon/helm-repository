@@ -19,6 +19,6 @@ spec:
             - containerPort: 80
           env:
             - name: PROXY_API
-              value: http://{{.Values.name}}-api
+              value: http://{{.Release.Name}}-api
             - name: PROXY_ROOT
-              value: http://{{.Values.name}}-gui
+              value: http://{{.Release.Name}}-gui

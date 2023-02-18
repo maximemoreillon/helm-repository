@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}-gui
+  name: {{.Release.Name}}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}-gui
+      app: {{.Release.Name}}-gui
   template:
     metadata:
       labels:
-        app: {{.Values.name}}-gui
+        app: {{.Release.Name}}-gui
     spec:
       containers:
-      - name: {{.Values.name}}-gui
+      - name: {{.Release.Name}}-gui
         image: moreillon/user-manager-front
         ports:
         - containerPort: 80
