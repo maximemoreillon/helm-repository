@@ -9,5 +9,8 @@ mosquitto:
     mqtt: 30885
 
 ingress:
-  enabled: true
+  enabled: false
   host: test.mqtt.home.maximemoreillon.com
+
+user-manager-mongoose:
+  prefix: user-manager

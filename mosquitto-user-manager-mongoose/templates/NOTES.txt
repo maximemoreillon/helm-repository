@@ -2,7 +2,7 @@ Mosquitto with user management system
 
 Mosquitto can be accessed using the following:
 
-- MQTT: mqtt://YOUR_SERVER_IP:{{ .Values.mosquitto.nodePort.mqtt }}
+- MQTT: mqtt://YOUR_SERVER_IP:{{ .Values.mosquitto.nodePorts.mqtt }}
 - WSS: wss://mqtt.{{ .Values.ingress.host }}
-- MQTTS: mqtts://mqtt.{{ .Values.ingress.host }}:{{ .Values.mosquitto.nodePort.mqtts }}
+- MQTTS: mqtts://mqtt.{{ .Values.ingress.host }}:{{ .Values.mosquitto.nodePorts.mqtts }}
 
