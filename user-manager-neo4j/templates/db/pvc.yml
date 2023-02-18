@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-neo4j
+  name: {{ include "resources.prefix" . }}-neo4j
 spec:
   accessModes:
     - ReadWriteOnce

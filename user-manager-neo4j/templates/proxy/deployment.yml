@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-proxy
+  name: {{include "resources.prefix" .}}-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-proxy
+      app: {{include "resources.prefix" .}}-proxy
   template:
     metadata:
       labels:
-        app: api-proxy
+        app: {{include "resources.prefix" .}}-proxy
     spec:
       containers:
-        - name: api-proxy
+        - name: {{include "resources.prefix" .}}-proxy
           image: moreillon/api-proxy
           ports:
             - containerPort: 80
           env:
             - name: PROXY_API
-              value: http://{{.Release.Name}}-api
+              value: http://{{include "resources.prefix" .}}-api
             - name: PROXY_ROOT
-              value: http://{{.Release.Name}}-gui
+              value: http://{{include "resources.prefix" .}}-gui

@@ -17,3 +17,5 @@ nodePorts:
   gui: 30017
 
 jwt_secret: keyboardcat
+
+prefixOverride: banana

@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-api
+  name: {{ include "resources.prefix" . }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-api
+      app: {{ include "resources.prefix" . }}-api
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-api
+        app: {{ include "resources.prefix" . }}-api
     spec:
       containers:
-      - name: {{ .Release.Name }}-api
+      - name: {{ include "resources.prefix" . }}-api
         image: moreillon/user-manager
         ports:
         - containerPort: 80
         envFrom:
         - secretRef:
-           name: {{.Release.Name}}-credentials
+           name: {{include "resources.prefix" .}}-credentials
         env:
         - name: NEO4J_URL
-          value: bolt://{{.Release.Name}}-neo4j:7687
+          value: bolt://{{include "resources.prefix" .}}-neo4j:7687
