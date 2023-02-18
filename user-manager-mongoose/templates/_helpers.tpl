@@ -20,15 +20,16 @@ otherwise, prefix is simply releaseName
 
 {{/*
 Ingress host
-{host} if ingress.host ist set
 {ingress.subdomain}.{global.ingress.host} if those are set
+{global.ingress.host} if global host set but not ingress.sub
+{ingress.host} otherwise
 */}}
 {{- define "ingress.host.full" -}}
-{{- if .Values.ingress.host }}
-{{- .Values.ingress.host }}
-{{- else if and .Values.ingress.subdomain .Values.global.ingress.host }}
+{{- if and .Values.ingress.subdomain .Values.global.ingress.host }}
 {{- printf "%s.%s" .Values.ingress.subdomain .Values.global.ingress.host }}
-{{- else }}
+{{- else if .Values.global.ingress.host }}
 {{- .Values.global.ingress.host }}
+{{- else }}
+{{- .Values.ingress.host }}
 {{- end }}
 {{- end }}
