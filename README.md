@@ -1,3 +1,3 @@
-# User manager (Neo4J)
+# Face recognition FastAPI
 
-A Helm chart to deploy the user management and authentication microservice (Neo4j version)
+A Helm chart to release the face-recognition service
