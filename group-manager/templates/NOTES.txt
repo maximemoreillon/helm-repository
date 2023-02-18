@@ -1,6 +1,7 @@
 # Group manager
 
 Ports:
-- GUI: {{ .Values.nodePorts.gui }}
-- API: {{ .Values.nodePorts.api }}
+- Group manager GUI: {{ .Values.nodePorts.gui }}
+- Group manager API: {{ .Values.nodePorts.api }}
 - User manager GUI: {{ toYaml (index .Values "user-manager-neo4j" "nodePorts" "gui" ) }}
+- User manager API: {{ toYaml (index .Values "user-manager-neo4j" "nodePorts" "api" ) }}
