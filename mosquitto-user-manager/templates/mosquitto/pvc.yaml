@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mosquitto-data
+  name: {{ include "resources.prefix" . }}-mosquitto-data
 spec:
   accessModes:
     - ReadWriteOnce

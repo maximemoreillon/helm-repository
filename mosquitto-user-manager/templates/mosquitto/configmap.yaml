@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mosquitto-config
+  name: {{ include "resources.prefix" . }}-mosquitto-config
 data:
   mosquitto.conf: |
 
@@ -19,7 +19,7 @@ data:
     protocol mqtt
 
     # /mosquitto/certs is mounted as a secrets
-    cafile /mosquitto/certs/ca.crt
+    cafile /etc/ssl/certs/ca-certificates.crt
     keyfile /mosquitto/certs/tls.key
     certfile /mosquitto/certs/tls.crt
 
@@ -32,7 +32,7 @@ data:
 
     auth_opt_backends http
 
-    auth_opt_http_host mosquitto-auth-gateway
+    auth_opt_http_host {{ include "resources.prefix" . }}-auth-gateway
     auth_opt_http_port 80
     auth_opt_http_getuser_uri /getuser
     auth_opt_http_aclcheck_uri /aclcheck

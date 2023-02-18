@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mosquitto
+  name: {{ include "resources.prefix" . }}-mosquitto
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mosquitto
+      app: {{ include "resources.prefix" . }}-mosquitto
   template:
     metadata:
       labels:
-        app: mosquitto
+        app: {{ include "resources.prefix" . }}-mosquitto
     spec:
       containers:
-        - name: mosquitto
+        - name: {{ include "resources.prefix" . }}-mosquitto
           image: iegomez/mosquitto-go-auth
           ports:
             - containerPort: 1883 # MQTT
@@ -29,10 +29,10 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: mosquitto-config
+            name: {{ include "resources.prefix" . }}-mosquitto-config
         - name: certs
           secret:
-            secretName: mosquitto-certs
+            secretName: {{ include "resources.prefix" . }}-mosquitto-certs
         - name: data
           persistentVolumeClaim:
-            claimName: mosquitto-data
+            claimName: {{ include "resources.prefix" . }}-mosquitto-data
