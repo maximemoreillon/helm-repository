@@ -6,7 +6,7 @@ jwt_secret: keyboardcat
 # api:
 
 mongo:
-  enabled: true # TODO: find a better name like "integrated"
+  enabled: true
   pvc: 100Gi
 
 nodePorts:

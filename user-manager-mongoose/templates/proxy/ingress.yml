@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.name }}-proxy
+  name: {{ include "resources.prefix" . }}-proxy
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - {{ .Values.ingress.host }}
-      secretName: {{ .Values.name }}-proxy
+      secretName: {{ include "resources.prefix" . }}-proxy
   rules:
     - host: {{ .Values.ingress.host }}
       http:
@@ -19,7 +19,7 @@ spec:
             pathType: Prefix
             backend:
               service: 
-                name: {{ .Values.name }}-proxy
+                name: {{ include "resources.prefix" . }}-proxy
                 port:
                   number: 80
 {{- end }}

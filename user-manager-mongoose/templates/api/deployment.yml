@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-api
+  name: {{ include "resources.prefix" . }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-api
+      app: {{ include "resources.prefix" . }}-api
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-api
+        app: {{ include "resources.prefix" . }}-api
     spec:
       containers:
-      - name: {{ .Values.name }}-api
+      - name: {{ include "resources.prefix" . }}-api
         # TODO: tag
         image: moreillon/user-manager-mongoose
         ports:
         - containerPort: 80
         env:
         - name: MONGODB_URL
-          value: mongodb://{{ .Values.name }}-mongo
+          value: mongodb://{{ include "resources.prefix" . }}-mongo
         - name: JWT_SECRET
           value: {{ .Values.jwt_secret }}

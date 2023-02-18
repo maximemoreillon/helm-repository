@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-gui
+  name: {{ include "resources.prefix" . }}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-gui
+      app: {{ include "resources.prefix" . }}-gui
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-gui
+        app: {{ include "resources.prefix" . }}-gui
     spec:
       containers:
-      - name: {{ .Values.name }}-gui
+      - name: {{ include "resources.prefix" . }}-gui
         # TODO: tag
         image: moreillon/user-manager-front
         ports:

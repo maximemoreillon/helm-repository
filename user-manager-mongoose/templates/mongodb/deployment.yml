@@ -3,28 +3,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-mongo
+  name: {{ include "resources.prefix" . }}-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-mongo
+      app: {{ include "resources.prefix" . }}-mongo
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-mongo
+        app: {{ include "resources.prefix" . }}-mongo
     spec:
       containers:
-      - name: {{ .Values.name }}-mongo
+      - name: {{ include "resources.prefix" . }}-mongo
         image: mongo:4
         ports:
         - containerPort: 27017
         volumeMounts:
         - mountPath: /data/db
-          name: {{ .Values.name }}-mongo
+          name: {{ include "resources.prefix" . }}-mongo
       volumes:
-      - name: {{ .Values.name }}-mongo
+      - name: {{ include "resources.prefix" . }}-mongo
         persistentVolumeClaim:
-          claimName: {{ .Values.name }}-mongo
+          claimName: {{ include "resources.prefix" . }}-mongo
 
 {{- end }}
