@@ -1,1 +1,2 @@
-Food manager
+Food manager GUI: {{ include "ingress.host.full" . }}
+User manager GUI: {{ toYaml (index .Values "user-manager-mongoose" "ingress" "subdomain" ) }}.{{ include "ingress.host.full" . }}

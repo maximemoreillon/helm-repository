@@ -2,8 +2,18 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-name: food-manager
-nodePort: 30400
+global:
+  ingress:
+    host: food.test.home.maximemoreillon.com
 
+nodePort: 30400
+ingress:
+  enabled: true
+
+# TODO: find way to get host from parent
 user-manager-mongoose:
-  prefix: user-manager
+  prefix: auth
+  ingress:
+    enabled: true
+    host: null
+    subdomain: users

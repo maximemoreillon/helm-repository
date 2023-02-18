@@ -33,7 +33,7 @@ spec:
               value: mongodb://{{ include "resources.prefix" . }}-db
             # Auth
             - name: IDENTIFICATION_URL
-              value: http://{{ include "resources.prefix" . }}-user-manager-api/users/self
+              value: http://{{ include "resources.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/users/self
           ports:
             - containerPort: 80
           volumeMounts:

@@ -26,9 +26,8 @@ spec:
           value: /proxy/user-manager/users/self
         - name: PROXY_API
           value: http://{{ include "resources.prefix" . }}
-        # TODO: use helper
         - name: PROXY_USER_MANAGER
-          value: http://{{ include "resources.prefix" . }}-user-manager-api
+          value: http://{{ include "resources.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api
         
 ---
 apiVersion: v1
@@ -42,5 +41,3 @@ spec:
   ports:
   - port: 80
     nodePort: {{.Values.nodePort}}
----
-#TODO: Ingress
