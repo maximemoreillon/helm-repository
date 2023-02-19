@@ -3,7 +3,6 @@ Prefix for resources.
 If prefixOverride is set, then prefix is entirely overridden
 otherwise if prefix is set, then prefix becomes {releaseName}-{prefix}
 otherwise, prefix is simply releaseName
-NOTE: prefixOverride is dangerous
 */}}
 
 {{- define "resources.prefix" -}}
@@ -37,8 +36,7 @@ WARNING: might not play well with sub-sub-charts
 
 {{/*
 The MongoDB url, whether internal or external
-TODO: would benefit from using parent's (if parent has one)
-IDEA: templates are shared with children
+NOTE: templates are shared with children
 https://helm.sh/docs/chart_template_guide/subcharts_and_globals/#sharing-templates-with-subcharts
 */}}
 {{- define "mongodb.url" -}}

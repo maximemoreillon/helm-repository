@@ -2,9 +2,11 @@ name: user-manager
 
 jwt_secret: keyboardcat
 
+# NOTE: MongoDB should be disabled when using an external instance with mongodb.url
 mongodb:
-  # url: http://192.168.1.2:30717
+  # url: mongodb://192.168.1.2:30717
   pvc: 100Gi
+  enabled: true
 
 nodePorts:
   api: 30070
@@ -12,7 +14,7 @@ nodePorts:
 
 # enabled flag should be removed in favor of checking the existence of globa.ingress.host
 ingress:
-  enabled: true
+  enabled: false
   # subdomain: subdomain
 
 global:

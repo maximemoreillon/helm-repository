@@ -1,4 +1,4 @@
-{{- if not .Values.mongodb.url }}
+{{- if not .Values.mongodb.enabled }}
 
 apiVersion: v1
 kind: Service

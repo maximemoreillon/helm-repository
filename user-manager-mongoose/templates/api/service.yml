@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: {{ include "resources.prefix" . }}-api
 spec:
-  type: NodePort
   selector:
     app: {{ include "resources.prefix" . }}-api
 {{- if .Values.ingress.enabled }}

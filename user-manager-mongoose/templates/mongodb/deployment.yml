@@ -1,4 +1,4 @@
-{{- if not .Values.mongodb.url }}
+{{- if not .Values.mongodb.enabled }}
 
 apiVersion: apps/v1
 kind: Deployment
