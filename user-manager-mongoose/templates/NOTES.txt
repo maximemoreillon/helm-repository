@@ -6,3 +6,9 @@ API available at api.{{ include "ingress.host.full" . }}
 {{- else }}
 GUI available on port {{ .Values.nodePorts.gui}}
 {{- end }}
+
+{{- if not .Values.mongodb.url }}
+MongoDB is enabled
+{{- else }}
+MongoDB is disabled
+{{- end }}

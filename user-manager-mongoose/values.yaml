@@ -2,22 +2,19 @@ name: user-manager
 
 jwt_secret: keyboardcat
 
-# TODO: allow to use existing mongoDB
-# api:
-
-mongo:
-  enabled: true
+mongodb:
+  url: http://192.168.1.2:30717
   pvc: 100Gi
 
 nodePorts:
   api: 30070
   gui: 30080
 
+# enabled flag should be removed in favor of checking the existence of globa.ingress.host
 ingress:
   enabled: true
-  host: null
-  subdomain: subdo
+  # subdomain: subdo
 
 global:
   ingress:
-    host: banana.test.home.maximemoreillon.com
+    host: users.test.home.maximemoreillon.com

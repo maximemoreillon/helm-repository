@@ -27,9 +27,19 @@ Ingress host
 {{- define "ingress.host.full" -}}
 {{- if and .Values.ingress.subdomain .Values.global.ingress.host }}
 {{- printf "%s.%s" .Values.ingress.subdomain .Values.global.ingress.host }}
-{{- else if .Values.global.ingress.host }}
-{{- .Values.global.ingress.host }}
 {{- else }}
-{{- .Values.ingress.host }}
+{{- .Values.global.ingress.host }}
+{{- end }}
+{{- end }}
+
+
+{{/*
+The MongoDB url, wether internal or external
+*/}}
+{{- define "mongodb.url" -}}
+{{- if .Values.mongodb.url }}
+{{- .Values.mongodb.url }}
+{{- else -}}
+mongodb://{{include "resources.prefix" .}}-mongo
 {{- end }}
 {{- end }}

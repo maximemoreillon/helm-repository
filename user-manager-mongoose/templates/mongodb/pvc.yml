@@ -1,4 +1,4 @@
-{{- if .Values.mongo.enabled -}}
+{{- if not .Values.mongodb.url }}
 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -9,6 +9,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ default "200Gi" .Values.mongo.pvc}}
+      storage: {{ default "200Gi" .Values.mongodb.pvc}}
 
 {{- end }}
