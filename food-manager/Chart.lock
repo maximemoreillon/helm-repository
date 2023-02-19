@@ -1,6 +1,6 @@
 dependencies:
 - name: user-manager-mongoose
   repository: https://maximemoreillon.github.io/user-manager-mongoose-helm-chart/
-  version: 0.1.16
-digest: sha256:850f6bf74dd89032af9fe8943c16cccfd2a07199f978d45faf01396103bac12f
-generated: "2023-02-19T10:52:03.439609031+09:00"
+  version: 0.1.18
+digest: sha256:a87e74a9c6f885ebc6759517810ebe9f700e1b0b81c721333f68728fb7f21450
+generated: "2023-02-19T13:47:38.080520432+09:00"

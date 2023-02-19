@@ -30,8 +30,9 @@ spec:
           env:
             # DB
             - name: MONGODB_URL
-              value: {{include "mongodb.url" .}}
+              value: {{include "food-manager.mongodb.url" .}}
             # Auth
+            # TODO: use a helper because quite long
             - name: IDENTIFICATION_URL
               value: http://{{ include "food-manager.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/users/self
           ports:

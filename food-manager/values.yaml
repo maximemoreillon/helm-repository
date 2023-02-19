@@ -2,25 +2,25 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# TODO: consider whether global is needed
+# Global needed for subcharts
 global:
   ingress:
-    enabled: true
     host: food.test.home.maximemoreillon.com
 
-# Using integrated MongoDB by setting url to null
-mongodb:
-  url: null
+  # Using integrated MongoDB by setting url to null
+  mongodb:
+    url: mongodb://192.168.1.2:30717
 
 nodePort: 30400
 
-# Not using subdomain
+# TODO: consider global
 ingress:
-  subdomain: null
+  enabled: false
 
 user-manager-mongoose:
-  prefix: auth
+  prefix: users
   ingress:
+    enabled: false
     subdomain: users
   mongodb:
     enabled: false

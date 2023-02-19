@@ -35,9 +35,15 @@ kind: Service
 metadata:
   name: {{ include "food-manager.prefix" . }}-gui
 spec:
-  type: NodePort
   selector:
     app: {{ include "food-manager.prefix" . }}-gui
+{{- if .Values.ingress.enabled }}
+  type: ClusterIP
   ports:
   - port: 80
-    nodePort: {{.Values.nodePort}}
+{{- else }}
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: {{ .Values.nodePort}}
+{{- end }}
