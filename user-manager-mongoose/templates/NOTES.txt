@@ -1,7 +1,7 @@
 # Services
 {{- if .Values.ingress.enabled }}
-GUI available at {{ include "ingress.host.full" . }}
-API available at api.{{ include "ingress.host.full" . }}
+GUI available at {{ include "user-manager.ingress.host" . }}
+API available at api.{{ include "user-manager.ingress.host" . }}
 {{- else }}
 GUI available on port {{ .Values.nodePorts.gui}}
 API available on port {{ .Values.nodePorts.api}}

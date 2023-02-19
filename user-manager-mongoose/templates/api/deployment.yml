@@ -20,6 +20,6 @@ spec:
         - containerPort: 80
         env:
         - name: MONGODB_URL
-          value: {{ include "mongodb.url" . }} 
+          value: {{ include "user-manager.mongodb.url" . }} 
         - name: JWT_SECRET
           value: {{ .Values.jwt_secret }}

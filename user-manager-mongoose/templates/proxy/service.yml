@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: {{ include "user-manager.prefix" . }}-proxy
-  {{- if .Values.global.ingress.enabled }}
+  {{- if .Values.ingress.enabled }}
   type: ClusterIP
   ports:
   - port: 80

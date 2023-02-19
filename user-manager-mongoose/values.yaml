@@ -1,5 +1,3 @@
-name: user-manager
-
 jwt_secret: keyboardcat
 
 # NOTE: MongoDB should be disabled when using an external instance with mongodb.url
@@ -13,9 +11,5 @@ nodePorts:
   gui: 30080
 
 ingress:
-  # subdomain: subdomain
-
-global:
-  ingress:
-    enabled: false
-    host: users.test.home.maximemoreillon.com
+  enabled: true
+  host: users.test.home.maximemoreillon.com

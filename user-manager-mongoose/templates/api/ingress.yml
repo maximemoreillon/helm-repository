@@ -1,4 +1,4 @@
-{{- if .Values.global.ingress.enabled -}}
+{{- if .Values.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - api.{{ include "ingress.host.full" . }}
+        - api.{{ include "user-manager.ingress.host" . }}
       secretName: {{ include "user-manager.prefix" . }}-api
   rules:
-    - host: api.{{ include "ingress.host.full" . }}
+    - host: api.{{ include "user-manager.ingress.host" . }}
       http:
         paths:
           - path: /
