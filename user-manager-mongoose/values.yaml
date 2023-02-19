@@ -11,6 +11,11 @@ nodePorts:
   api: 30070
   gui: 30080
 
+# TODO: enabled should depend on whether host is set
+# TODO: consider global for annotations
 ingress:
   enabled: true
-  host: users.test.home.maximemoreillon.com
+  host: auth.test.home.maximemoreillon.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod

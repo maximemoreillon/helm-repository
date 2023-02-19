@@ -1,6 +1,7 @@
 {{/*
 Prefix for resources.
-NOTE: To be overwritten by parent when used as a subchart
+To be overwritten by parent when used as a subchart
+For example, if used as a sub chart, generally becomes {parent}-{sub}
 */}}
 {{- define "user-manager.prefix" -}}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
@@ -9,7 +10,8 @@ NOTE: To be overwritten by parent when used as a subchart
 
 {{/*
 Ingress host
-NOTE: To be overwritten by parent chart if necessary
+To be overwritten by parent chart if necessary
+For example, if used as a sub chart, generally becomes {sub}.{parent}
 */}}
 {{- define "user-manager.ingress.host" -}}
 {{ .Values.ingress.host }}
@@ -17,10 +19,11 @@ NOTE: To be overwritten by parent chart if necessary
 
 
 {{/*
-The MongoDB url, whether internal or external
-NOTE: To be overwritten by parent chart if necessary
-NOTE: global not necessary because standalone chart.
-  switching to global from parent by overwriting this define
+The MongoDB url, whether internal or external.
+To be overwritten by parent chart if necessary.
+Not simply a global because is an expression
+Global not necessary because standalone chart.
+switching to global from parent by overwriting this define
 */}}
 {{- define "user-manager.mongodb.url" -}}
 {{- if .Values.mongodb.url }}
