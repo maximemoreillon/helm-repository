@@ -1,7 +1,7 @@
 {{/*
-Expand the name of the chart.
+Prefix for resources.
+NOTE: To be overwritten by parent when used as a subchart
 */}}
-{{- define "group-manager.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- define "group-manager.prefix" -}}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
-

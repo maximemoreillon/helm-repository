@@ -8,6 +8,12 @@ nodePorts:
   api: 30018
   gui: 30019
 
-# Overwriting default values of user-manager
-user-manager-neo4j:
-  name: gm-user-manager
+# TODO: ingress
+
+neo4j:
+  url: bolt://um-neo4j
+  username: neo4j
+  password: neo4Jpassword
+
+auth:
+  apiUrl: http://um-api

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-gui
+  name: {{ include "group-manager.prefix" . }}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-gui
+      app: {{ include "group-manager.prefix" . }}-gui
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-gui
+        app: {{ include "group-manager.prefix" . }}-gui
     spec:
       containers:
-      - name: {{ .Values.name }}-gui
+      - name: {{ include "group-manager.prefix" . }}-gui
         image: moreillon/group-manager-front
         ports:
         - containerPort: 80
@@ -24,18 +24,18 @@ spec:
         - name: VUE_APP_GROUP_MANAGER_API_URL
           value: /proxy/api
         - name: VUE_APP_LOGIN_URL
-          value: /proxy/user-manager/v2/auth/login
+          value: /proxy/auth/v2/auth/login
         - name: VUE_APP_IDENTIFICATION_URL
-          value: /proxy/user-manager/v2/users/self
+          value: /proxy/auth/v2/users/self
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-gui
+  name: {{ include "group-manager.prefix" . }}-gui
 spec:
   type: ClusterIP
   selector:
-    app: {{ .Values.name }}-gui
+    app: {{ include "group-manager.prefix" . }}-gui
   ports:
   - port: 80
 

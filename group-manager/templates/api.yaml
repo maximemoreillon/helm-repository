@@ -1,39 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-api
+  name: {{ include "group-manager.prefix" . }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-api
+      app: {{ include "group-manager.prefix" . }}-api
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-api
+        app: {{ include "group-manager.prefix" . }}-api
     spec:
       containers:
-      - name: {{ .Values.name }}-api
+      - name: {{ include "group-manager.prefix" . }}-api
         image: moreillon/group-manager
         ports:
         - containerPort: 80
-        envFrom:
-        - secretRef:
-           name: {{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-credentials
         env:
         - name: NEO4J_URL
-          value: bolt://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-neo4j:7687
+          value: {{ .Values.neo4j.url }}
+        - name: NEO4J_USERNAME
+          value: {{ .Values.neo4j.username }}
+        - name: NEO4J_PASSWORD
+          value: {{ .Values.neo4j.password }}
         - name: IDENTIFICATION_URL
-          value: http://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-api/v2/users/self
+          value: {{ .Values.auth.apiUrl }}/v2/users/self
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-api
+  name: {{ include "group-manager.prefix" . }}-api
 spec:
   type: NodePort
   selector:
-    app: {{ .Values.name }}-api
+    app: {{ include "group-manager.prefix" . }}-api
   ports:
   - port: 80
     nodePort: {{ .Values.nodePorts.api }}

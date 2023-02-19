@@ -1,39 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}-proxy
+  name: {{ include "group-manager.prefix" . }}-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}-proxy
+      app: {{ include "group-manager.prefix" . }}-proxy
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}-proxy
+        app: {{ include "group-manager.prefix" . }}-proxy
     spec:
       containers:
-      - name: {{ .Values.name }}-proxy
+      - name: {{ include "group-manager.prefix" . }}-proxy
         # TODO: tag
         image: moreillon/api-proxy
         ports:
         - containerPort: 80
         env:
         - name: PROXY_ROOT
-          value: http://{{ .Values.name }}-gui
+          value: http://{{ include "group-manager.prefix" . }}-gui
         - name: PROXY_API
-          value: http://{{ .Values.name }}-api
-        - name: PROXY_USER_MANAGER
-          value: http://{{ toYaml (index .Values "user-manager-neo4j" "name" ) }}-api
+          value: http://{{ include "group-manager.prefix" . }}-api
+        - name: PROXY_AUTH
+          value: {{ .Values.auth.apiUrl }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-proxy
+  name: {{ include "group-manager.prefix" . }}-proxy
 spec:
   type: NodePort
   selector:
-    app: {{ .Values.name }}-proxy
+    app: {{ include "group-manager.prefix" . }}-proxy
   ports:
   - port: 80
     nodePort: {{ .Values.nodePorts.gui }}
