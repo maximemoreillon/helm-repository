@@ -12,11 +12,10 @@ nodePorts:
   api: 30070
   gui: 30080
 
-# enabled flag should be removed in favor of checking the existence of globa.ingress.host
 ingress:
-  enabled: false
   # subdomain: subdomain
 
 global:
   ingress:
+    enabled: false
     host: users.test.home.maximemoreillon.com
