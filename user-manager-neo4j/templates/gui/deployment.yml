@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{include "resources.prefix" .}}-gui
+  name: {{include "user-manager.prefix" .}}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{include "resources.prefix" .}}-gui
+      app: {{include "user-manager.prefix" .}}-gui
   template:
     metadata:
       labels:
-        app: {{include "resources.prefix" .}}-gui
+        app: {{include "user-manager.prefix" .}}-gui
     spec:
       containers:
-      - name: {{include "resources.prefix" .}}-gui
+      - name: {{include "user-manager.prefix" .}}-gui
         image: moreillon/user-manager-front
         ports:
         - containerPort: 80

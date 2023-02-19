@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "resources.prefix" . }}-neo4j
+  name: {{ include "user-manager.prefix" . }}-neo4j
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "resources.prefix" . }}-neo4j
+      app: {{ include "user-manager.prefix" . }}-neo4j
   template:
     metadata:
       labels:
-        app: {{ include "resources.prefix" . }}-neo4j
+        app: {{ include "user-manager.prefix" . }}-neo4j
     spec:
       volumes:
-      - name: {{ include "resources.prefix" . }}-neo4j
+      - name: {{ include "user-manager.prefix" . }}-neo4j
         persistentVolumeClaim:
-          claimName: {{ include "resources.prefix" . }}-neo4j
+          claimName: {{ include "user-manager.prefix" . }}-neo4j
       containers:
-      - name: {{ include "resources.prefix" . }}-neo4j
+      - name: {{ include "user-manager.prefix" . }}-neo4j
         image: neo4j:4.4.16
         envFrom:
         - secretRef:
-            name: {{include "resources.prefix" .}}-credentials
+            name: {{include "user-manager.prefix" .}}-credentials
         ports:
         - containerPort: 7474 # Browser
         - containerPort: 7687 # Bolt
         volumeMounts:
         - mountPath: /data
-          name: {{ include "resources.prefix" . }}-neo4j
+          name: {{ include "user-manager.prefix" . }}-neo4j
