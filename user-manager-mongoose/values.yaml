@@ -3,7 +3,7 @@ name: user-manager
 jwt_secret: keyboardcat
 
 mongodb:
-  url: http://192.168.1.2:30717
+  # url: http://192.168.1.2:30717
   pvc: 100Gi
 
 nodePorts:
@@ -13,7 +13,7 @@ nodePorts:
 # enabled flag should be removed in favor of checking the existence of globa.ingress.host
 ingress:
   enabled: true
-  # subdomain: subdo
+  # subdomain: subdomain
 
 global:
   ingress:

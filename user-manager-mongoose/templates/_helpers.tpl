@@ -1,8 +1,9 @@
 {{/*
 Prefix for resources.
 If prefixOverride is set, then prefix is entirely overridden
-otherwise if prefix is set, then prefix becomes releaseName-prefix
+otherwise if prefix is set, then prefix becomes {releaseName}-{prefix}
 otherwise, prefix is simply releaseName
+NOTE: prefixOverride is dangerous
 */}}
 
 {{- define "resources.prefix" -}}
@@ -23,6 +24,7 @@ Ingress host
 {ingress.subdomain}.{global.ingress.host} if those are set
 {global.ingress.host} if global host set but not ingress.sub
 {ingress.host} otherwise
+WARNING: might not play well with sub-sub-charts
 */}}
 {{- define "ingress.host.full" -}}
 {{- if and .Values.ingress.subdomain .Values.global.ingress.host }}
@@ -34,7 +36,10 @@ Ingress host
 
 
 {{/*
-The MongoDB url, wether internal or external
+The MongoDB url, whether internal or external
+TODO: would benefit from using parent's (if parent has one)
+IDEA: templates are shared with children
+https://helm.sh/docs/chart_template_guide/subcharts_and_globals/#sharing-templates-with-subcharts
 */}}
 {{- define "mongodb.url" -}}
 {{- if .Values.mongodb.url }}
