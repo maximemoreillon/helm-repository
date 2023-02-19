@@ -15,12 +15,22 @@ nodePort: 30400
 
 # TODO: consider global
 ingress:
-  enabled: false
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 user-manager-mongoose:
   prefix: users
   ingress:
-    enabled: false
+    enabled: true
     subdomain: users
+
+    # Default annotations are fine
+    # annotations:
+    #   kubernetes.io/ingress.class: nginx
+    #   cert-manager.io/cluster-issuer: letsencrypt-prod
+
+  # Disable subchart mongodb because using that of parent
   mongodb:
     enabled: false

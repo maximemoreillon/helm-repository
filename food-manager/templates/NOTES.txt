@@ -1,4 +1,4 @@
-
+false
 # Food manager
 {{- if .Values.ingress.enabled }}
 GUI available at : {{ include "food-manager.ingress.host" . }}
@@ -9,7 +9,7 @@ GUI available on port {{ .Values.nodePort}}
 # User manager
 {{- $umIngressEnabled := toYaml (index .Values "user-manager-mongoose" "ingress" "enabled" ) -}}
 {{- if eq $umIngressEnabled "true" }}
-GUI available at : {{ include "user-manager.ingress.host" . }}
+GUI available at : {{ toYaml (index .Values "user-manager-mongoose" "ingress" "subdomain" ) }}.{{ include "food-manager.ingress.host" . }}
 {{- else }}
 GUI available on port {{ toYaml (index .Values "user-manager-mongoose" "nodePorts" "gui" ) }}
 {{- end }}
