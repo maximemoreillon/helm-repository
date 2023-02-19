@@ -2,18 +2,25 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# TODO: consider whether global is needed
 global:
   ingress:
+    enabled: true
     host: food.test.home.maximemoreillon.com
 
-nodePort: 30400
-ingress:
-  enabled: true
+# Using integrated MongoDB by setting url to null
+mongodb:
+  url: null
 
-# TODO: find way to get host from parent
+nodePort: 30400
+
+# Not using subdomain
+ingress:
+  subdomain: null
+
 user-manager-mongoose:
   prefix: auth
   ingress:
-    enabled: true
-    host: null
     subdomain: users
+  mongodb:
+    enabled: false
