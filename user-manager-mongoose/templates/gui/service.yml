@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "resources.prefix" . }}-gui
+  name: {{ include "user-manager.prefix" . }}-gui
 spec:
   type: ClusterIP
   selector:
-    app: {{ include "resources.prefix" . }}-gui
+    app: {{ include "user-manager.prefix" . }}-gui
   ports:
   - port: 80

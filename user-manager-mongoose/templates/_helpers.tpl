@@ -25,6 +25,7 @@ Ingress host
 {global.ingress.host} if global host set but not ingress.sub
 {ingress.host} otherwise
 WARNING: might not play well with sub-sub-charts
+TODO: figure out if scoping to this chart or not
 */}}
 {{- define "ingress.host.full" -}}
 {{- if and .Values.ingress.subdomain .Values.global.ingress.host }}
