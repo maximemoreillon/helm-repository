@@ -9,9 +9,9 @@ API available on port {{ .Values.nodePorts.api}}
 
 # MongoDB
 {{- if .Values.mongodb.enabled }}
-MongoDB is enabled
+Internal MongoDB is enabled
 {{- else }}
-MongoDB is disabled
-Using {{ .Values.mongodb.url}}
+Internal MongoDB is disabled
 {{- end }}
+MongoDB URL: {{ include "user-manager.mongodb.url" . }}
 

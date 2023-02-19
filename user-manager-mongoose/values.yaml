@@ -1,11 +1,12 @@
 jwt_secret: keyboardcat
 
-# NOTE: MongoDB should be disabled when using an external instance with mongodb.url
+# TODO: enabled should depend on whether external url is used or not
 mongodb:
+  enabled: true
   # url: mongodb://192.168.1.2:30717
   pvc: 100Gi
-  enabled: true
 
+# NodePorts are enabled if ingress is disabled
 nodePorts:
   api: 30070
   gui: 30080

@@ -2,7 +2,6 @@
 Prefix for resources.
 NOTE: To be overwritten by parent when used as a subchart
 */}}
-
 {{- define "user-manager.prefix" -}}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -20,6 +19,8 @@ NOTE: To be overwritten by parent chart if necessary
 {{/*
 The MongoDB url, whether internal or external
 NOTE: To be overwritten by parent chart if necessary
+NOTE: global not necessary because standalone chart.
+  switching to global from parent by overwriting this define
 */}}
 {{- define "user-manager.mongodb.url" -}}
 {{- if .Values.mongodb.url }}
