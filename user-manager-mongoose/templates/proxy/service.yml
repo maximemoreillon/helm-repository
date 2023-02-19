@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: {{ include "resources.prefix" . }}-proxy
-  {{- if .Values.ingress.enabled }}
+  {{- if .Values.global.ingress.enabled }}
   type: ClusterIP
   ports:
   - port: 80
