@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "resources.prefix" . }}-api
+  name: {{ include "user-manager.prefix" . }}-api
 spec:
   selector:
-    app: {{ include "resources.prefix" . }}-api
+    app: {{ include "user-manager.prefix" . }}-api
 {{- if .Values.global.ingress.enabled }}
   type: ClusterIP
   ports:

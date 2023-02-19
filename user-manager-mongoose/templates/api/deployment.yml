@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "resources.prefix" . }}-api
+  name: {{ include "user-manager.prefix" . }}-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "resources.prefix" . }}-api
+      app: {{ include "user-manager.prefix" . }}-api
   template:
     metadata:
       labels:
-        app: {{ include "resources.prefix" . }}-api
+        app: {{ include "user-manager.prefix" . }}-api
     spec:
       containers:
-      - name: {{ include "resources.prefix" . }}-api
+      - name: {{ include "user-manager.prefix" . }}-api
         # TODO: tag
         image: moreillon/user-manager-mongoose
         ports:
