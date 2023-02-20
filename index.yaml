@@ -32,4 +32,16 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/example-0.1.1/example-0.1.1.tgz
     version: 0.1.1
-generated: "2023-02-20T04:02:24.565036332Z"
+  user-manager-mongoose:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T04:51:17.540694778Z"
+    description: A Helm chart for Kubernetes
+    digest: 4903082d4a4b4b7ea9aec217e106551df549cb49b0e31bef84970c0b103ea522
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongoose-0.1.19/user-manager-mongoose-0.1.19.tgz
+    version: 0.1.19
+generated: "2023-02-20T04:51:17.540714078Z"
