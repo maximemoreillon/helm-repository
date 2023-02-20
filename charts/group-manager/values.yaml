@@ -1,0 +1,21 @@
+# Default values for group-manager.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+name: group-manager
+
+nodePorts:
+  api: 30018
+  gui: 30019
+
+ingress:
+  enabled: true
+  host: groups.test.home.maximemoreillon.com
+
+neo4j:
+  url: bolt://um-neo4j
+  username: neo4j
+  password: neo4Jpassword
+
+auth:
+  apiUrl: http://um-api
