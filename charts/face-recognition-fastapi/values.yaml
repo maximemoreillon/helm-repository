@@ -1,0 +1,9 @@
+# Default values for face-recognition-fastapi.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+pvcSizes:
+  db: 200Gi
+
+nodePorts:
+  gui: 30041
