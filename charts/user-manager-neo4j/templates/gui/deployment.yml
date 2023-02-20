@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{include "user-manager.prefix" .}}-gui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{include "user-manager.prefix" .}}-gui
+  template:
+    metadata:
+      labels:
+        app: {{include "user-manager.prefix" .}}-gui
+    spec:
+      containers:
+      - name: {{include "user-manager.prefix" .}}-gui
+        image: moreillon/user-manager-front
+        ports:
+        - containerPort: 80
+        env:
+        - name: VUE_APP_USER_MANAGER_API_URL
+          value: /proxy/api
