@@ -22,6 +22,22 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.1.4/face-recognition-fastapi-0.1.4.tgz
     version: 0.1.4
+  food-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:33:54.829156283Z"
+    dependencies:
+    - name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.19
+    description: A Helm chart for Kubernetes
+    digest: 770313ca991e38adc90b37e6a64e84ab41a4859bc6fdaa42ef32471e419ab76e
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.1.12/food-manager-0.1.12.tgz
+    version: 0.1.12
   group-manager:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -95,6 +111,17 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-20T06:33:54.982355761Z"
+    description: A Helm chart for Kubernetes
+    digest: 87d2c13842b5690d5563e48aa66b9589b0871870bcb4817416834beeafb8f1a6
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.13/user-manager-neo4j-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T04:55:51.503251622Z"
     description: A Helm chart for Kubernetes
     digest: b3fd6deafd60df38a64f1e367fa40d216143430c6a3eb497094d2b11dd194a50
@@ -104,4 +131,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T06:28:37.773997536Z"
+generated: "2023-02-20T06:33:54.982367161Z"
