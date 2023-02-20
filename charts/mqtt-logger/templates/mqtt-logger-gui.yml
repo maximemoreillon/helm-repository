@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.name}}-front
+  template:
+    metadata:
+      labels:
+        app: {{.Values.name}}-front
+    spec:
+      containers:
+        - name: {{.Values.name}}-front
+          image: moreillon/mqtt-logger-front:50030b8b
+          env:
+            - name: VUE_APP_MQTT_LOGGER_API_URL
+              value: /proxy/api
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.name}}-front
+spec:
+  type: ClusterIP
+  selector:
+    app: {{.Values.name}}-front
+  ports:
+    - port: 80

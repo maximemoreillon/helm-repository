@@ -1,0 +1,85 @@
+{{- if .Values.mosquitto.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{.Values.name}}-mosquitto
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.mosquitto.pvc }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}-mosquitto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.name}}-mosquitto
+  template:
+    metadata:
+      labels:
+        app: {{.Values.name}}-mosquitto
+    spec:
+      containers:
+        - name: {{.Values.name}}-mosquitto
+          image: eclipse-mosquitto
+          ports:
+            - containerPort: 1883 # MQTT
+            - containerPort: 9001 # WSS
+          volumeMounts:
+            - mountPath: /mosquitto/config/
+              name: config
+            - mountPath: /mosquitto/data/
+              name: data
+      volumes:
+        - name: config
+          configMap:
+            name: {{.Values.name}}-mosquitto-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{.Values.name}}-mosquitto
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Values.name}}-mosquitto-config
+data:
+  mosquitto.conf: |
+
+    persistence true
+    persistence_location /mosquitto/data/
+
+    log_dest stdout
+
+    # Change this to enforce authentication
+    allow_anonymous true
+
+    # Default listener for direct MQTT traffic
+    listener 1883
+    protocol mqtt
+
+    # Listener for MQTT traffic over Websockets
+    listener 9001
+    protocol websockets
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.name}}-mosquitto
+spec:
+  type: NodePort
+  selector:
+    app: {{.Values.name}}-mosquitto
+  ports:
+    - name: mqtt
+      port: 1883
+      nodePort: {{.Values.mosquitto.nodePort.mqtt}}
+    - name: ws
+      port: 9001
+      nodePort: {{.Values.mosquitto.nodePort.ws}}
+{{- end }}
