@@ -3,6 +3,17 @@ entries:
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-20T05:35:37.931811179Z"
+    description: A Helm chart for Kubernetes
+    digest: 572fdec82f5f8755172917f4769dae2fa373bebc81dbdad2bca5487f7bc1209b
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongoose-0.1.20/user-manager-mongoose-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T04:51:17.540694778Z"
     description: A Helm chart for Kubernetes
     digest: 4903082d4a4b4b7ea9aec217e106551df549cb49b0e31bef84970c0b103ea522
@@ -24,4 +35,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T04:55:51.503260122Z"
+generated: "2023-02-20T05:35:37.93181848Z"
