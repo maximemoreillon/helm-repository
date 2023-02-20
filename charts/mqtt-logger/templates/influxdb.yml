@@ -1,0 +1,65 @@
+{{- if .Values.influxdb.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{.Values.name}}-influxdb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.influxdb.pvc }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}-influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.name}}-influxdb
+  template:
+    metadata:
+      labels:
+        app: {{.Values.name}}-influxdb
+    spec:
+      containers:
+        - name: {{.Values.name}}-influxdb
+          image: influxdb:2.6
+          ports:
+            - containerPort: 8086
+          volumeMounts:
+            - mountPath: /var/lib/influxdb2
+              name: {{.Values.name}}-influxdb
+          env:
+            - name: DOCKER_INFLUXDB_INIT_MODE
+              value: setup
+            - name: DOCKER_INFLUXDB_INIT_USERNAME
+              value: {{.Values.influxdb.username}}
+            - name: DOCKER_INFLUXDB_INIT_PASSWORD
+              value: {{.Values.influxdb.password}}
+            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+              value: {{.Values.influxdb.token}}
+            - name: DOCKER_INFLUXDB_INIT_ORG
+              value: {{.Values.influxdb.org}}
+            - name: DOCKER_INFLUXDB_INIT_BUCKET
+              value: {{.Values.influxdb.bucket}}
+      volumes:
+        - name: {{.Values.name}}-influxdb
+          persistentVolumeClaim:
+            claimName: {{.Values.name}}-influxdb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.name}}-influxdb
+spec:
+  ports:
+    - port: 8086
+      # TODO: default
+      nodePort: {{.Values.influxdb.nodePort}}
+  selector:
+    app: {{.Values.name}}-influxdb
+  type: NodePort
+{{- end }}
