@@ -1,5 +1,53 @@
 apiVersion: v1
 entries:
+  camera-viewer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:28:37.174981349Z"
+    description: A Helm chart for Kubernetes
+    digest: 51c5141e90c5a9ab10d7ac66739930e7800d251f6131d1c668dee5e7ef7f4f81
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.1.0/camera-viewer-0.1.0.tgz
+    version: 0.1.0
+  face-recognition-fastapi:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:28:37.395300356Z"
+    description: A Helm chart for Kubernetes
+    digest: 9ac593343b02b63847a62a73770dd3dcb967c5cb61e51b529b26ec0171dd662c
+    name: face-recognition-fastapi
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.1.4/face-recognition-fastapi-0.1.4.tgz
+    version: 0.1.4
+  group-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:28:37.564795361Z"
+    description: A Helm chart for Kubernetes
+    digest: 3f2ebe33f9dbd189110865862eea6742fa6c61120f189b587a310498344a66c6
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.3/group-manager-0.1.3.tgz
+    version: 0.1.3
+  mosquitto-user-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:28:37.773987736Z"
+    dependencies:
+    - name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository/
+      version: 0.1.20
+    description: A Helm chart for Kubernetes
+    digest: e0542514f5b7dc9c6036b193ceed592dcfbaf23da5aadd3ae601192ad34216e0
+    name: mosquitto-user-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.1.9/mosquitto-user-manager-0.1.9.tgz
+    version: 0.1.9
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -56,4 +104,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T05:43:14.04091317Z"
+generated: "2023-02-20T06:28:37.773997536Z"
