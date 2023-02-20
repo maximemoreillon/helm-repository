@@ -8,7 +8,9 @@ nodePorts:
   api: 30018
   gui: 30019
 
-# TODO: ingress
+ingress:
+  enabled: true
+  host: groups.test.home.maximemoreillon.com
 
 neo4j:
   url: bolt://um-neo4j
