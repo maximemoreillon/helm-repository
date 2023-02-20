@@ -52,6 +52,20 @@ entries:
   mosquitto-user-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-20T08:37:57.048413847Z"
+    dependencies:
+    - name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository/
+      version: 0.1.20
+    description: A Helm chart for Kubernetes
+    digest: 13f6803f44a6833c383f949f59d0e8a2a1c5dfaef6d4bbdab577ed4a410ad61f
+    name: mosquitto-user-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.1.10/mosquitto-user-manager-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T06:28:37.773987736Z"
     dependencies:
     - name: user-manager-mongoose
@@ -131,4 +145,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T06:33:54.982367161Z"
+generated: "2023-02-20T08:37:57.048433147Z"
