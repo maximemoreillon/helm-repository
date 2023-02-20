@@ -1,37 +1,5 @@
 apiVersion: v1
 entries:
-  another-example:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-02-20T03:32:02.755532272Z"
-    description: A Helm chart for Kubernetes
-    digest: 82427fc7d703a8d1de06a92f5f6f310d362a321e70ac78815d8c2f202492330e
-    name: another-example
-    type: application
-    urls:
-    - https://github.com/maximemoreillon/helm-repository/releases/download/another-example-0.1.0/another-example-0.1.0.tgz
-    version: 0.1.0
-  example:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-02-20T04:02:24.565028832Z"
-    description: A Helm chart for Kubernetes
-    digest: f264285595593280afe6b37de6fa1f77c50e67b1d10e3c9fea14a6c27e86d9b7
-    name: example
-    type: application
-    urls:
-    - https://github.com/maximemoreillon/helm-repository/releases/download/example-0.1.2/example-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-02-20T03:30:48.945558709Z"
-    description: A Helm chart for Kubernetes
-    digest: 12102b48b6edbcf3dc738d58d565b3d43aaf70fcf472f5f1c3ad89fd99f18c20
-    name: example
-    type: application
-    urls:
-    - https://github.com/maximemoreillon/helm-repository/releases/download/example-0.1.1/example-0.1.1.tgz
-    version: 0.1.1
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
