@@ -3,6 +3,16 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-20T05:43:14.04090427Z"
+    description: A Helm chart for Kubernetes
+    digest: ed3ef4ca8a9791b11743fa4ba7b6d0209fb2958dcd775bde3a18250212bf0d47
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.1.10/mqtt-logger-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T05:39:51.842176111Z"
     description: A Helm chart for Kubernetes
     digest: 5288799920369d608590e1a4251ac5dd3f2932683333dbfc8fdc998c3b29b6c2
@@ -46,4 +56,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T05:39:51.842184611Z"
+generated: "2023-02-20T05:43:14.04091317Z"
