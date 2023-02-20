@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "user-manager.prefix" . }}-api
+spec:
+  selector:
+    app: {{ include "user-manager.prefix" . }}-api
+{{- if .Values.ingress.enabled }}
+  type: ClusterIP
+  ports:
+  - port: 80
+{{- else }}
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: {{ .Values.nodePorts.api}}
+{{- end }}

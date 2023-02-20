@@ -1,0 +1,21 @@
+jwt_secret: keyboardcat
+
+# TODO: enabled should depend on whether external url is used or not
+mongodb:
+  enabled: true
+  # url: mongodb://192.168.1.2:30717
+  pvc: 100Gi
+
+# NodePorts are enabled if ingress is disabled
+nodePorts:
+  api: 30070
+  gui: 30080
+
+# TODO: enabled should depend on whether host is set
+# TODO: consider global for annotations
+ingress:
+  enabled: true
+  host: auth.test.home.maximemoreillon.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
