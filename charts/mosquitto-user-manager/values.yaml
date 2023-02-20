@@ -1,3 +1,8 @@
+# Using global so as to easily pass to subcharts
+global:
+  ingress:
+    host: mqtt.test.home.maximemoreillon.com
+
 mosquitto:
   pvcSize: 10Gi
   nodePorts:
@@ -6,10 +11,9 @@ mosquitto:
 
 ingress:
   enabled: true
-  host: mqtt.test.home.maximemoreillon.com
 
 user-manager-mongoose:
   prefix: auth
   ingress:
     enabled: true
-    host: users.test.home.maximemoreillon.com
+    subdomain: users

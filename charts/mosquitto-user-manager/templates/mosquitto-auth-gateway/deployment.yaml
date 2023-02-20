@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "resources.prefix" . }}-auth-gateway
+  name: {{ include "mosquitto-user-manager.prefix" . }}-auth-gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "resources.prefix" . }}-auth-gateway
+      app: {{ include "mosquitto-user-manager.prefix" . }}-auth-gateway
   template:
     metadata:
       labels:
-        app: {{ include "resources.prefix" . }}-auth-gateway
+        app: {{ include "mosquitto-user-manager.prefix" . }}-auth-gateway
     spec:
       containers:
-        - name: {{ include "resources.prefix" . }}-auth-gateway
+        - name: {{ include "mosquitto-user-manager.prefix" . }}-auth-gateway
           image: moreillon/mosquitto-auth-gateway
           ports:
             - containerPort: 80
           env:
             # TODO: use helper
             - name: LOGIN_URL
-              value: http://{{ include "resources.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/auth/login
+              value: http://{{ include "mosquitto-user-manager.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/auth/login
             - name: IDENTIFICATION_URL
-              value: http://{{ include "resources.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/users/self
+              value: http://{{ include "mosquitto-user-manager.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/users/self
