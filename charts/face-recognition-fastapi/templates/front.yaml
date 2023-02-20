@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-recognition-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: face-recognition-front
+  template:
+    metadata:
+      labels:
+        app: face-recognition-front
+    spec:
+      containers:
+      - name: face-recognition-front
+        image: moreillon/face-recognition-fastapi-front
+        ports:
+        - containerPort: 80
+        env:
+        - name: VUE_APP_API_URL
+          value: /proxy/api
+        - name: PROXY_API
+          value: http://face-recognition
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: face-recognition-front
+spec:
+  type: NodePort
+  selector:
+    app: face-recognition-front
+  ports:
+  - port: 80
+    nodePort: {{ default 30041 .Values.nodePorts.gui}}
+---
+# apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#   name: face-recognition-front
+#   annotations:
+#     kubernetes.io/ingress.class: "nginx"
+#     cert-manager.io/cluster-issuer: "letsencrypt-prod" # This is necessary, no idea why
+#     nginx.ingress.kubernetes.io/proxy-body-size: "5g"
+#     nginx/client_max_body_size: 5g
+# spec:
+#   tls:
+#   - hosts:
+#     - ${K8S_INGRESS_HOST}
+#     secretName: face-recognition-front
+#   rules:
+#   - host: ${K8S_INGRESS_HOST}
+#     http:
+#       paths:
+#       - path: /
+#         backend:
+#           serviceName: face-recognition-front
+#           servicePort: 80
