@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "user-manager.prefix" . }}-gui
+  name: {{ include "user-manager.fullname" . }}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "user-manager.prefix" . }}-gui
+      app: {{ include "user-manager.fullname" . }}-gui
   template:
     metadata:
       labels:
-        app: {{ include "user-manager.prefix" . }}-gui
+        app: {{ include "user-manager.fullname" . }}-gui
     spec:
       containers:
-      - name: {{ include "user-manager.prefix" . }}-gui
+      - name: {{ include "user-manager.fullname" . }}-gui
         # TODO: tag
         image: moreillon/user-manager-front
         ports:

@@ -14,7 +14,7 @@ nodePorts:
 # TODO: enabled should depend on whether host is set
 # TODO: consider global for annotations
 ingress:
-  enabled: true
+  enabled: false
   host: auth.test.home.maximemoreillon.com
   annotations:
     kubernetes.io/ingress.class: nginx

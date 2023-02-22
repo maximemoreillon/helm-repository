@@ -3,28 +3,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "user-manager.prefix" . }}-mongo
+  name: {{ include "user-manager.fullname" . }}-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "user-manager.prefix" . }}-mongo
+      app: {{ include "user-manager.fullname" . }}-mongo
   template:
     metadata:
       labels:
-        app: {{ include "user-manager.prefix" . }}-mongo
+        app: {{ include "user-manager.fullname" . }}-mongo
     spec:
       containers:
-      - name: {{ include "user-manager.prefix" . }}-mongo
+      - name: {{ include "user-manager.fullname" . }}-mongo
         image: mongo:4
         ports:
         - containerPort: 27017
         volumeMounts:
         - mountPath: /data/db
-          name: {{ include "user-manager.prefix" . }}-mongo
+          name: {{ include "user-manager.fullname" . }}-mongo
       volumes:
-      - name: {{ include "user-manager.prefix" . }}-mongo
+      - name: {{ include "user-manager.fullname" . }}-mongo
         persistentVolumeClaim:
-          claimName: {{ include "user-manager.prefix" . }}-mongo
+          claimName: {{ include "user-manager.fullname" . }}-mongo
 
 {{- end }}
