@@ -25,6 +25,22 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-22T04:06:19.004475695Z"
+    dependencies:
+    - condition: user-manager-mongoose.enabled
+      name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.19
+    description: A Helm chart for Kubernetes
+    digest: c07d9730d059dd867f83940f500123dcbc520fc3bac86fc4d4a84d1a2e8c589f
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.1.13/food-manager-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T06:33:54.829156283Z"
     dependencies:
     - name: user-manager-mongoose
@@ -102,6 +118,17 @@ entries:
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-22T04:06:19.308464583Z"
+    description: A Helm chart for Kubernetes
+    digest: 7e0e1fb624c1e56d398d05d9260839367c6888593c97a6347daa7eb13f51569a
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongoose-0.2.0/user-manager-mongoose-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T05:35:37.931811179Z"
     description: A Helm chart for Kubernetes
     digest: 572fdec82f5f8755172917f4769dae2fa373bebc81dbdad2bca5487f7bc1209b
@@ -145,4 +172,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-20T08:37:57.048433147Z"
+generated: "2023-02-22T04:06:19.308488684Z"
