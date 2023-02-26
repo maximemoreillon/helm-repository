@@ -25,6 +25,27 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-26T08:09:43.684602945Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.3
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: 80b4c36d6b161d4eb88847c5580bad6a46bbc94d1e1eaf0182fd82619b672b10
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.2/food-manager-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-26T07:20:15.693081525Z"
     dependencies:
     - alias: auth
@@ -160,6 +181,22 @@ entries:
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-26T08:09:43.821735936Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: 3d4681d232b48a8285c11c4a1208650308fda577b8d688abae99d8e467f63487
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongoose-0.3.4/user-manager-mongoose-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-26T07:20:15.836089337Z"
     dependencies:
     - condition: mongodb.enabled
@@ -246,4 +283,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-26T07:20:15.836124537Z"
+generated: "2023-02-26T08:09:43.822081934Z"
