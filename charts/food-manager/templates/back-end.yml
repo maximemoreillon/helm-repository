@@ -37,9 +37,8 @@ spec:
             {{- if .Values.auth.enabled }}
             # Warning: Hardcoded
             # TODO: have a helper
-            {{ $identificationUrl := printf "http://%s-user-manager-mongoose-api/users/self" .Release.Name }}
             - name: IDENTIFICATION_URL
-              value: {{ $identificationUrl }}
+              value: {{ printf "%s/users/self" (include "food-manager.auth.url" .) }}
             {{- end }}
           ports:
             - containerPort: 80

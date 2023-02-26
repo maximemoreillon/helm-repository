@@ -22,7 +22,6 @@ mongodb:
     enabled: false
 
 # User-manager-mongoose chart
-# Because alias does not work
 auth:
   enabled: true
   mongodb:
