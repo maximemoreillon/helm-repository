@@ -1,3 +1,4 @@
+User-manager (MongoDB version)
 {{ $ingressEnabled := eq (include "user-manager.ingress.enabled" .) "true" }}
 {{- if $ingressEnabled -}}
 GUI available at {{ include "user-manager.ingress.host" . }}

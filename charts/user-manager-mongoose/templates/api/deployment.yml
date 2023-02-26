@@ -1,8 +1,6 @@
 {{ $resourceName := "api" }}
 {{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
-# WARNING: mongodb name could be overriden
-# TODO: use a helper
-{{ $mongodbUrl := printf "mongodb://%s-mongodb" .Release.Name }}
+{{ $mongodbUrl := include "user-manager.mongodb.url" . }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
