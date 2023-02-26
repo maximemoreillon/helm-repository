@@ -25,6 +25,27 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-26T05:44:00.899109063Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.2.0
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: ec074c6ae1ed9fa1a00bd522c43c380fa95729294d55743a181bac7b7e5ec2b1
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.0/food-manager-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-22T04:06:19.004475695Z"
     dependencies:
     - condition: user-manager-mongoose.enabled
@@ -118,6 +139,22 @@ entries:
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-26T05:44:01.190009704Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: a4c54ee6465623647908f7cb90549265f889ecdc898d7eafc5a661770ad97fef
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongoose
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongoose-0.3.1/user-manager-mongoose-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-22T04:06:19.308464583Z"
     description: A Helm chart for Kubernetes
     digest: 7e0e1fb624c1e56d398d05d9260839367c6888593c97a6347daa7eb13f51569a
@@ -172,4 +209,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-22T04:06:19.308488684Z"
+generated: "2023-02-26T05:44:01.190038304Z"
