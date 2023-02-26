@@ -1,7 +1,7 @@
 {{ $resourceName := "api" }}
 {{ $fullName := printf "%s-%s" (include "food-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
 # TODO: use a helper
-{{ $mongodbUrl := printf "mongodb://%s-mongodb" .Release.Name }}
+{{ $mongodbUrl := include "food-manager.mongodb.url" . }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -32,11 +32,11 @@ spec:
         - name: {{$fullName}}
           image: moreillon/food-manager
           env:
-            # DB
             - name: MONGODB_URL
               value: {{ $mongodbUrl }}
             {{- if .Values.auth.enabled }}
             # Warning: Hardcoded
+            # TODO: have a helper
             {{ $identificationUrl := printf "http://%s-user-manager-mongoose-api/users/self" .Release.Name }}
             - name: IDENTIFICATION_URL
               value: {{ $identificationUrl }}
