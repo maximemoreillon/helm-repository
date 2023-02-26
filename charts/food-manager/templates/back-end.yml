@@ -1,7 +1,10 @@
+{{ $resourceName := "api" }}
+{{ $fullName := printf "%s-%s" (include "food-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+{{ $mongodbUrl := printf "mongodb://%s-mongodb" .Release.Name }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{include "food-manager.fullname" .}}
+  name: {{$fullName}}
 spec:
   accessModes:
     - ReadWriteMany
@@ -13,46 +16,43 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{include "food-manager.fullname" .}}
+  name: {{$fullName}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{include "food-manager.fullname" .}}
+      app: {{$fullName}}
   template:
     metadata:
       labels:
-        app: {{include "food-manager.fullname" .}}
+        app: {{$fullName}}
     spec:
       containers:
-        - name: {{include "food-manager.fullname" .}}
+        - name: {{$fullName}}
           image: moreillon/food-manager
           env:
             # DB
             - name: MONGODB_URL
-              value: {{include "food-manager.mongodb.url" .}}
-            # Auth
-            # TODO: use a helper because quite long
-            - name: IDENTIFICATION_URL
-              value: http://{{ include "food-manager.fullname" . }}-{{ toYaml (index .Values "user-manager-mongoose" "nameOverride" ) }}-api/users/self
+              value: {{ $mongodbUrl }}
+            # TODO: Auth
           ports:
             - containerPort: 80
           volumeMounts:
             - mountPath: /usr/src/app/uploads
-              name: {{include "food-manager.fullname" .}}
+              name: {{$fullName}}
       volumes:
-        - name: {{include "food-manager.fullname" .}}
+        - name: {{$fullName}}
           persistentVolumeClaim:
-            claimName: {{include "food-manager.fullname" .}}
+            claimName: {{$fullName}}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{include "food-manager.fullname" .}}
+  name: {{$fullName}}
 spec:
   type: NodePort
   selector:
-    app: {{include "food-manager.fullname" .}}
+    app: {{$fullName}}
   ports:
     - port: 80
       nodePort: 30022

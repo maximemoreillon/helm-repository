@@ -4,38 +4,25 @@
 
 # Global values shared with subcharts
 global:
+  enabled: false
   ingress:
     host: food.test.home.maximemoreillon.com
-
-  mongodb:
-    url: mongodb://192.168.1.2:30717
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
 
 nodePort: 30400
 
+# Bitnami MongoDB chart
 mongodb:
-  enabled: false
-
-# TODO: consider global
-ingress:
-  enabled: false
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-
-user-manager-mongoose:
-  nameOverride: user-manager
   enabled: true
 
-  # Disable subchart mongodb because using that of parent
-  # TODO: would be simpler as global
+# User-manager-mongoose chart
+auth:
+  enabled: false
+
   mongodb:
     enabled: false
 
   ingress:
-    # TODO: should match that of parent
-    enabled: false
-    subdomain: users
-    # Default annotations are fine
-    # annotations:
-    #   kubernetes.io/ingress.class: nginx
-    #   cert-manager.io/cluster-issuer: letsencrypt-prod
+    subdomain: auth
