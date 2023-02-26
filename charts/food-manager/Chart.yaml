@@ -27,7 +27,7 @@ icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
 
 dependencies:
   - name: user-manager-mongoose
-    version: 0.2.1
+    version: 0.3.1
     repository: https://maximemoreillon.github.io/helm-repository
     condition: auth.enabled
     # Does not work

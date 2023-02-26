@@ -25,12 +25,7 @@ mongodb:
 # Because alias does not work
 auth:
   enabled: true
-
-user-manager-mongoose:
-  enabled: true
-
   mongodb:
     enabled: false
-
   ingress:
     subdomain: auth
