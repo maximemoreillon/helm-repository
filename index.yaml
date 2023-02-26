@@ -25,6 +25,27 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-26T08:19:48.379005158Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.4
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: 6edca7ca20e2362274c18b9c68f4f0e11fb3e7baeec283dd377e7db058acfdfe
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.3/food-manager-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-26T08:09:43.684602945Z"
     dependencies:
     - alias: auth
@@ -283,4 +304,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-26T08:09:43.822081934Z"
+generated: "2023-02-26T08:19:48.379154461Z"
