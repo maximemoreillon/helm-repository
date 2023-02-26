@@ -1,9 +1,9 @@
 dependencies:
 - name: user-manager-mongoose
   repository: https://maximemoreillon.github.io/helm-repository
-  version: 0.3.3
+  version: 0.3.4
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 13.8.1
-digest: sha256:e6cc7a7b2ed2e7536ff83c4e8a08438c0b10690eb69ae77845603e496ef659cf
-generated: "2023-02-26T16:44:14.898808573+09:00"
+digest: sha256:dc188318bf41103af6b4ee994419779c61a4e8c419e4722bd6f14845abbafe97
+generated: "2023-02-26T17:10:47.483171348+09:00"

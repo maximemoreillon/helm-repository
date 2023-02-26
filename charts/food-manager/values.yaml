@@ -28,3 +28,5 @@ auth:
     enabled: false
   ingress:
     subdomain: auth
+  nodePorts:
+    gui: 30401

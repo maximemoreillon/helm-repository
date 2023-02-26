@@ -1,1 +1,15 @@
 Food manager
+
+{{ $ingressEnabled := eq (include "food-manager.ingress.enabled" .) "true" }}
+{{- if $ingressEnabled -}}
+GUI available at {{ include "user-manager.ingress.host" . }}
+User-manager GUI available at {{ ((.Values.auth).ingress).subdomain }}.{{ include "food-manager.ingress.host" . }}
+{{- end -}}
+
+{{ if .Values.nodePort }}
+GUI available on port {{ .Values.nodePort }}
+{{- end -}}
+
+{{ if ((.Values.auth).nodePorts).gui }}
+User manager GUI available on port {{ ((.Values.auth).nodePorts).gui}}
+{{- end -}}
