@@ -25,11 +25,15 @@ spec:
           value: /proxy/api
         - name: PROXY_API
           value: http://{{ $apiFullName  }}
-        # TODO: Auth optional
-        # - name: VUE_APP_LOGIN_URL
-        #   value: /proxy/food-manager/auth/login
-        # - name: VUE_APP_IDENTIFICATION_URL
-        #   value: /proxy/food-manager/users/self
+        {{- if .Values.auth.enabled }}
+        # Warning: Hardcoded
+        - name: VUE_APP_LOGIN_URL
+          value: /proxy/auth/auth/login
+        - name: VUE_APP_IDENTIFICATION_URL
+          value: /proxy/auth/users/self
+        - name: PROXY_AUTH
+          value:  {{ printf "http://%s-user-manager-mongoose-api" .Release.Name }}
+        {{- end }}
 
 
         

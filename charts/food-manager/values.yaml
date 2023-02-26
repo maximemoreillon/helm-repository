@@ -4,8 +4,8 @@
 
 # Global values shared with subcharts
 global:
-  enabled: false
   ingress:
+    enabled: true
     host: food.test.home.maximemoreillon.com
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -16,10 +16,18 @@ nodePort: 30400
 # Bitnami MongoDB chart
 mongodb:
   enabled: true
+  persistence:
+    size: 100Gi
+  auth:
+    enabled: false
 
 # User-manager-mongoose chart
+# Because alias does not work
 auth:
-  enabled: false
+  enabled: true
+
+user-manager-mongoose:
+  enabled: true
 
   mongodb:
     enabled: false

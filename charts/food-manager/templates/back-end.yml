@@ -1,5 +1,6 @@
 {{ $resourceName := "api" }}
 {{ $fullName := printf "%s-%s" (include "food-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+# TODO: use a helper
 {{ $mongodbUrl := printf "mongodb://%s-mongodb" .Release.Name }}
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -34,7 +35,12 @@ spec:
             # DB
             - name: MONGODB_URL
               value: {{ $mongodbUrl }}
-            # TODO: Auth
+            {{- if .Values.auth.enabled }}
+            # Warning: Hardcoded
+            {{ $identificationUrl := printf "http://%s-user-manager-mongoose-api/users/self" .Release.Name }}
+            - name: IDENTIFICATION_URL
+              value: {{ $identificationUrl }}
+            {{- end }}
           ports:
             - containerPort: 80
           volumeMounts:

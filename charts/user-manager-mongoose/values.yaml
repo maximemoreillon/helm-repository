@@ -4,13 +4,12 @@ nodePorts:
   # api: 30070
   # gui: 30080
 
-global:
-  ingress:
-    enabled: false
-    host: auth.example.com
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: letsencrypt-prod
+ingress:
+  enabled: false
+  host: auth.example.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 # Bitnami MongoDB subchart
 # https://artifacthub.io/packages/helm/bitnami/mongodb#mongodb-parameters
