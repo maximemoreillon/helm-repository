@@ -2,35 +2,38 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# Global needed for subcharts
+# Global values shared with subcharts
 global:
   ingress:
     host: food.test.home.maximemoreillon.com
 
-  # Using integrated MongoDB by setting url to null
   mongodb:
     url: mongodb://192.168.1.2:30717
 
 nodePort: 30400
 
+mongodb:
+  enabled: false
+
 # TODO: consider global
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
 
 user-manager-mongoose:
-  prefix: users
+  nameOverride: user-manager
   enabled: true
 
   # Disable subchart mongodb because using that of parent
   # TODO: would be simpler as global
   mongodb:
-    enabled: true
+    enabled: false
 
   ingress:
-    enabled: true
+    # TODO: should match that of parent
+    enabled: false
     subdomain: users
     # Default annotations are fine
     # annotations:

@@ -1,18 +1,20 @@
+{{ $resourceName := "proxy" }}
+{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "user-manager.fullname" . }}-proxy
+  name: {{ $fullName }}
 spec:
   selector:
-    app: {{ include "user-manager.fullname" . }}-proxy
-  {{- if .Values.ingress.enabled }}
-  type: ClusterIP
-  ports:
-  - port: 80
-  {{- else }}
+    app: {{ $fullName }}
+{{- if (.Values.nodePorts).gui }}
   type: NodePort
   ports:
   - port: 80
     nodePort: {{ .Values.nodePorts.gui }}
-  {{- end }}
+{{- else }}
+  type: ClusterIP
+  ports:
+  - port: 80
+{{- end }}
 

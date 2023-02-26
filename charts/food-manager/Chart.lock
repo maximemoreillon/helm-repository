@@ -1,6 +1,6 @@
 dependencies:
 - name: user-manager-mongoose
   repository: https://maximemoreillon.github.io/helm-repository
-  version: 0.1.19
-digest: sha256:bafe4b5d4895be2a9612e6ebd3c5bf1c8f2f1b899ec5b70f20ddd5cdfa4da94e
-generated: "2023-02-22T13:05:30.970824319+09:00"
+  version: 0.2.0
+digest: sha256:2753276beb3345bb5eb87ba97add1fd9133835c9c919409c2b37db8d81c93a85
+generated: "2023-02-22T13:51:19.970491657+09:00"

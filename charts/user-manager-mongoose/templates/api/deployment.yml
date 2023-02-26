@@ -1,25 +1,28 @@
+{{ $resourceName := "api" }}
+{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+# WARNING: mongodb name could be overriden
+{{ $mongodbUrl := printf "mongodb://%s-mongodb" .Release.Name }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "user-manager.fullname" . }}-api
+  name: {{ $fullName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "user-manager.fullname" . }}-api
+      app: {{ $fullName }}
   template:
     metadata:
       labels:
-        app: {{ include "user-manager.fullname" . }}-api
+        app: {{ $fullName }}
     spec:
       containers:
-      - name: {{ include "user-manager.fullname" . }}-api
-        # TODO: tag
+      - name: {{ $fullName }}
         image: moreillon/user-manager-mongoose
         ports:
         - containerPort: 80
         env:
         - name: MONGODB_URL
-          value: {{ include "user-manager.mongodb.url" . }} 
+          value: {{ $mongodbUrl }}
         - name: JWT_SECRET
           value: {{ .Values.jwt_secret }}

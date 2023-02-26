@@ -1,17 +1,19 @@
+{{ $resourceName := "api" }}
+{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "user-manager.fullname" . }}-api
+  name: {{ $fullName }}
 spec:
   selector:
-    app: {{ include "user-manager.fullname" . }}-api
-{{- if .Values.ingress.enabled }}
-  type: ClusterIP
-  ports:
-  - port: 80
-{{- else }}
+    app: {{ $fullName }}
+{{- if (.Values.nodePorts).api }}
   type: NodePort
   ports:
   - port: 80
-    nodePort: {{ .Values.nodePorts.api}}
+    nodePort: {{ .Values.nodePorts.api }}
+{{- else }}
+  type: ClusterIP
+  ports:
+  - port: 80
 {{- end }}

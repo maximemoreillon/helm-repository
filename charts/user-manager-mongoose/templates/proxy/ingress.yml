@@ -1,26 +1,27 @@
-{{- if .Values.ingress.enabled -}}
+{{ $ingressEnabled := eq (include "user-manager.ingress.enabled" .) "true"}}
+{{- if $ingressEnabled -}}
+{{ $resourceName := "proxy" }}
+{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+{{ $host := include "user-manager.ingress.host" .}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "user-manager.fullname" . }}-proxy
-  annotations:
-    {{- with .Values.ingress.annotations }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }}
+  name: {{ $fullName }}
+  annotations: {{ include "user-manager.ingress.annotations" .}}
 spec:
   tls:
     - hosts:
-        - {{ include "user-manager.ingress.host" . }}
-      secretName: {{ include "user-manager.fullname" . }}-proxy
+        - {{ $host }}
+      secretName: {{ $fullName }}
   rules:
-    - host: {{ include "user-manager.ingress.host" . }}
+    - host: {{ $host }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service: 
-                name: {{ include "user-manager.fullname" . }}-proxy
+                name: {{ $fullName }}
                 port:
                   number: 80
 {{- end }}

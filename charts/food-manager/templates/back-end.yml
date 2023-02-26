@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{include "food-manager.prefix" .}}
+  name: {{include "food-manager.fullname" .}}
 spec:
   accessModes:
     - ReadWriteMany
@@ -13,19 +13,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{include "food-manager.prefix" .}}
+  name: {{include "food-manager.fullname" .}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{include "food-manager.prefix" .}}
+      app: {{include "food-manager.fullname" .}}
   template:
     metadata:
       labels:
-        app: {{include "food-manager.prefix" .}}
+        app: {{include "food-manager.fullname" .}}
     spec:
       containers:
-        - name: {{include "food-manager.prefix" .}}
+        - name: {{include "food-manager.fullname" .}}
           image: moreillon/food-manager
           env:
             # DB
@@ -34,25 +34,25 @@ spec:
             # Auth
             # TODO: use a helper because quite long
             - name: IDENTIFICATION_URL
-              value: http://{{ include "food-manager.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api/users/self
+              value: http://{{ include "food-manager.fullname" . }}-{{ toYaml (index .Values "user-manager-mongoose" "nameOverride" ) }}-api/users/self
           ports:
             - containerPort: 80
           volumeMounts:
             - mountPath: /usr/src/app/uploads
-              name: {{include "food-manager.prefix" .}}
+              name: {{include "food-manager.fullname" .}}
       volumes:
-        - name: {{include "food-manager.prefix" .}}
+        - name: {{include "food-manager.fullname" .}}
           persistentVolumeClaim:
-            claimName: {{include "food-manager.prefix" .}}
+            claimName: {{include "food-manager.fullname" .}}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{include "food-manager.prefix" .}}
+  name: {{include "food-manager.fullname" .}}
 spec:
   type: NodePort
   selector:
-    app: {{include "food-manager.prefix" .}}
+    app: {{include "food-manager.fullname" .}}
   ports:
     - port: 80
       nodePort: 30022

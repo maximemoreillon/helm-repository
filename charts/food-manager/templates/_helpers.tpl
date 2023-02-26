@@ -1,18 +1,11 @@
 {{/*
-Prefix for resources.
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
-{{- define "food-manager.prefix" -}}
+{{- define "food-manager.fullname" -}}
 {{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{/*
-Overwriting user-manager prefix
-TODO: default value
-FIXME: Will not work for sub-sub-charts
-*/}}
-{{- define "user-manager.prefix" -}}
-{{- printf "%s-%s" .Release.Name .Values.prefix | trunc 63 | trimSuffix "-" }}
-{{- end }}
 
 {{/*
 Ingress host

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "food-manager.prefix" . }}-gui
+  name: {{ include "food-manager.fullname" . }}-gui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "food-manager.prefix" . }}-gui
+      app: {{ include "food-manager.fullname" . }}-gui
   template:
     metadata:
       labels:
-        app: {{ include "food-manager.prefix" . }}-gui
+        app: {{ include "food-manager.fullname" . }}-gui
     spec:
       containers:
-      - name: {{ include "food-manager.prefix" . }}-gui
+      - name: {{ include "food-manager.fullname" . }}-gui
         image: moreillon/food-manager-front
         ports:
         - containerPort: 80
@@ -25,18 +25,18 @@ spec:
         - name: VUE_APP_IDENTIFICATION_URL
           value: /proxy/user-manager/users/self
         - name: PROXY_API
-          value: http://{{ include "food-manager.prefix" . }}
+          value: http://{{ include "food-manager.fullname" . }}
         - name: PROXY_USER_MANAGER
-          value: http://{{ include "food-manager.prefix" . }}-{{ toYaml (index .Values "user-manager-mongoose" "prefix" ) }}-api
+          value: http://{{ include "food-manager.fullname" . }}-{{ toYaml (index .Values "user-manager-mongoose" "nameOverride" ) }}-api
         
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "food-manager.prefix" . }}-gui
+  name: {{ include "food-manager.fullname" . }}-gui
 spec:
   selector:
-    app: {{ include "food-manager.prefix" . }}-gui
+    app: {{ include "food-manager.fullname" . }}-gui
 {{- if .Values.ingress.enabled }}
   type: ClusterIP
   ports:
@@ -52,7 +52,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "food-manager.prefix" . }}-gui
+  name: {{ include "food-manager.fullname" . }}-gui
   annotations:
     {{- with .Values.ingress.annotations }}
       {{- toYaml . | nindent 4 }}
@@ -61,7 +61,7 @@ spec:
   tls:
     - hosts:
         - {{ include "food-manager.ingress.host" . }}
-      secretName: {{ include "food-manager.prefix" . }}-gui
+      secretName: {{ include "food-manager.fullname" . }}-gui
   rules:
     - host: {{ include "food-manager.ingress.host" . }}
       http:
@@ -70,7 +70,7 @@ spec:
             pathType: Prefix
             backend:
               service: 
-                name: {{ include "food-manager.prefix" . }}-gui
+                name: {{ include "food-manager.fullname" . }}-gui
                 port:
                   number: 80
 {{- end }}
