@@ -1,10 +1,11 @@
+{{ $fullName := printf "%s-gui" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{include "user-manager.prefix" .}}-gui
+  name: {{$fullName}}
 spec:
   type: ClusterIP
   selector:
-    app: {{include "user-manager.prefix" .}}-gui
+    app: {{$fullName}}
   ports:
-  - port: 80
+    - port: 80

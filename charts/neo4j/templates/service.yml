@@ -1,4 +1,3 @@
-{{- if .Values.neo4j.enabled -}}
 {{ $fullName := include "neo4j.fullName" .}}
 apiVersion: v1
 kind: Service
@@ -14,4 +13,3 @@ spec:
     app: {{ $fullName }}
   # TODO: consider NodePort
   type: ClusterIP
-{{- end -}}

@@ -1,17 +1,15 @@
-{{- if .Values.ingress.enabled -}}
+{{- if eq (include "user-manager.ingress.enabled" .) "true"}}
+{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "user-manager.prefix" . }}-api
-  annotations:
-    {{- with .Values.ingress.annotations }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }}
+  name: {{ $fullName }}
+  annotations: {{ include "user-manager.ingress.annotations" .}}
 spec:
   tls:
     - hosts:
         - api.{{ include "user-manager.ingress.host" . }}
-      secretName: {{ include "user-manager.prefix" . }}-api
+      secretName: {{ $fullName }}
   rules:
     - host: api.{{ include "user-manager.ingress.host" . }}
       http:
@@ -20,7 +18,7 @@ spec:
             pathType: Prefix
             backend:
               service: 
-                name: {{ include "user-manager.prefix" . }}-api
+                name: {{ $fullName }}
                 port:
                   number: 80
 {{- end }}

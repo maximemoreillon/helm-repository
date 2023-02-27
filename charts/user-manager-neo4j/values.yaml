@@ -2,11 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# TODO: allow users to not deploy Neo4J
 neo4j:
+  enabled: false
   username: neo4j
-  password: neo4jpassword
-  pvcSize: 100Gi
+  password: keyboardcat
+  persistence:
+    size: 100Gi
 
 admin:
   username: admin
@@ -20,8 +21,8 @@ jwt_secret: keyboardcat
 #prefix: banana
 
 ingress:
-  enabled: true
-  host: neo4jauth.test.home.maximemoreillon.com
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  # enabled: false
+  # host: users.example.com
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+  #   cert-manager.io/cluster-issuer: letsencrypt-prod

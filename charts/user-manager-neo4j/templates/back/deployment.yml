@@ -1,19 +1,20 @@
+{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "user-manager.prefix" . }}-api
+  name: {{ $fullName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "user-manager.prefix" . }}-api
+      app: {{ $fullName }}
   template:
     metadata:
       labels:
-        app: {{ include "user-manager.prefix" . }}-api
+        app: {{ $fullName }}
     spec:
       containers:
-      - name: {{ include "user-manager.prefix" . }}-api
+      - name: {{ $fullName }}
         image: moreillon/user-manager
         ports:
         - containerPort: 80

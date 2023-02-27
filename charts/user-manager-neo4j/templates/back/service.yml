@@ -1,4 +1,4 @@
-{{ $fullName := printf "%s-proxy" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
+{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,4 +9,4 @@ spec:
     app: {{ $fullName }}
   ports:
   - port: 80
-    nodePort: {{ .Values.nodePorts.gui }}
+    nodePort: {{ .Values.nodePorts.api }}
