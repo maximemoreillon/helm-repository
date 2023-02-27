@@ -199,6 +199,17 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.1.9/mqtt-logger-0.1.9.tgz
     version: 0.1.9
+  neo4j:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-27T22:58:52.152482235Z"
+    description: A Helm chart to deploy Neo4j community edition v4.4
+    digest: 22df560f99358a58949cc1cf5f20bce7afb2c1fc5ba62672f63483639932a395
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/neo4j-0.1.0/neo4j-0.1.0.tgz
+    version: 0.1.0
   user-manager-mongoose:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -284,6 +295,17 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-27T22:58:52.379034029Z"
+    description: A Helm chart for Kubernetes
+    digest: c55ec46905f8948877b36f5ea1edb8de7ccadf940a2a682cc5dabec3c3b7ae7f
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.14/user-manager-neo4j-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-20T06:33:54.982355761Z"
     description: A Helm chart for Kubernetes
     digest: 87d2c13842b5690d5563e48aa66b9589b0871870bcb4817416834beeafb8f1a6
@@ -304,4 +326,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-26T08:19:48.379154461Z"
+generated: "2023-02-27T22:58:52.379080129Z"
