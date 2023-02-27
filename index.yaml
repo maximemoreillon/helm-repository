@@ -25,6 +25,27 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-27T23:19:28.767651981Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongoose
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.4
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for Kubernetes
+    digest: 4c4b5649bf5e62c3203b37d024f54f9d3e6b9407f66faedf6423229ed52fa487
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.4/food-manager-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-26T08:19:48.379005158Z"
     dependencies:
     - alias: auth
@@ -295,6 +316,22 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-27T23:19:28.894781317Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 7f0a1d2f79a6ef6ff184ca2e9cc99e5ec091be0a28e2ae3cb55ae316af35b51a
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.2.0/user-manager-neo4j-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-27T22:58:52.379034029Z"
     description: A Helm chart for Kubernetes
     digest: c55ec46905f8948877b36f5ea1edb8de7ccadf940a2a682cc5dabec3c3b7ae7f
@@ -326,4 +363,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-27T22:58:52.379080129Z"
+generated: "2023-02-27T23:19:28.89484862Z"
