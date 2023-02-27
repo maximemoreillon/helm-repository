@@ -1,6 +1,6 @@
 apiVersion: v2
-name: user-manager-mongoose
-description: A Helm chart for Kubernetes
+name: user-manager-mongodb
+description: A Helm chart to deploy the User management and authentication microservice (MongoDB version)
 
 # A chart can be either an 'application' or a 'library' chart.
 #

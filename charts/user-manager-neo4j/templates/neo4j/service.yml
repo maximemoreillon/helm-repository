@@ -1,7 +1,9 @@
+{{- if .Values.neo4j.enabled -}}
+{{ $fullName := include "neo4j.fullName" .}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "user-manager.prefix" . }}-neo4j
+  name: {{ $fullName }}
 spec:
   ports:
   - port: 7474
@@ -9,6 +11,7 @@ spec:
   - port: 7687
     name: bolt
   selector:
-    app: {{ include "user-manager.prefix" . }}-neo4j
+    app: {{ $fullName }}
   # TODO: consider NodePort
   type: ClusterIP
+{{- end -}}

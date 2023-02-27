@@ -1,10 +1,13 @@
+{{- if .Values.neo4j.enabled -}}
+{{ $fullName := include "neo4j.fullName" .}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "user-manager.prefix" . }}-neo4j
+  name: {{ $fullName }}
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: {{ default "100Gi" .Values.neo4j.pvcSize }}
+{{- end -}}

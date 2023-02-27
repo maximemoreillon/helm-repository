@@ -1,23 +1,25 @@
+{{- if .Values.neo4j.enabled -}}
+{{ $fullName := include "neo4j.fullName" .}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "user-manager.prefix" . }}-neo4j
+  name: {{ $fullName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "user-manager.prefix" . }}-neo4j
+      app: {{ $fullName }}
   template:
     metadata:
       labels:
-        app: {{ include "user-manager.prefix" . }}-neo4j
+        app: {{ $fullName }}
     spec:
       volumes:
-      - name: {{ include "user-manager.prefix" . }}-neo4j
+      - name: {{ $fullName }}
         persistentVolumeClaim:
-          claimName: {{ include "user-manager.prefix" . }}-neo4j
+          claimName: {{ $fullName }}
       containers:
-      - name: {{ include "user-manager.prefix" . }}-neo4j
+      - name: {{ $fullName }}
         image: neo4j:4.4.16
         envFrom:
         - secretRef:
@@ -27,4 +29,5 @@ spec:
         - containerPort: 7687 # Bolt
         volumeMounts:
         - mountPath: /data
-          name: {{ include "user-manager.prefix" . }}-neo4j
+          name: {{ $fullName }}
+{{- end -}}
