@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 neo4j:
-  enabled: false
+  enabled: true
   username: neo4j
   password: keyboardcat
   persistence:
@@ -18,7 +18,6 @@ nodePorts:
   gui: 30017
 
 jwt_secret: keyboardcat
-#prefix: banana
 
 ingress:
   # enabled: false

@@ -1,0 +1,6 @@
+dependencies:
+- name: neo4j
+  repository: https://maximemoreillon.github.io/helm-repository
+  version: 0.1.0
+digest: sha256:a721a2ac15cd05051568fc02624a3ccd5956d46550554a919f17f8e57244f12b
+generated: "2023-02-28T08:02:07.666390486+09:00"
