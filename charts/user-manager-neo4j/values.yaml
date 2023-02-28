@@ -10,7 +10,12 @@ neo4j:
     size: 100Gi
 
 groups:
-  enabled: false
+  enabled: true
+  auth:
+    name: user-manager-neo4j-back
+  neo4j:
+    username: neo4j
+    password: keyboardcat
 
 admin:
   username: admin

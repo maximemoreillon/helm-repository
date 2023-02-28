@@ -13,9 +13,9 @@ ingress:
   host: groups.test.home.maximemoreillon.com
 
 neo4j:
-  url: bolt://um-neo4j
-  username: neo4j
-  password: neo4Jpassword
+  # url: bolt://um-neo4j
+  # username: neo4j
+  # password: neo4Jpassword
 
 auth:
   apiUrl: http://um-api

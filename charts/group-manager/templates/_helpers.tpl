@@ -2,7 +2,8 @@
 Prefix for resources.
 */}}
 {{- define "group-manager.prefix" -}}
-{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+	{{ $name := default .Chart.Name .Values.nameOverride }}
+	{{- printf "%s-%s" .Release.Name $name -}}
 {{- end }}
 
 {{- define "group-manager.neo4j.url" -}}
