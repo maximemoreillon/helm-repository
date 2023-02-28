@@ -1,19 +1,15 @@
-# Default values for food-manager.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# Global values shared with subcharts
 global:
   ingress:
-    enabled: true
+    enabled: false
     host: food.test.home.maximemoreillon.com
     annotations:
       kubernetes.io/ingress.class: nginx
       cert-manager.io/cluster-issuer: letsencrypt-prod
 
-nodePort: 30400
+# TODO: rename service
+service:
+  nodePort: 30400
 
-# Bitnami MongoDB chart
 mongodb:
   enabled: true
   persistence:
@@ -21,7 +17,6 @@ mongodb:
   auth:
     enabled: false
 
-# User-manager-mongoose chart
 auth:
   enabled: true
   mongodb:

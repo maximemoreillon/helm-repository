@@ -1,6 +1,4 @@
-{{ $resourceName := "api" }}
-{{ $fullName := printf "%s-%s" (include "food-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
-# TODO: use a helper
+{{ $fullName := include "food-manager.fullName" . | trunc 63 | trimSuffix "-" }}
 {{ $mongodbUrl := include "food-manager.mongodb.url" . }}
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -30,13 +28,11 @@ spec:
     spec:
       containers:
         - name: {{$fullName}}
-          image: moreillon/food-manager
+          image: moreillon/food-manager:f062718f
           env:
             - name: MONGODB_URL
               value: {{ $mongodbUrl }}
             {{- if .Values.auth.enabled }}
-            # Warning: Hardcoded
-            # TODO: have a helper
             - name: IDENTIFICATION_URL
               value: {{ printf "%s/users/self" (include "food-manager.auth.url" .) }}
             {{- end }}
