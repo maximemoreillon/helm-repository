@@ -12,8 +12,6 @@ mosquitto:
 ingress:
   enabled: true
 
-user-manager-mongoose:
-  prefix: auth
+auth:
   ingress:
-    enabled: true
     subdomain: users
