@@ -184,6 +184,16 @@ entries:
   group-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-28T09:41:21.011277029Z"
+    description: A Helm chart for Kubernetes
+    digest: fff638b2b3b2d434f005587959f812341fbebe2d82d637de83f405af8497481c
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.7/group-manager-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T09:26:24.401104259Z"
     description: A Helm chart for Kubernetes
     digest: 7057c8c61dfff3c0f47c2fa6a89abc8a047cff6b211faa55d7a5ef921fe9fee5
@@ -386,6 +396,27 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-28T09:41:21.135838313Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.0
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.6
+    description: A Helm chart for Kubernetes
+    digest: 9d2b398855039c69c35fe868742d047c21d9b94141706a6005c0b3ff20b411f4
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.2.2/user-manager-neo4j-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T08:50:05.303990044Z"
     dependencies:
     - condition: neo4j.enabled
@@ -454,4 +485,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-28T09:26:24.401153959Z"
+generated: "2023-02-28T09:41:21.135902314Z"
