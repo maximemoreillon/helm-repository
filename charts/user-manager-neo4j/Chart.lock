@@ -2,5 +2,8 @@ dependencies:
 - name: neo4j
   repository: https://maximemoreillon.github.io/helm-repository
   version: 0.1.0
-digest: sha256:a721a2ac15cd05051568fc02624a3ccd5956d46550554a919f17f8e57244f12b
-generated: "2023-02-28T08:02:07.666390486+09:00"
+- name: group-manager
+  repository: https://maximemoreillon.github.io/helm-repository
+  version: 0.1.3
+digest: sha256:085156778f190f8e7e87dbe90bfe056784b542de4b09cf29b3241ba8ce12b689
+generated: "2023-02-28T17:34:40.830301258+09:00"

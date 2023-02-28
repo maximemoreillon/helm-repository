@@ -9,6 +9,9 @@ neo4j:
   persistence:
     size: 100Gi
 
+groups:
+  enabled: false
+
 admin:
   username: admin
   password: admin

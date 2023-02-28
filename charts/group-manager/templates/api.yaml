@@ -19,7 +19,7 @@ spec:
         - containerPort: 80
         env:
         - name: NEO4J_URL
-          value: {{ .Values.neo4j.url }}
+          value: {{ include "group-manager.neo4j.url" . }}
         - name: NEO4J_USERNAME
           value: {{ .Values.neo4j.username }}
         - name: NEO4J_PASSWORD
