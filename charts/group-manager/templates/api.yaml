@@ -25,7 +25,7 @@ spec:
         - name: NEO4J_PASSWORD
           value: {{ .Values.neo4j.password }}
         - name: IDENTIFICATION_URL
-          value: {{ .Values.auth.apiUrl }}/v2/users/self
+          value: {{ include "group-manager.auth.url" . }}/v2/users/self
 ---
 apiVersion: v1
 kind: Service

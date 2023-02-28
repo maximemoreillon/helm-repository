@@ -17,9 +17,6 @@ spec:
         image: moreillon/group-manager-front
         ports:
         - containerPort: 80
-        # envFrom:
-        # - secretRef:
-        #    name: credentials
         env:
         - name: VUE_APP_GROUP_MANAGER_API_URL
           value: /proxy/api

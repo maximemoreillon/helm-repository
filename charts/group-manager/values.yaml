@@ -9,7 +9,7 @@ nodePorts:
   gui: 30019
 
 ingress:
-  enabled: true
+  enabled: false
   host: groups.test.home.maximemoreillon.com
 
 neo4j:

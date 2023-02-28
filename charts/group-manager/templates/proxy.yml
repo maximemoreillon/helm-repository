@@ -24,7 +24,7 @@ spec:
         - name: PROXY_API
           value: http://{{ include "group-manager.prefix" . }}-api
         - name: PROXY_AUTH
-          value: {{ .Values.auth.apiUrl }}
+          value: {{ include "group-manager.auth.url" . }}
 ---
 apiVersion: v1
 kind: Service
@@ -38,7 +38,7 @@ spec:
   - port: 80
     nodePort: {{ .Values.nodePorts.gui }}
 ---
-{{- if .Values.ingress.enabled -}}
+{{- if eq (include "group-manager.ingress.enabled" .) "true"}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -49,10 +49,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - {{ include "user-manager.ingress.host" . }}
+        - {{ include "group-manager.ingress.host" . }}
       secretName: {{ include "group-manager.prefix" . }}-proxy
   rules:
-    - host: {{ include "user-manager.ingress.host" . }}
+    - host: {{ include "group-manager.ingress.host" . }}
       http:
         paths:
           - path: /
