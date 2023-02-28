@@ -184,6 +184,16 @@ entries:
   group-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-28T09:26:24.401104259Z"
+    description: A Helm chart for Kubernetes
+    digest: 7057c8c61dfff3c0f47c2fa6a89abc8a047cff6b211faa55d7a5ef921fe9fee5
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.6/group-manager-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T08:55:32.150676419Z"
     description: A Helm chart for Kubernetes
     digest: c1e671a7ba67b0f30db6c52a47d41d861db79bb1d55abd36e5b7d23e90be6cc4
@@ -444,4 +454,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-28T08:55:32.150813618Z"
+generated: "2023-02-28T09:26:24.401153959Z"
