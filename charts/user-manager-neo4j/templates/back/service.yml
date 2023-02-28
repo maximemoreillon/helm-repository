@@ -1,4 +1,4 @@
-{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
+{{ $fullName := include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:

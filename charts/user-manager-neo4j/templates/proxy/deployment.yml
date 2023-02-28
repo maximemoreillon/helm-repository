@@ -20,6 +20,6 @@ spec:
             - containerPort: 80
           env:
             - name: PROXY_API
-              value: http://{{ printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
+              value: http://{{ include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
             - name: PROXY_ROOT
               value: http://{{ printf "%s-gui" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}

@@ -1,5 +1,5 @@
 {{- if eq (include "user-manager.ingress.enabled" .) "true"}}
-{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
+{{ $fullName := include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

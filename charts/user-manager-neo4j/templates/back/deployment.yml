@@ -1,4 +1,4 @@
-{{ $fullName := printf "%s-back" (include "user-manager.prefix" .) | trunc 63 | trimSuffix "-" }}
+{{ $fullName := include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
 # Warning: hardcoded
 {{ $neo4jUrl := printf "bolt://%s-neo4j:7687" .Release.Name }}
 apiVersion: apps/v1

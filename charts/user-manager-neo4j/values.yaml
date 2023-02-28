@@ -12,7 +12,7 @@ neo4j:
 groups:
   enabled: true
   auth:
-    name: user-manager-neo4j-back
+    name: user-manager-neo4j
   neo4j:
     username: neo4j
     password: keyboardcat
