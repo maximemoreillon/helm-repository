@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ $fullName }}
-        image: moreillon/food-manager-front
+        image: moreillon/food-manager-front:852d6533
         ports:
         - containerPort: 80
         env:
