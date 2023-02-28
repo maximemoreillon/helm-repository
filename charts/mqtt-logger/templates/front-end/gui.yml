@@ -1,19 +1,20 @@
+{{ $fullName := printf "%s-gui" (include "mqtt-logger.fullName" .) | trunc 63 | trimSuffix "-" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}-front
+  name: {{$fullName}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}-front
+      app: {{$fullName}}
   template:
     metadata:
       labels:
-        app: {{.Values.name}}-front
+        app: {{$fullName}}
     spec:
       containers:
-        - name: {{.Values.name}}-front
+        - name: {{$fullName}}
           image: moreillon/mqtt-logger-front:50030b8b
           env:
             - name: VUE_APP_MQTT_LOGGER_API_URL
@@ -25,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-front
+  name: {{$fullName}}
 spec:
   type: ClusterIP
   selector:
-    app: {{.Values.name}}-front
+    app: {{$fullName}}
   ports:
     - port: 80

@@ -2,30 +2,30 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{.Values.name}}-mosquitto
+  name: {{ include "mosquitto.fullName" . }}
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: {{.Values.mosquitto.pvc }}
+      storage: {{.Values.mosquitto.persistence.size }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}-mosquitto
+  name: {{ include "mosquitto.fullName" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}-mosquitto
+      app: {{ include "mosquitto.fullName" . }}
   template:
     metadata:
       labels:
-        app: {{.Values.name}}-mosquitto
+        app: {{ include "mosquitto.fullName" . }}
     spec:
       containers:
-        - name: {{.Values.name}}-mosquitto
+        - name: {{ include "mosquitto.fullName" . }}
           image: eclipse-mosquitto
           ports:
             - containerPort: 1883 # MQTT
@@ -38,15 +38,15 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{.Values.name}}-mosquitto-config
+            name: {{ include "mosquitto.fullName" . }}
         - name: data
           persistentVolumeClaim:
-            claimName: {{.Values.name}}-mosquitto
+            claimName: {{ include "mosquitto.fullName" . }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{.Values.name}}-mosquitto-config
+  name: {{ include "mosquitto.fullName" . }}
 data:
   mosquitto.conf: |
 
@@ -56,6 +56,7 @@ data:
     log_dest stdout
 
     # Change this to enforce authentication
+    # TODO: have option to add authentication
     allow_anonymous true
 
     # Default listener for direct MQTT traffic
@@ -70,16 +71,16 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-mosquitto
+  name: {{ include "mosquitto.fullName" . }}
 spec:
   type: NodePort
   selector:
-    app: {{.Values.name}}-mosquitto
+    app: {{ include "mosquitto.fullName" . }}
   ports:
     - name: mqtt
       port: 1883
-      nodePort: {{.Values.mosquitto.nodePort.mqtt}}
+      nodePort: {{.Values.mosquitto.services.nodePorts.mqtt }}
     - name: ws
       port: 9001
-      nodePort: {{.Values.mosquitto.nodePort.ws}}
+      nodePort: {{.Values.mosquitto.services.nodePorts.ws }}
 {{- end }}

@@ -1,37 +1,47 @@
-# Default values for mqtt-logger.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+mqtt:
+  # url: mqtt://192.168.1.2:1883
+  username: externalmqttusername
+  password: externalmqtt
 
-name: mqtt-logger
+service:
+  nodePorts:
 
 backEnd:
   nodePort: 30400
   # TODO: allow user to configure their own InfluxDB and MongoDB
-  mqtt:
-    broker: mqtt://mosquitto:1883
-    #username: myUsername
-    #password: mypassword
 
 frontEnd:
   nodePort: 30401
 
+# TODO: use Bitnami Helm chart
 influxdb:
   enabled: true
-  username: admin
-  password: keyboardcat
-  token: 5Qlnkzp3kW6RDVMHlktMzDCQEG5CBGHf59J-5x5lK2g9BVCtoYdgrI9aqnYi5fNIB0EfJoUDQ0bWHkGqkr5qRA==
-  org: mqtt_logger
-  bucket: mqtt_logger
-  nodePort: 30402
-  pvc: 100Gi
+  auth:
+    admin:
+      username: admin
+      password: keyboardcat
+      token: 5Qlnkzp3kW6RDVMHlktMzDCQEG5CBGHf59J-5x5lK2g9BVCtoYdgrI9aqnYi5fNIB0EfJoUDQ0bWHkGqkr5qRA==
+      org: mqtt_logger
+      bucket: mqtt_logger
+  persistence:
+    size: 50Gi
 
-mongo:
-  pvc: 50Gi
+  # nodePort: 30402
+  # pvc: 100Gi
+
+mongodb:
+  enabled: true
+  persistence:
+    size: 10Gi
+  auth:
+    enabled: false
 
 # Integrated MQTT broker
 mosquitto:
-  enabled: true
-  pvc: 10Gi
-  nodePort:
-    mqtt: 30403
-    ws: 30404
+  enabled: false
+  persistence:
+    size: 10Gi
+  service:
+    nodePorts:
+      mqtt: 30403
+      ws: 30404
