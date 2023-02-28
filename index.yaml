@@ -96,6 +96,22 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.3/group-manager-0.1.3.tgz
     version: 0.1.3
+  mosquitto-user-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-28T22:50:28.542278796Z"
+    dependencies:
+    - alias: auth
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository/
+      version: 0.3.6
+    description: A Helm chart for Kubernetes
+    digest: 75ec72d4be9a486690c5d864b0fa880916b1133fde77c8a7b7667a2fc7fef546
+    name: mosquitto-user-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.2.0/mosquitto-user-manager-0.2.0.tgz
+    version: 0.2.0
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -295,4 +311,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-02-28T22:42:02.459266329Z"
+generated: "2023-02-28T22:50:28.542324196Z"
