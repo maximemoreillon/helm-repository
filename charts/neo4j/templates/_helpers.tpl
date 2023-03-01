@@ -1,7 +1,7 @@
 {{/*
 resource name
 */}}
-{{- define "neo4j.fullName" -}}
+{{- define "neo4j.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}

@@ -1,31 +1,30 @@
-{{ $fullName := include "neo4j.fullName" .}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $fullName }}
+  name: {{include "neo4j.fullname" .}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ $fullName }}
+      app: {{include "neo4j.fullname" .}}
   template:
     metadata:
       labels:
-        app: {{ $fullName }}
+        app: {{include "neo4j.fullname" .}}
     spec:
       volumes:
-      - name: {{ $fullName }}
-        persistentVolumeClaim:
-          claimName: {{ $fullName }}
+        - name: {{include "neo4j.fullname" .}}
+          persistentVolumeClaim:
+            claimName: {{include "neo4j.fullname" .}}
       containers:
-      - name: {{ $fullName }}
-        image: neo4j:4.4.16
-        envFrom:
-        - secretRef:
-            name: {{ $fullName }}
-        ports:
-        - containerPort: 7474 # Browser
-        - containerPort: 7687 # Bolt
-        volumeMounts:
-        - mountPath: /data
-          name: {{ $fullName }}
+        - name: {{include "neo4j.fullname" .}}
+          image: neo4j:4.4.16
+          envFrom:
+            - secretRef:
+                name: {{include "neo4j.fullname" .}}
+          ports:
+            - containerPort: 7474 # Browser
+            - containerPort: 7687 # Bolt
+          volumeMounts:
+            - mountPath: /data
+              name: {{include "neo4j.fullname" .}}
