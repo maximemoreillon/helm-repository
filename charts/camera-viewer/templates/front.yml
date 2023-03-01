@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}-front
+  name: {{include "camera-viewer.fullname" .}}-front
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}-front
+      app: {{include "camera-viewer.fullname" .}}-front
   template:
     metadata:
       labels:
-        app: {{.Values.name}}-front
+        app: {{include "camera-viewer.fullname" .}}-front
     spec:
       containers:
-        - name: {{.Values.name}}-front
+        - name: {{include "camera-viewer.fullname" .}}-front
           image: moreillon/camera-viewer
           env:
             - name: VUE_APP_API_URL
               value: /proxy/api
+            # TODO: optional auth
           ports:
             - containerPort: 80
 
@@ -25,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-front
+  name: {{include "camera-viewer.fullname" .}}-front
 spec:
   type: ClusterIP
   selector:
-    app: {{.Values.name}}-front
+    app: {{include "camera-viewer.fullname" .}}-front
   ports:
     - port: 80

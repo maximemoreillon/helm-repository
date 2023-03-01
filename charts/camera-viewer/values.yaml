@@ -1,9 +1,14 @@
-# Default values for camera-viewer.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-name: camera-viewer
+nameOverride: cam
 nodePort: 30880
 
-mongo:
-  pvc: 50Gi
+mongodb:
+  enabled: true
+  persistence:
+    size: 10Gi
+  auth:
+    enabled: false
+
+auth:
+  enabled: false
+  mongodb:
+    enabled: false

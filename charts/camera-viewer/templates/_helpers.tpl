@@ -1,7 +1,8 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "camera-viewer.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- define "camera-viewer.fullname" -}}
+	{{ $name := default .Chart.Name .Values.nameOverride }}
+	{{- printf "%s-%s" .Release.Name $name }}
 {{- end }}
 

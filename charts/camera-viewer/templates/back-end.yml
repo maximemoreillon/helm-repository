@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}-back
+  name: {{include "camera-viewer.fullname" .}}-back
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.name}}-back
+      app: {{include "camera-viewer.fullname" .}}-back
   template:
     metadata:
       labels:
-        app: {{.Values.name}}-back
+        app: {{include "camera-viewer.fullname" .}}-back
     spec:
       containers:
-        - name: {{.Values.name}}-back
+        - name: {{include "camera-viewer.fullname" .}}-back
           image: moreillon/camera-proxy
           env:
-            # MongoDB
             - name: MONGODB_URL
-              value: mongodb://{{.Values.name}}-mongo
+              value: mongodb://{{.Release.Name}}-mongodb
           ports:
             - containerPort: 80
 
@@ -26,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-back
+  name: {{include "camera-viewer.fullname" .}}-back
 spec:
   type: ClusterIP
   selector:
-    app: {{.Values.name}}-back
+    app: {{include "camera-viewer.fullname" .}}-back
   ports:
     - port: 80
 
