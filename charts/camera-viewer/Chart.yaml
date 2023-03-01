@@ -4,9 +4,11 @@ description: A Helm chart to deploy the camera-viewer aplication
 
 type: application
 
-version: 0.1.1
+version: 0.1.2
 
 appVersion: "1.16.0"
+
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
 
 dependencies:
   - name: user-manager-mongodb
