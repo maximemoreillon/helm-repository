@@ -3,6 +3,27 @@ entries:
   camera-viewer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-01T00:13:44.836134464Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy the camera-viewer aplication
+    digest: c005b73a1ce81e7598caee87dbb3e08a7f7ebe6e8b54b104f1ccc73140a346d4
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.1.2/camera-viewer-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-01T00:08:14.706569105Z"
     dependencies:
     - alias: auth
@@ -385,4 +406,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-01T00:08:14.891481245Z"
+generated: "2023-03-01T00:13:44.836179863Z"
