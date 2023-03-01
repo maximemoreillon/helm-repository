@@ -250,6 +250,16 @@ entries:
   neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-01T22:28:06.858941822Z"
+    description: A Helm chart to deploy Neo4j community edition v4.4
+    digest: 79b3fbea0bcfba9e26fecc9dba2bcfdcf502075db1af23de9277e8204f1c4758
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/neo4j-0.1.1/neo4j-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-27T22:58:52.152482235Z"
     description: A Helm chart to deploy Neo4j community edition v4.4
     digest: 22df560f99358a58949cc1cf5f20bce7afb2c1fc5ba62672f63483639932a395
@@ -406,4 +416,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-01T00:13:44.836179863Z"
+generated: "2023-03-01T22:28:06.859007623Z"
