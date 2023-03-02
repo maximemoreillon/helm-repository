@@ -13,7 +13,7 @@ backEnd:
 frontEnd:
   nodePort: 30401
 
-# TODO: use Bitnami Helm chart
+# InfluxDB helm chart from the Bitnami repo
 influxdb:
   enabled: true
   auth:
@@ -29,6 +29,7 @@ influxdb:
   # nodePort: 30402
   # pvc: 100Gi
 
+# MongoDB subchart from Bitnami repo
 mongodb:
   enabled: true
   persistence:

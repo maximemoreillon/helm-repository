@@ -1,27 +1,29 @@
 {{ $resourceName := "proxy" }}
-{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+{{ $fullname := printf "%s-%s" (include "user-manager.fullname" .) $resourceName | trunc 63 | trimSuffix "-" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullname }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ $fullName }}
+      app: {{ $fullname }}
   template:
     metadata:
       labels:
-        app: {{ $fullName }}
+        app: {{ $fullname }}
     spec:
       containers:
-      - name: {{ $fullName }}
-        image: moreillon/api-proxy
+      - name: {{ $fullname }}
+        image: moreillon/api-proxy:27b57877
         ports:
         - containerPort: 80
         env:
-        # FIXME: Might not match if truncated
+        - name: PATH_PREFIX
+          value: ""
+        # TODO: Might not match if truncated
         - name: PROXY_API
-          value: http://{{ include "user-manager.fullName" . }}-api
+          value: http://{{ include "user-manager.fullname" . }}-api
         - name: PROXY_ROOT
-          value: http://{{ include "user-manager.fullName" . }}-gui
+          value: http://{{ include "user-manager.fullname" . }}-gui

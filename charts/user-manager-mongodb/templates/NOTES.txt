@@ -1,17 +1,10 @@
 User-manager (MongoDB version)
+
 {{ $ingressEnabled := eq (include "user-manager.ingress.enabled" .) "true" }}
 {{- if $ingressEnabled -}}
-GUI available at {{ include "user-manager.ingress.host" . }}
-API available at api.{{ include "user-manager.ingress.host" . }}
+Ingress host: {{ include "user-manager.ingress.host" . }}
 {{- end -}}
 
-{{- if (.Values.nodePorts).gui }}
-GUI available on port {{ .Values.nodePorts.gui}}
-{{- end -}}
-
-{{- if (.Values.nodePorts).api }}
-API available on port {{ .Values.nodePorts.api}}
-{{- end -}}
 
 
 

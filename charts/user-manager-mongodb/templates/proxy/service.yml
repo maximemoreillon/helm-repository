@@ -1,20 +1,17 @@
 {{ $resourceName := "proxy" }}
-{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+{{ $fullname := printf "%s-%s" (include "user-manager.fullname" .) $resourceName | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullname }}
 spec:
   selector:
-    app: {{ $fullName }}
-{{- if (.Values.nodePorts).gui }}
-  type: NodePort
+    app: {{ $fullname }}
+  type: {{ default "ClusterIP" .Values.service.type }}
   ports:
   - port: 80
-    nodePort: {{ .Values.nodePorts.gui }}
-{{- else }}
-  type: ClusterIP
-  ports:
-  - port: 80
-{{- end }}
+    {{ if .Values.service.nodePort }}
+    nodePort: {{ .Values.service.nodePort }}
+    {{- end }}
+
 

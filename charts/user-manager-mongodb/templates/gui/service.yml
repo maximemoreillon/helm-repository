@@ -1,12 +1,12 @@
 {{ $resourceName := "gui" }}
-{{ $fullName := printf "%s-%s" (include "user-manager.fullName" .) $resourceName | trunc 63 | trimSuffix "-" }}
+{{ $fullname := printf "%s-%s" (include "user-manager.fullname" .) $resourceName | trunc 63 | trimSuffix "-" }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullname }}
 spec:
   type: ClusterIP
   selector:
-    app: {{ $fullName }}
+    app: {{ $fullname }}
   ports:
   - port: 80
