@@ -210,6 +210,25 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-02T01:38:18.156984478Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    description: A Helm chart for to deploy MQTT Logger
+    digest: 0e52597ac080d41b832c6ed78cde1ab6838f32505b868606b61afff1fc53cc97
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.2.1/mqtt-logger-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T22:42:02.309583169Z"
     dependencies:
     - condition: mongodb.enabled
@@ -269,6 +288,23 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/neo4j-0.1.0/neo4j-0.1.0.tgz
     version: 0.1.0
   user-manager-mongodb:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-02T01:38:18.33033269Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy the User management and authentication microservice
+      (MongoDB version)
+    digest: 15ae8e173fce2cdd762a73e731ecad1b0909e8202682d931bb098b0a0bedbdfa
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-mongodb
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.4.0/user-manager-mongodb-0.4.0.tgz
+    version: 0.4.0
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-02-28T22:42:02.459211328Z"
@@ -416,4 +452,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-01T22:28:06.859007623Z"
+generated: "2023-03-02T01:38:18.33039769Z"
