@@ -14,13 +14,13 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 0.2.3
+version: 0.2.4
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
 appVersion: 1.16.0
 
-icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
 
 dependencies:
   - name: neo4j
