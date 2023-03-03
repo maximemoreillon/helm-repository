@@ -76,6 +76,28 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-03T22:46:52.448464785Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 79044f3d7baf33ead5878fe808c40401791dd0e2f5edd71e719c97bc8522933b
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.8/food-manager-0.2.8.tgz
+    version: 0.2.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T23:05:11.713951554Z"
     dependencies:
     - alias: auth
@@ -141,6 +163,17 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.5/food-manager-0.2.5.tgz
     version: 0.2.5
   group-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T22:46:52.655966465Z"
+    description: A Helm chart for Kubernetes
+    digest: 8b00157f2dadad25966ec78436d48bc6ba8bf9da85385215b6b5a080614a35fb
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/group-manager/icon.png
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.8/group-manager-0.1.8.tgz
+    version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-02-28T09:41:21.011277029Z"
@@ -359,6 +392,28 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-03T22:46:52.853869649Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.0
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.7
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: d4b419ee661488276aa5f4f8edfc2ebe046d0bac10ed1e21b9e62d3aef5cc9bf
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.3.0/user-manager-neo4j-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-02T02:10:16.098144757Z"
     dependencies:
     - condition: neo4j.enabled
@@ -490,4 +545,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-02T02:10:16.098229256Z"
+generated: "2023-03-03T22:46:52.85395805Z"
