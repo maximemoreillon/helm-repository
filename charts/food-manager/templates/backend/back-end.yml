@@ -31,7 +31,7 @@ spec:
           image: moreillon/food-manager:f062718f
           env:
             - name: MONGODB_URL
-              value: {{ $mongodbUrl }}
+              value: {{ include "food-manager.mongodb.url" . }}
             {{- if .Values.auth.enabled }}
             - name: IDENTIFICATION_URL
               value: {{ printf "%s/users/self" (include "food-manager.auth.url" .) }}

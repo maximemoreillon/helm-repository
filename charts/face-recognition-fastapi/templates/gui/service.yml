@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "face-recognition.fullname" .}}-front
+spec:
+  selector:
+    app: {{ include "face-recognition.fullname" .}}-front
+  type: {{ default "ClusterIP" .Values.service.type }}
+  ports:
+  - port: 80
+    {{ if .Values.service.nodePort }}
+    nodePort: {{ .Values.service.nodePort }}
+    {{- end }}

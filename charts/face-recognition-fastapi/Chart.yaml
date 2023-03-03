@@ -1,9 +1,23 @@
 apiVersion: v2
 name: face-recognition-fastapi
-description: A Helm chart for Kubernetes
+description: A Helm chart for to deploy the Face-recognition API and its GUI
 
 type: application
 
-version: 0.1.5
+version: 0.2.0
 
 appVersion: 1.16.0
+
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+
+dependencies:
+  - name: user-manager-mongodb
+    version: 0.3.5
+    repository: https://maximemoreillon.github.io/helm-repository
+    condition: auth.enabled
+    alias: auth
+
+  - name: mongodb
+    version: 13.8.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: mongodb.enabled

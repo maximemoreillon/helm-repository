@@ -1,3 +1,1 @@
 Face recognition API
-Ports:
-- GUI {{ default 30041 .Values.nodePorts.gui}}

@@ -21,4 +21,4 @@ spec:
         - containerPort: 80
         env:
         - name: VUE_APP_USER_MANAGER_API_URL
-          value: /proxy/api
+          value: /api

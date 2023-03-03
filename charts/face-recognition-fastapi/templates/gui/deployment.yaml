@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "face-recognition.fullname" .}}-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "face-recognition.fullname" .}}-front
+  template:
+    metadata:
+      labels:
+        app: {{ include "face-recognition.fullname" .}}-front
+    spec:
+      containers:
+      - name: {{ include "face-recognition.fullname" .}}-front
+        image: moreillon/face-recognition-fastapi-front
+        ports:
+        - containerPort: 80
+        env:
+        - name: VUE_APP_API_URL
+          value: /proxy/api
+        - name: PROXY_API
+          value: http://{{ include "face-recognition.fullname" .}}
+

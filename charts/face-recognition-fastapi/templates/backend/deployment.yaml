@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{include "face-recognition.fullname" .}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{include "face-recognition.fullname" .}}
+  template:
+    metadata:
+      labels:
+        app: {{include "face-recognition.fullname" .}}
+    spec:
+      containers:
+        - name: {{include "face-recognition.fullname" .}}
+          image: moreillon/face-recognition-fastapi:x86
+          ports:
+            - containerPort: 80
+          env:
+            - name: MONGODB_URL
+              value: {{include "food-manager.mongodb.url" .}}
+          # - name: AUTHENTICATION_URL
+          #   value: https://api.authentication.maximemoreillon.com/whoami
+          volumeMounts:
+            - mountPath: /usr/src/app/uploads
+              name: {{include "face-recognition.fullname" .}}
+      volumes:
+        - name: {{include "face-recognition.fullname" .}}
+          persistentVolumeClaim: claimName:{{ include "face-recognition.fullname" .}}

@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: {{ $fullName }}
 spec:
+  selector:
+    app: {{ $fullName }}
   type: {{ default "ClusterIP" .Values.service.type }}
   ports:
   - port: 80
