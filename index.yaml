@@ -55,6 +55,27 @@ entries:
   face-recognition-fastapi:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-03T23:35:48.833001679Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for to deploy the Face-recognition API and its GUI
+    digest: 71cacd9caf3ffb77fcb89334e33f6c35ea676a27870ab019936121625db1138d
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition-fastapi
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.2.1/face-recognition-fastapi-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-03T23:07:33.594241931Z"
     dependencies:
     - alias: auth
@@ -95,6 +116,28 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.1.4/face-recognition-fastapi-0.1.4.tgz
     version: 0.1.4
   food-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T23:35:48.983001509Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 2864443b583a7a3f9bff105541cf360404c140f89ef75ba5f7afbd7710fb9f72
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.10/food-manager-0.2.10.tgz
+    version: 0.2.10
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-03-03T23:07:33.82761434Z"
@@ -284,6 +327,26 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.2.0/mosquitto-user-manager-0.2.0.tgz
     version: 0.2.0
   mqtt-logger:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T23:35:49.134084835Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    description: A Helm chart for to deploy MQTT Logger
+    digest: 43cdec2460e35b351e73aea611c18f9b1d314b8fa0df0a12e0a007bd96eb684c
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.2.2/mqtt-logger-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-03-02T01:38:18.156984478Z"
@@ -610,4 +673,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-03T23:07:34.043768444Z"
+generated: "2023-03-03T23:35:49.134162435Z"
