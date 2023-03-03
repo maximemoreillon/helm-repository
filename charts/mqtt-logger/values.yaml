@@ -4,14 +4,8 @@ mqtt:
   password: externalmqtt
 
 service:
-  nodePorts:
-
-backEnd:
-  nodePort: 30400
-  # TODO: allow user to configure their own InfluxDB and MongoDB
-
-frontEnd:
-  nodePort: 30401
+  type: NodePort
+  nodePort: 30080
 
 # InfluxDB helm chart from the Bitnami repo
 influxdb:

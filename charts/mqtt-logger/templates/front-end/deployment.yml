@@ -18,18 +18,8 @@ spec:
           image: moreillon/mqtt-logger-front:50030b8b
           env:
             - name: VUE_APP_MQTT_LOGGER_API_URL
-              value: /proxy/api
+              value: /api
           ports:
             - containerPort: 80
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{$fullName}}
-spec:
-  type: ClusterIP
-  selector:
-    app: {{$fullName}}
-  ports:
-    - port: 80
+-

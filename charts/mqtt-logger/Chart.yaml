@@ -4,9 +4,11 @@ description: A Helm chart for to deploy MQTT Logger
 
 type: application
 
-version: 0.2.1
+version: 0.2.2
 
 appVersion: "1.16.0"
+
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
 
 dependencies:
   - name: mongodb
@@ -14,7 +16,7 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
 
-  # NOTE: The official Influxdata helm chart is for InfluxDB v1.8
+  # NOTE: The official Influxdata helm chart seems to be for v1.8.x
   - name: influxdb
     version: 5.4.16
     repository: https://charts.bitnami.com/bitnami

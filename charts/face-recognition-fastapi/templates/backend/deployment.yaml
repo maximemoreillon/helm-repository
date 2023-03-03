@@ -20,12 +20,11 @@ spec:
             - containerPort: 80
           env:
             - name: MONGODB_URL
-              value: {{include "food-manager.mongodb.url" .}}
-          # - name: AUTHENTICATION_URL
-          #   value: https://api.authentication.maximemoreillon.com/whoami
+              value: {{include "face-recognition.mongodb.url" .}}
           volumeMounts:
             - mountPath: /usr/src/app/uploads
               name: {{include "face-recognition.fullname" .}}
       volumes:
         - name: {{include "face-recognition.fullname" .}}
-          persistentVolumeClaim: claimName:{{ include "face-recognition.fullname" .}}
+          persistentVolumeClaim:
+            claimName: {{include "face-recognition.fullname" .}}

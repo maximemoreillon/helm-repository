@@ -3,6 +3,10 @@ nameOverride: face-recognition
 persistence:
   size: 100Gi
 
+service:
+  type: NodePort
+  nodePort: 30080
+
 mongodb:
   enabled: true
   persistence:
@@ -14,3 +18,5 @@ auth:
   enabled: false
   mongodb:
     enabled: false
+    # Dummy password to facilitate upgrades
+    rootPassword: banana
