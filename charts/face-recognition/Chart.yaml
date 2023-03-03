@@ -1,10 +1,10 @@
 apiVersion: v2
-name: face-recognition-fastapi
+name: face-recognition
 description: A Helm chart for to deploy the Face-recognition API and its GUI
 
 type: application
 
-version: 0.2.1
+version: 0.2.2
 
 appVersion: 1.16.0
 
