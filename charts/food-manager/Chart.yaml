@@ -4,11 +4,11 @@ description: A Helm chart to deploy Food-manager, a calorie and macro tracking a
 
 type: application
 
-version: 0.2.7
+version: 0.2.8
 
 appVersion: "1.16.0"
 
-icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
 
 dependencies:
   - name: user-manager-mongodb
