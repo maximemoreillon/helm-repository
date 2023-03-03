@@ -52,6 +52,28 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.1.0/camera-viewer-0.1.0.tgz
     version: 0.1.0
+  face-recognition:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T23:40:07.411142722Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for to deploy the Face-recognition API and its GUI
+    digest: 19fe80f0ec15d0c46f260031921f0e120ddb11ec0e96020ec9fa07f95f497e48
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.2/face-recognition-0.2.2.tgz
+    version: 0.2.2
   face-recognition-fastapi:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -673,4 +695,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-03T23:35:49.134162435Z"
+generated: "2023-03-03T23:40:07.411224622Z"
