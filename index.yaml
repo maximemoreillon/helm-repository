@@ -55,6 +55,27 @@ entries:
   face-recognition-fastapi:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-03T23:07:33.594241931Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for to deploy the Face-recognition API and its GUI
+    digest: b17810caf58f15475ae71033eefce634cab1126cdd9f12b10214b6f7d4f45efe
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition-fastapi
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.2.0/face-recognition-fastapi-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-01T00:08:14.891230535Z"
     description: A Helm chart for Kubernetes
     digest: 9a1c24a300a4c0f440dcf950b7dc1e694ed49d9ac38c3ee6427d103af6c783e9
@@ -74,6 +95,28 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-fastapi-0.1.4/face-recognition-fastapi-0.1.4.tgz
     version: 0.1.4
   food-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-03T23:07:33.82761434Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: ffbe4b6951077947adfda18c232e7c07eaba9e1a9d488d733539e18ce3208840
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.9/food-manager-0.2.9.tgz
+    version: 0.2.9
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-03-03T22:46:52.448464785Z"
@@ -392,6 +435,28 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-03T23:07:34.043474142Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.0
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.7
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: d611df3426f96c4331489c335174128e7fbe4a6166bcf2b83fc57bf414eb0c09
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.3.1/user-manager-neo4j-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-03T22:46:52.853869649Z"
     dependencies:
     - condition: neo4j.enabled
@@ -545,4 +610,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-03T22:46:52.85395805Z"
+generated: "2023-03-03T23:07:34.043768444Z"
