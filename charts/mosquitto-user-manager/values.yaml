@@ -9,9 +9,6 @@ mosquitto:
     mqtts: 30883
     mqtt: 30885
 
-ingress:
-  enabled: true
-
 auth:
   ingress:
     subdomain: users
