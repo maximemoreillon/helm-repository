@@ -582,4 +582,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-  generated: "2023-03-04T02:53:45.592456708Z"
+generated: "2023-03-04T02:53:45.592456708Z"
