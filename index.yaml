@@ -582,4 +582,59 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-04T02:23:23.058643369Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.0
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.7
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: 1ae0651abaa828136a148c050b977d406906e1bc1d9218a85665c412ad27bbc8
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.3.2/user-manager-neo4j-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-27T22:58:52.379034029Z"
+    description: A Helm chart for Kubernetes
+    digest: c55ec46905f8948877b36f5ea1edb8de7ccadf940a2a682cc5dabec3c3b7ae7f
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.14/user-manager-neo4j-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T06:33:54.982355761Z"
+    description: A Helm chart for Kubernetes
+    digest: 87d2c13842b5690d5563e48aa66b9589b0871870bcb4817416834beeafb8f1a6
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.13/user-manager-neo4j-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-20T04:55:51.503251622Z"
+    description: A Helm chart for Kubernetes
+    digest: b3fd6deafd60df38a64f1e367fa40d216143430c6a3eb497094d2b11dd194a50
+    icon: https://cdn.maximemoreillon.com/logo/thick/logo.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
+    version: 0.1.12
 generated: "2023-03-04T02:53:45.592456708Z"
