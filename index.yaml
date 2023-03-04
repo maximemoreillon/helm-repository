@@ -288,6 +288,26 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-04T00:12:53.823839703Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    description: A Helm chart for to deploy MQTT Logger
+    digest: 6896ab7fcf31faa55e26aee588439b4929fa88e70ec80267dab9568e46fccce1
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.2.3/mqtt-logger-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-03T23:35:49.134084835Z"
     dependencies:
     - condition: mongodb.enabled
@@ -644,4 +664,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-03T23:45:27.639828431Z"
+generated: "2023-03-04T00:12:53.824051305Z"
