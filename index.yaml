@@ -348,6 +348,23 @@ entries:
   mosquitto-user-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-04T03:36:41.722041177Z"
+    dependencies:
+    - alias: auth
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository/
+      version: 0.3.6
+    description: A Helm chart to deploy Mosquitto with a web based user management
+      system
+    digest: b02b133104cf73bf40fb14fa8f1cab5cbdca61969890cec93a546a3d61260a7d
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mosquitto-user-manager/icon.png
+    name: mosquitto-user-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.2.1/mosquitto-user-manager-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-28T22:50:28.542278796Z"
     dependencies:
     - alias: auth
@@ -593,4 +610,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-03-04T03:22:38.172105703Z"
+generated: "2023-03-04T03:36:41.722370176Z"
