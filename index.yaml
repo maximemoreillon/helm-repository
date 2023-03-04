@@ -3,6 +3,27 @@ entries:
   camera-viewer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-04T02:53:44.923915535Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy the camera-viewer aplication
+    digest: 0515363e466f8dd91bf034f4aa0ed85a52785732fddd0c418017aa165c179604
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.1.3/camera-viewer-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-01T00:13:44.836134464Z"
     dependencies:
     - alias: auth
@@ -55,6 +76,27 @@ entries:
   face-recognition:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-04T02:53:45.140421283Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for to deploy the Face-recognition API and its GUI
+    digest: 5197aedafe5425d475423b690968990ea08d56c7d222c6ddcb314f2f20a1890c
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.3/face-recognition-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-03T23:40:07.411142722Z"
     dependencies:
     - alias: auth
@@ -75,6 +117,28 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.2/face-recognition-0.2.2.tgz
     version: 0.2.2
   food-manager:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-04T02:53:45.382714204Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 820d79899a5636676c1f68d11dd50686bf4e62ac5aba410d282b1701822588f3
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.2.11/food-manager-0.2.11.tgz
+    version: 0.2.11
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-03-03T23:35:48.983001509Z"
@@ -518,6 +582,29 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-04T02:53:45.591981904Z"
+    dependencies:
+    - alias: neo4j
+      condition: neo4j.enabled
+      name: neo4j-standalone
+      repository: https://neo4j.github.io/helm-charts/
+      version: 4.4.17
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.1.7
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: aebefcd8733519a8ad3a34da90118f0cf984fb17c29304612cf0f922e39ffccd
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T02:23:23.058643369Z"
     dependencies:
     - condition: neo4j.enabled
@@ -715,4 +802,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.1.12/user-manager-neo4j-0.1.12.tgz
     version: 0.1.12
-generated: "2023-03-04T02:23:23.05877607Z"
+generated: "2023-03-04T02:53:45.592456708Z"
