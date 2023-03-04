@@ -1,6 +1,6 @@
 {{ $fullName := include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
 # Warning: hardcoded
-{{ $neo4jUrl := printf "bolt://%s-neo4j:7687" .Release.Name }}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ $fullName }}
-        image: moreillon/user-manager
+        image: moreillon/user-manager:284c935b
         ports:
         - containerPort: 80
         envFrom:
@@ -25,4 +25,4 @@ spec:
            name: {{ $fullName }}
         env:
         - name: NEO4J_URL
-          value: {{ $neo4jUrl }}
+          value: {{ include "user-manager.neo4j.url" . }}

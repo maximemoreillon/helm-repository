@@ -1,11 +1,22 @@
 nameOverride: user-manager
 
+# Old
+# neo4j:
+#   enabled: true
+#   username: neo4j
+#   password: keyboardcat
+#   persistence:
+#     size: 100Gi
+
 neo4j:
   enabled: true
-  username: neo4j
-  password: keyboardcat
-  persistence:
-    size: 100Gi
+  nameOverride: db
+  neo4j:
+    password: keyboardcat
+    acceptLicenseAgreement: "yes"
+  volumes:
+    data:
+      mode: "defaultStorageClass"
 
 groups:
   enabled: false
