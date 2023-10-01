@@ -4,6 +4,6 @@ dependencies:
   version: 5.12.0
 - name: group-manager
   repository: https://maximemoreillon.github.io/helm-repository
-  version: 0.1.9
-digest: sha256:4ae5a0015488ec9b1da8bd94b1ff07b4255a39156b51fb38912f0a972869e42b
-generated: "2023-10-01T09:33:51.410611768+09:00"
+  version: 0.2.0
+digest: sha256:e9f5a37b30b1f31ab137fe8f8d0bb637c605e92a31e503371925a55e6aa1b2f3
+generated: "2023-10-01T09:45:30.030696506+09:00"
