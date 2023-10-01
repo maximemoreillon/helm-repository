@@ -1,9 +1,9 @@
 dependencies:
-- name: neo4j-standalone
-  repository: https://neo4j.github.io/helm-charts/
-  version: 4.4.17
+- name: neo4j
+  repository: https://helm.neo4j.com/neo4j
+  version: 5.12.0
 - name: group-manager
   repository: https://maximemoreillon.github.io/helm-repository
-  version: 0.1.7
-digest: sha256:cbb457d7cec262ca543fcb6e5a65868584fda72f824aaf1f966ea61479698b0a
-generated: "2023-03-04T11:29:28.730799002+09:00"
+  version: 0.1.9
+digest: sha256:4ae5a0015488ec9b1da8bd94b1ff07b4255a39156b51fb38912f0a972869e42b
+generated: "2023-10-01T09:33:51.410611768+09:00"

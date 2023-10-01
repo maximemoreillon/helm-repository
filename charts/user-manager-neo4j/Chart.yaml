@@ -15,7 +15,7 @@ dependencies:
     alias: neo4j
 
   - name: group-manager
-    version: 0.2.0
+    version: 0.1.9
     repository: https://maximemoreillon.github.io/helm-repository
     condition: groups.enabled
     alias: groups
