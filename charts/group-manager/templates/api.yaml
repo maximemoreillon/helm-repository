@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: {{ include "group-manager.prefix" . }}-api
-        image: moreillon/group-manager
+        image: moreillon/group-manager:v4.9.0
         ports:
         - containerPort: 80
         env:
@@ -25,7 +25,7 @@ spec:
         - name: NEO4J_PASSWORD
           value: {{ .Values.neo4j.password }}
         - name: IDENTIFICATION_URL
-          value: {{ include "group-manager.auth.url" . }}/v2/users/self
+          value: {{ include "group-manager.auth.url" . }}/users/self
 ---
 apiVersion: v1
 kind: Service

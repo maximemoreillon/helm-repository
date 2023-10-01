@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ $fullName }}
-        image: moreillon/user-manager-front
+        image: moreillon/user-manager-front:v3.0.5
         ports:
         - containerPort: 80
         env:

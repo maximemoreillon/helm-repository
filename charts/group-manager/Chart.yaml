@@ -4,8 +4,8 @@ description: A Helm chart to deploy Group-manager, a microservice to manage user
 
 type: application
 
-version: 0.1.9
+version: 0.2.0
 
-appVersion: "1.16.0"
+appVersion: 1.16.0
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/group-manager/icon.png

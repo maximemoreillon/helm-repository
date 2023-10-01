@@ -14,16 +14,16 @@ spec:
     spec:
       containers:
       - name: {{ include "group-manager.prefix" . }}-gui
-        image: moreillon/group-manager-front
+        image: moreillon/group-manager-front:v3.2.5
         ports:
         - containerPort: 80
         env:
         - name: VUE_APP_GROUP_MANAGER_API_URL
           value: /proxy/api
         - name: VUE_APP_LOGIN_URL
-          value: /proxy/auth/v2/auth/login
+          value: /proxy/auth/auth/login
         - name: VUE_APP_IDENTIFICATION_URL
-          value: /proxy/auth/v2/users/self
+          value: /proxy/auth/users/self
 ---
 apiVersion: v1
 kind: Service
