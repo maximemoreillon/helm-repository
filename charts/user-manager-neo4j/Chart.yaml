@@ -8,14 +8,14 @@ appVersion: 1.16.0
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
 
 dependencies:
-  - name: neo4j-standalone
+  - name: neo4j
     version: 5.12.0
-    repository: https://neo4j.github.io/helm-charts/
+    repository: https://helm.neo4j.com/neo4j
     condition: neo4j.enabled
     alias: neo4j
 
   - name: group-manager
-    version: 0.1.7
+    version: 0.2.0
     repository: https://maximemoreillon.github.io/helm-repository
     condition: groups.enabled
     alias: groups

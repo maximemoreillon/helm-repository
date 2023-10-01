@@ -8,7 +8,7 @@ neo4j:
     acceptLicenseAgreement: "yes"
   volumes:
     data:
-      mode: "defaultStorageClass"
+      mode: defaultStorageClass
 
 groups:
   enabled: false
