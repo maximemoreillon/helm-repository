@@ -8,6 +8,12 @@ service:
   type: NodePort
   nodePort: 30080
 
+api:
+  image: moreillon/user-manager-mongoose:cbd2852c
+
+gui:
+  image: moreillon/user-manager-front:11d500e9
+
 ingress:
   enabled: false
   host: auth.example.com

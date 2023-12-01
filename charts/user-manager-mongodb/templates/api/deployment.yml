@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ $fullname }}
-        image: moreillon/user-manager-mongoose:cbd2852c
+        image: {{ .Values.api.image }}
         ports:
         - containerPort: 80
         env:
