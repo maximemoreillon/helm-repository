@@ -2,7 +2,7 @@ apiVersion: v2
 name: user-manager-neo4j
 description: A Helm chart to deploy the user management and authentication microservice (Neo4J version)
 type: application
-version: 0.6.1
+version: 0.6.2
 appVersion: 1.16.0
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png

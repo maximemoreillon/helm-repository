@@ -1,9 +1,11 @@
+# TODO: consider having this under api
 auth:
   jwt_secret: keyboardcat
   admin:
     username: admin
     password: admin
 
+# TODO: consider having this under gateway / proxy
 service:
   type: NodePort
   nodePort: 30080

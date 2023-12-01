@@ -28,6 +28,12 @@ service:
   type: NodePort
   nodePort: 30080
 
+api:
+  image: moreillon/user-manager:v4.5.3
+
+gui:
+  image: moreillon/user-manager-front:v3.0.5
+
 ingress:
   enabled: false
   # host: users.example.com
