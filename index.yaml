@@ -515,6 +515,23 @@ entries:
   user-manager-mongodb:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-12-01T23:11:32.259058888Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart to deploy the User management and authentication microservice
+      (MongoDB version)
+    digest: 98e31b3b67b83c3a390d7f7f28e4cfb0df9be101137dc444177c1c5f884f646f
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png
+    name: user-manager-mongodb
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.4.3/user-manager-mongodb-0.4.3.tgz
+    version: 0.4.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T02:23:22.898626882Z"
     dependencies:
     - condition: mongodb.enabled
@@ -691,4 +708,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-10-01T00:46:16.323820962Z"
+generated: "2023-12-01T23:11:32.259132085Z"
