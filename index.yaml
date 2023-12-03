@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  api-proxy:
+  - apiVersion: v2
+    appVersion: 2373c195
+    created: "2023-12-03T00:12:04.735943395Z"
+    description: A Helm chart for Kubernetes
+    digest: 1b2e74e1514fef6c61fd892256253b2aa72993ea4a1ad67ab1d3882e953157c8
+    name: api-proxy
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/api-proxy-0.1.1/api-proxy-0.1.1.tgz
+    version: 0.1.1
   camera-viewer:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -725,4 +736,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-12-02T08:14:16.709571205Z"
+generated: "2023-12-03T00:12:04.736057527Z"
