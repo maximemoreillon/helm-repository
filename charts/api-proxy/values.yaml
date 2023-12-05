@@ -16,7 +16,10 @@ fullnameOverride: ""
 
 env:
   - name: PROXY_ROOT
-    value: http://192.168.1.2:30300
+    value: http://localhost:80
+
+envFrom: []
+
 
 podAnnotations: {}
 
