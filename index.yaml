@@ -3,6 +3,17 @@ entries:
   api-proxy:
   - apiVersion: v2
     appVersion: 2373c195
+    created: "2023-12-05T22:03:32.570259288Z"
+    description: A Helm chart for Kubernetes
+    digest: 794e24f94fa79708f16dbcf97d6a598fc4bdfd630854987098dc8afe8ad74d11
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/api-proxy/icon.png
+    name: api-proxy
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/api-proxy-0.1.4/api-proxy-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 2373c195
     created: "2023-12-03T00:51:56.266942441Z"
     description: A Helm chart for Kubernetes
     digest: f36bf11fde0b387db53b4ca48ad51ffbf4dd8aa31f3388ccb6f9e725206a7f0f
@@ -758,4 +769,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-12-03T00:51:56.267035074Z"
+generated: "2023-12-05T22:03:32.570344947Z"
