@@ -2,6 +2,6 @@ apiVersion: v2
 name: shcp
 description: A Helm chart for deploy SHCP
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "1.16.0"
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/shcp/icon.png
