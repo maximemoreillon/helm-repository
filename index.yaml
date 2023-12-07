@@ -536,6 +536,17 @@ entries:
   shcp:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-12-07T04:06:10.888292938Z"
+    description: A Helm chart for deploy SHCP
+    digest: e69e5db6d0ce05097ed2f6d3b9547d629e512a57e81a1d657ebe63d7e94105a8
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/shcp/icon.png
+    name: shcp
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/shcp-0.1.2/shcp-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T03:22:38.172056902Z"
     description: A Helm chart for deploy SHCP
     digest: 6562be029473eeafdbbc4241f09f4e8c8e094621605b1f5e118f17331340b440
@@ -769,4 +780,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-12-05T22:03:32.570344947Z"
+generated: "2023-12-07T04:06:10.888396342Z"
