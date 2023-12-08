@@ -11,10 +11,10 @@ service:
   nodePort: 30080
 
 api:
-  image: moreillon/user-manager-mongoose:cbd2852c
+  image: moreillon/user-manager-mongoose:v4.8.2
 
 gui:
-  image: moreillon/user-manager-front:11d500e9
+  image: moreillon/user-manager-front:v3.0.5
 
 ingress:
   enabled: false
@@ -30,5 +30,3 @@ mongodb:
     size: 100Gi
   auth:
     enabled: false
-    # Dummy password to facilitate upgrades
-    rootPassword: banana

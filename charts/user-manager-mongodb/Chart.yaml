@@ -2,13 +2,13 @@ apiVersion: v2
 name: user-manager-mongodb
 description: A Helm chart to deploy the User management and authentication microservice (MongoDB version)
 type: application
-version: 0.4.4
-appVersion: 1.16.0
+version: 0.4.5
+appVersion: "v4.8.2"
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png
 
 dependencies:
   - name: mongodb
-    version: 13.8.1
+    version: 13.18.5
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
