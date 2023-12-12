@@ -29,10 +29,10 @@ service:
   nodePort: 30080
 
 api:
-  image: moreillon/user-manager:v4.5.3
+  image: moreillon/user-manager:v5.0.2
 
 gui:
-  image: moreillon/user-manager-front:v3.0.5
+  image: moreillon/user-manager-front:v5.0.3
 
 ingress:
   enabled: false
