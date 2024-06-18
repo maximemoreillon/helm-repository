@@ -5,5 +5,8 @@ dependencies:
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 13.18.5
-digest: sha256:a4cae7bf2506732480deb0bde1fe5d49be7b3ac550afa94398d1777cda39bbd1
-generated: "2023-12-08T13:14:21.61237322+09:00"
+- name: kong
+  repository: https://charts.konghq.com
+  version: 2.39.2
+digest: sha256:56d0453f8be4b2b4c855d67f40b45757bd18f7dd884097e14de256fe69f4eca8
+generated: "2024-06-18T15:31:13.506343979+09:00"

@@ -22,14 +22,14 @@ spec:
         - containerPort: 80
         env:
         - name: VUE_APP_FOOD_MANAGER_API_URL
-          value: /proxy/api
+          value: /api
         - name: PROXY_API
           value: http://{{ $apiFullName  }}
         {{- if .Values.auth.enabled }}
         - name: VUE_APP_LOGIN_URL
-          value: /proxy/auth/auth/login
+          value: /auth/auth/login
         - name: VUE_APP_IDENTIFICATION_URL
-          value: /proxy/auth/users/self
+          value: /auth/users/self
         - name: PROXY_AUTH
           value:  {{ include "food-manager.auth.url" . }}
         {{- end }}

@@ -1,15 +1,3 @@
-global:
-  ingress:
-    enabled: false
-    host: food.test.home.maximemoreillon.com
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-
-service:
-  type: NodePort
-  nodePort: 30400
-
 mongodb:
   enabled: true
   persistence:
@@ -18,10 +6,26 @@ mongodb:
     enabled: false
 
 auth:
-  enabled: true
+  enabled: false
   mongodb:
     enabled: false
   ingress:
     subdomain: auth
   nodePorts:
     gui: 30401
+
+kong:
+  enabled: true
+  admin:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  ingressController:
+    enabled: false
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
