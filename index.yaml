@@ -163,6 +163,32 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-18T07:59:03.052843807Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 728619f6e1502a79d0dd9aedfc34638ba27d9b7e32fd805460b587d7c0f54ab6
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.3.0/food-manager-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-12-08T04:41:47.520918016Z"
     dependencies:
     - alias: auth
@@ -592,6 +618,27 @@ entries:
   user-manager-mongodb:
   - apiVersion: v2
     appVersion: v5.0.1
+    created: "2024-06-18T07:59:03.210470527Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the User management and authentication microservice
+      (MongoDB version)
+    digest: 07c1f756f036ce55e9f285a7a7a8913a6d373bf3b63c49ffd4d306a295744d68
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png
+    name: user-manager-mongodb
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.6.0/user-manager-mongodb-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v2
+    appVersion: v5.0.1
     created: "2023-12-12T20:38:40.679701897Z"
     dependencies:
     - condition: mongodb.enabled
@@ -876,4 +923,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2023-12-12T20:38:40.849852934Z"
+generated: "2024-06-18T07:59:03.210610017Z"
