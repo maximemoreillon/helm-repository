@@ -22,9 +22,7 @@ spec:
         env:
         - name: MONGODB_URL
           value: {{ include "user-manager.mongodb.url" . }}
-        - name: JWT_SECRET
-          value: {{ .Values.auth.jwt_secret }}
-        - name: ADMIN_USERNAME
-          value: {{ .Values.auth.admin.username }}
-        - name: ADMIN_PASSWORD
-          value: {{ .Values.auth.admin.password }}
+        envFrom:
+        - secretRef:
+            name: {{ $fullname }}
+

@@ -1,27 +1,13 @@
-# TODO: consider having this under api
-auth:
+api:
+  image: moreillon/user-manager-mongoose:v5.0.1
   jwt_secret: keyboardcat
   admin:
     username: admin
     password: admin
 
-# TODO: consider having this under gateway / proxy
-service:
-  type: NodePort
-  nodePort: 30080
-
-api:
-  image: moreillon/user-manager-mongoose:v5.0.1
-
 gui:
   image: moreillon/user-manager-front:v5.0.3
 
-ingress:
-  enabled: false
-  host: auth.example.com
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 # Bitnami MongoDB subchart
 mongodb:
@@ -30,3 +16,20 @@ mongodb:
     size: 100Gi
   auth:
     enabled: false
+
+# API Gateway
+kong:
+  enabled: true
+  admin:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  ingressController:
+    enabled: false
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
