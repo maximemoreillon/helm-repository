@@ -2,20 +2,24 @@ apiVersion: v2
 name: user-manager-neo4j
 description: A Helm chart to deploy the user management and authentication microservice (Neo4J version)
 type: application
-version: 0.7.0
+version: 0.8.0
 appVersion: "v5.0.2"
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
 
 dependencies:
   - name: neo4j
-    version: 5.12.0
+    version: 5.20.0
     repository: https://helm.neo4j.com/neo4j
     condition: neo4j.enabled
-    alias: neo4j
 
-  - name: group-manager
-    version: 0.2.0
-    repository: https://maximemoreillon.github.io/helm-repository
-    condition: groups.enabled
-    alias: groups
+  # - name: group-manager
+  #   version: 0.2.0
+  #   repository: https://maximemoreillon.github.io/helm-repository
+  #   condition: groups.enabled
+  #   alias: groups
+
+  - name: kong
+    version: 2.39.2
+    repository: https://charts.konghq.com
+    condition: kong.enabled

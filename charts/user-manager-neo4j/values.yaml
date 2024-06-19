@@ -1,32 +1,10 @@
 nameOverride: user-manager
 
-neo4j:
-  enabled: true
-  nameOverride: db
-  neo4j:
-    password: keyboardcat
-    acceptLicenseAgreement: "yes"
-  volumes:
-    data:
-      mode: defaultStorageClass
-
-groups:
-  enabled: false
-  auth:
-    name: user-manager-neo4j
-  neo4j:
-    username: neo4j
-    password: keyboardcat
-
 auth:
   jwt_secret: keyboardcat
   admin:
     username: admin
     password: admin
-
-service:
-  type: NodePort
-  nodePort: 30080
 
 api:
   image: moreillon/user-manager:v5.0.2
@@ -34,9 +12,46 @@ api:
 gui:
   image: moreillon/user-manager-front:v5.0.3
 
-ingress:
-  enabled: false
-  # host: users.example.com
-  # annotations:
-  #   kubernetes.io/ingress.class: nginx
-  #   cert-manager.io/cluster-issuer: letsencrypt-prod
+
+neo4j:
+  enabled: true
+  nameOverride: neo4j
+  neo4j:
+    name: neo4j
+    password: keyboardcat
+    acceptLicenseAgreement: "yes"
+  volumes:
+    data:
+      mode: defaultStorageClass
+
+# groups:
+#   enabled: false
+#   auth:
+#     name: user-manager-neo4j
+#   neo4j:
+#     username: neo4j
+#     password: keyboardcat
+
+
+
+
+# API Gateway
+kong:
+  enabled: true
+  admin:
+    enabled: false # Do not create a service for the admin API
+  manager:
+    enabled: false # Do not create a service for Kong Manager
+  ingressController:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
+    tls:
+      enabled: false

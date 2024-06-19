@@ -1,10 +1,2 @@
 User manager (Neo4J version)
 
-{{ $ingressEnabled := eq (include "user-manager.ingress.enabled" .) "true" }}
-{{- if $ingressEnabled -}}
-Ingress host: {{ include "user-manager.ingress.host" . }}
-{{- end -}}
-
-{{- if eq .Values.service.type "NodePort" -}}
-NodePort: {{ .Values.service.nodePort }}
-{{- end -}}
