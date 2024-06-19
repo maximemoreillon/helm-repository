@@ -2,7 +2,7 @@ apiVersion: v2
 name: user-manager-mongodb
 description: A Helm chart to deploy the User management and authentication microservice (MongoDB version)
 type: application
-version: 0.6.0
+version: 0.6.1
 appVersion: "v5.0.1"
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png

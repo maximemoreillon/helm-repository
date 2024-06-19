@@ -21,15 +21,19 @@ mongodb:
 kong:
   enabled: true
   admin:
+    enabled: false # Do not create a service for the admin API
+  manager:
+    enabled: false # Do not create a service for Kong Manager
+  ingressController:
     enabled: false
   env:
     database: "off"
     dns_order: A,CNAME,LAST,SRV
   dblessConfig:
     configMap: kong-config
-  ingressController:
-    enabled: false
   proxy:
     type: NodePort
     http:
       nodePort: 31081
+    tls:
+      enabled: false
