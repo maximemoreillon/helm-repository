@@ -163,6 +163,32 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-19T23:18:06.300058287Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 77956e60828a5c763d96ba6bfbf01d25773362d18cd9a12da7670802605e41fa
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.3.1/food-manager-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-06-18T07:59:03.052843807Z"
     dependencies:
     - alias: auth
@@ -944,4 +970,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2024-06-19T23:17:26.330834772Z"
+generated: "2024-06-19T23:18:06.300150439Z"
