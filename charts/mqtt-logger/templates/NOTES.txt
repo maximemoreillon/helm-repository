@@ -1,5 +1,2 @@
 MQTT Logger
 
-{{- if eq .Values.service.type "NodePort" -}}
-NodePort: {{ .Values.service.nodePort }}
-{{- end -}}

@@ -3,10 +3,6 @@ mqtt:
   username: externalmqttusername
   password: externalmqtt
 
-service:
-  type: NodePort
-  nodePort: 30080
-
 # InfluxDB helm chart from the Bitnami repo
 influxdb:
   enabled: true
@@ -40,3 +36,24 @@ mosquitto:
     nodePorts:
       mqtt: 30403
       ws: 30404
+
+# API Gateway
+kong:
+  enabled: true
+  admin:
+    enabled: false # Do not create a service for the admin API
+  manager:
+    enabled: false # Do not create a service for Kong Manager
+  ingressController:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
+    tls:
+      enabled: false
