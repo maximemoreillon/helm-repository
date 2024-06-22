@@ -16,8 +16,8 @@ spec:
         - name: {{include "camera-viewer.fullname" .}}-back
           image: moreillon/camera-proxy
           env:
-            - name: MONGODB_URL
-              value: mongodb://{{.Release.Name}}-mongodb
+            - name: MONGODB_HOST
+              value: {{.Release.Name}}-mongodb
           ports:
             - containerPort: 80
 

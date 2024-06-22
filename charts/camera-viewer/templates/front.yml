@@ -17,7 +17,7 @@ spec:
           image: moreillon/camera-viewer
           env:
             - name: VUE_APP_API_URL
-              value: /proxy/api
+              value: /api
             # TODO: optional auth
           ports:
             - containerPort: 80

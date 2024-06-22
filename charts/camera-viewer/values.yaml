@@ -1,5 +1,4 @@
 nameOverride: cam
-nodePort: 30880
 
 mongodb:
   enabled: true
@@ -7,8 +6,30 @@ mongodb:
     size: 10Gi
   auth:
     enabled: false
+    rootPassword: shoouldnotbeneeded
 
 auth:
   enabled: false
   mongodb:
     enabled: false
+
+# API Gateway
+kong:
+  enabled: true
+  admin:
+    enabled: false # Do not create a service for the admin API
+  manager:
+    enabled: false # Do not create a service for Kong Manager
+  ingressController:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
+    tls:
+      enabled: false
