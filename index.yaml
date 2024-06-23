@@ -47,6 +47,31 @@ entries:
   camera-viewer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-23T00:00:17.375357651Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the camera-viewer aplication
+    digest: 0a235f4859ce3f458caf4dabf06922f77d9b8fd5e1bfe164d6cf800b34516c9c
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.2.0/camera-viewer-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T02:53:44.923915535Z"
     dependencies:
     - alias: auth
@@ -511,6 +536,30 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-23T00:00:17.497841814Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy MQTT Logger
+    digest: 83314b0f7149978687be5a40fe2328a3cee8f0a90e92ae6778b21b2f1f895f82
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.3.0/mqtt-logger-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T00:12:53.823839703Z"
     dependencies:
     - condition: mongodb.enabled
@@ -857,6 +906,27 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: v5.0.2
+    created: "2024-06-23T00:00:17.669313996Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://helm.neo4j.com/neo4j
+      version: 5.20.0
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: 13b81a639df28b59e9e6618dcf4652fc20e8e3f8076aee01314a465c02a0f132
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.8.0/user-manager-neo4j-0.8.0.tgz
+    version: 0.8.0
+  - apiVersion: v2
+    appVersion: v5.0.2
     created: "2023-12-12T20:38:40.849718594Z"
     dependencies:
     - alias: neo4j
@@ -970,4 +1040,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2024-06-19T23:18:06.300150439Z"
+generated: "2024-06-23T00:00:17.669408042Z"
