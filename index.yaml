@@ -417,6 +417,23 @@ entries:
   group-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-24T23:02:09.078072478Z"
+    dependencies:
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy Group-manager, a microservice to manage user
+      groups
+    digest: 3243cac0b12a910ebb728282a378ad8147995b72778fe78cb3673b246d151d5d
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/group-manager/icon.png
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.3.0/group-manager-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-10-01T00:44:04.186524759Z"
     description: A Helm chart to deploy Group-manager, a microservice to manage user
       groups
@@ -1040,4 +1057,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2024-06-23T00:00:17.669408042Z"
+generated: "2024-06-24T23:02:09.078174599Z"
