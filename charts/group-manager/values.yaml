@@ -4,18 +4,35 @@
 
 name: group-manager
 
-nodePorts:
-  api: 30018
-  gui: 30019
-
-ingress:
-  enabled: false
-  host: groups.test.home.maximemoreillon.com
+service:
+  type: ClusterIP
+  nodePort: ""
 
 neo4j:
-  # url: bolt://um-neo4j
-  # username: neo4j
-  # password: neo4Jpassword
+  url: bolt://um-neo4j
+  username: neo4j
+  password: neo4Jpassword
 
 auth:
   apiUrl: http://um-api
+
+# API Gateway
+kong:
+  enabled: true
+  admin:
+    enabled: false # Do not create a service for the admin API
+  manager:
+    enabled: false # Do not create a service for Kong Manager
+  ingressController:
+    enabled: false
+  env:
+    database: "off"
+    dns_order: A,CNAME,LAST,SRV
+  dblessConfig:
+    configMap: kong-config
+  proxy:
+    type: NodePort
+    http:
+      nodePort: 31081
+    tls:
+      enabled: false

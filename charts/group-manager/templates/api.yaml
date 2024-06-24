@@ -32,10 +32,10 @@ kind: Service
 metadata:
   name: {{ include "group-manager.prefix" . }}-api
 spec:
-  type: NodePort
+  type: {{ .Values.service.type }}
   selector:
     app: {{ include "group-manager.prefix" . }}-api
   ports:
   - port: 80
-    nodePort: {{ .Values.nodePorts.api }}
+    nodePort: {{ .Values.service.nodePort }}
 

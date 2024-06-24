@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Values.kong.dblessConfig.configMap}}
+data:
+  kong.yml: |
+    _format_version: "3.0"
+    _transform: true
+    services:
+    - name: gui
+      url: http://{{ include "group-manager.prefix" . }}-gui
+      routes:
+      - name: gui
+        paths:
+        - /
+    - name: api
+      url: http://{{ include "group-manager.prefix" . }}-api
+      routes:
+      - name: api
+        paths:
+        - /api
+
+    - name: auth
+      url: {{ include "group-manager.auth.url" . }}
+      routes:
+      - name: api
+        paths:
+        - /api

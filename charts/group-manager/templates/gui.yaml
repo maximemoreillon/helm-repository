@@ -19,11 +19,11 @@ spec:
         - containerPort: 80
         env:
         - name: VUE_APP_GROUP_MANAGER_API_URL
-          value: /proxy/api
+          value: /api
         - name: VUE_APP_LOGIN_URL
-          value: /proxy/auth/auth/login
+          value: /auth/auth/login
         - name: VUE_APP_IDENTIFICATION_URL
-          value: /proxy/auth/users/self
+          value: /auth/users/self
 ---
 apiVersion: v1
 kind: Service

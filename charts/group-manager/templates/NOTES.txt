@@ -1,5 +1,1 @@
 # Group manager
-
-Ports:
-- Group manager GUI: {{ .Values.nodePorts.gui }}
-- Group manager API: {{ .Values.nodePorts.api }}
