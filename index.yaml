@@ -416,6 +416,23 @@ entries:
     version: 0.2.5
   group-manager:
   - apiVersion: v2
+    appVersion: 4.9.0
+    created: "2024-07-04T23:59:18.798591467Z"
+    dependencies:
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy Group-manager, a microservice to manage user
+      groups
+    digest: ddcdbf80afea568478df7d9661c47c85f65d05ebea8e37333bbeb04e7a6150fb
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/group-manager/icon.png
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.4.0/group-manager-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2024-06-24T23:02:09.078072478Z"
     dependencies:
@@ -923,6 +940,27 @@ entries:
   user-manager-neo4j:
   - apiVersion: v2
     appVersion: v5.0.2
+    created: "2024-07-04T23:59:18.916599196Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://helm.neo4j.com/neo4j
+      version: 5.20.0
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the user management and authentication microservice
+      (Neo4J version)
+    digest: fa90372c9f05731882e66cc0a9a09316cba331b14d7171b22f8c156c32b2e8d4
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.9.0/user-manager-neo4j-0.9.0.tgz
+    version: 0.9.0
+  - apiVersion: v2
+    appVersion: v5.0.2
     created: "2024-06-23T00:00:17.669313996Z"
     dependencies:
     - condition: neo4j.enabled
@@ -1057,4 +1095,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2024-06-24T23:02:09.078174599Z"
+generated: "2024-07-04T23:59:18.916717709Z"
