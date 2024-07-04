@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: {{ include "group-manager.prefix" . }}-api
-        image: moreillon/group-manager:v4.9.0
+        image: {{ .Values.image}}
         ports:
         - containerPort: 80
         env:

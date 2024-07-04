@@ -4,6 +4,8 @@
 
 name: group-manager
 
+image: moreillon/group-manager:v4.9.0
+
 service:
   type: ClusterIP
   nodePort: ""
@@ -15,6 +17,10 @@ neo4j:
 
 auth:
   apiUrl: http://um-api
+
+gui:
+  image: moreillon/group-manager-front:v3.3.1
+  env: []
 
 # API Gateway
 kong:

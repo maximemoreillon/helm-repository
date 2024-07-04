@@ -1,6 +1,5 @@
+# prettier-ignore
 {{ $fullName := include "user-manager.prefix" . | trunc 63 | trimSuffix "-" }}
-# Warning: hardcoded
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ $fullName }}
-        image: {{ .Values.api.image }}
+        image: {{ .Values.image }}
         ports:
         - containerPort: 80
         envFrom:

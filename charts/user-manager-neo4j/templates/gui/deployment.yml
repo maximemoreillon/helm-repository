@@ -22,3 +22,7 @@ spec:
         env:
         - name: VUE_APP_USER_MANAGER_API_URL
           value: /api
+        {{- range .Values.gui.env }}
+        - name: {{ .name }}
+          value: {{ .value }}
+        {{- end }}

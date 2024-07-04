@@ -1,17 +1,16 @@
 nameOverride: user-manager
 
+image: moreillon/user-manager:v5.0.2
+
 auth:
   jwt_secret: keyboardcat
   admin:
     username: admin
     password: admin
 
-api:
-  image: moreillon/user-manager:v5.0.2
-
 gui:
-  image: moreillon/user-manager-front:v5.0.3
-
+  image: moreillon/user-manager-front:v5.1.0
+  env: []
 
 neo4j:
   enabled: true
@@ -31,9 +30,6 @@ neo4j:
 #   neo4j:
 #     username: neo4j
 #     password: keyboardcat
-
-
-
 
 # API Gateway
 kong:
