@@ -1,3 +1,4 @@
+# prettier-ignore
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,18 +15,17 @@ spec:
     spec:
       containers:
       - name: {{ include "group-manager.prefix" . }}-api
-        image: {{ .Values.image}}
+        image: {{ .Values.image }}
         ports:
         - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: {{ include "group-manager.prefix" . }}-env
         env:
-        - name: NEO4J_URL
-          value: {{ include "group-manager.neo4j.url" . }}
-        - name: NEO4J_USERNAME
-          value: {{ .Values.neo4j.username }}
-        - name: NEO4J_PASSWORD
-          value: {{ .Values.neo4j.password }}
-        - name: IDENTIFICATION_URL
-          value: {{ include "group-manager.auth.url" . }}/users/self
+        {{- range .Values.gui.env }}
+        - name: {{ .name }}
+          value: {{ .value }}
+        {{- end }}
 ---
 apiVersion: v1
 kind: Service

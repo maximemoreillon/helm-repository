@@ -13,10 +13,10 @@ service:
 neo4j:
   url: bolt://um-neo4j
   username: neo4j
-  password: neo4Jpassword
+  password: keyboardcat
 
 auth:
-  apiUrl: http://um-api
+  apiUrl: http://um-user-manager
 
 gui:
   image: moreillon/group-manager-front:v3.3.1
@@ -35,10 +35,10 @@ kong:
     database: "off"
     dns_order: A,CNAME,LAST,SRV
   dblessConfig:
-    configMap: kong-config
+    configMap: group-manager-kong-config
   proxy:
     type: NodePort
     http:
-      nodePort: 31081
+      nodePort: 31082
     tls:
       enabled: false

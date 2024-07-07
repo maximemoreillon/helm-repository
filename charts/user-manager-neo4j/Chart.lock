@@ -2,8 +2,11 @@ dependencies:
 - name: neo4j
   repository: https://helm.neo4j.com/neo4j
   version: 5.20.0
+- name: group-manager
+  repository: https://maximemoreillon.github.io/helm-repository
+  version: 0.2.0
 - name: kong
   repository: https://charts.konghq.com
   version: 2.39.2
-digest: sha256:1e91e5c06239b65ed71d6fe3c0fb84adc343f92147c3e76fc2e3e8e77c2e434b
-generated: "2024-06-23T08:58:50.681902416+09:00"
+digest: sha256:7e0b30bf2f40b2d85a7502b58711ac43901d6054ddd77b1f02f4f54c9118455d
+generated: "2024-07-07T11:38:00.857042493+09:00"

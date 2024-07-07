@@ -1,7 +1,8 @@
+# prettier-ignore
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{.Values.kong.dblessConfig.configMap}}
+  name: {{ .Values.kong.dblessConfig.configMap }}
 data:
   kong.yml: |
     _format_version: "3.0"
@@ -19,10 +20,9 @@ data:
       - name: api
         paths:
         - /api
-
     - name: auth
-      url: {{ include "group-manager.auth.url" . }}
+      url: {{ .Values.auth.apiUrl }}
       routes:
-      - name: api
+      - name: auth
         paths:
-        - /api
+        - /auth

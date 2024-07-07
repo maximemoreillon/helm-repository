@@ -23,13 +23,31 @@ neo4j:
     data:
       mode: defaultStorageClass
 
-# groups:
-#   enabled: false
-#   auth:
-#     name: user-manager-neo4j
-#   neo4j:
-#     username: neo4j
-#     password: keyboardcat
+groups:
+  enabled: false
+  env:
+    - name: NEO4J_URL
+      valueFrom:
+      secretKeyRef:
+        name: group-manager-env
+        key: NEO4J_URL
+    - name: NEO4J_USERNAME
+      valueFrom:
+      secretKeyRef:
+        name: group-manager-env
+        key: NEO4J_USERNAME
+    - name: NEO4J_PASSWORD
+      valueFrom:
+      secretKeyRef:
+        name: group-manager-env
+        key: NEO4J_PASSWORD
+    - name: IDENTIFICATION_URL
+      valueFrom:
+      secretKeyRef:
+        name: group-manager-env
+        key: IDENTIFICATION_URL
+  kong:
+    enabled: false
 
 # API Gateway
 kong:
