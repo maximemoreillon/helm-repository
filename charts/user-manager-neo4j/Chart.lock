@@ -4,9 +4,9 @@ dependencies:
   version: 5.20.0
 - name: group-manager
   repository: https://maximemoreillon.github.io/helm-repository
-  version: 0.4.3
+  version: 0.4.4
 - name: kong
   repository: https://charts.konghq.com
   version: 2.39.2
-digest: sha256:d116bf18c76083207ed666fd3f4eb6c5da1d14306f607b8ea325cf30be443c86
-generated: "2024-07-07T15:08:35.730101614+09:00"
+digest: sha256:cd4ea340f9b36f08b8fb67fba40dd1bece67a6a5c09c62528ea7ddc8f5e7e125
+generated: "2024-07-07T15:20:33.079400998+09:00"

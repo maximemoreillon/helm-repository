@@ -24,7 +24,7 @@ neo4j:
       mode: defaultStorageClass
 
 groups:
-  enabled: false
+  enabled: true
   kong:
     enabled: false
   envFrom:
@@ -36,6 +36,10 @@ groups:
         value: /groups
       - name: VUE_APP_GROUP_MANAGER_API_URL
         value: /groups/api
+      - name: VUE_APP_LOGIN_URL
+        value: /auth/auth/login
+      - name: VUE_APP_IDENTIFICATION_URL
+        value: /auth/users/self
 
 # API Gateway
 kong:
