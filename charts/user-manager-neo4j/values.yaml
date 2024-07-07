@@ -27,31 +27,15 @@ groups:
   enabled: false
   kong:
     enabled: false
-  env:
-    - name: NEO4J_URL
-      valueFrom:
-      secretKeyRef:
+  envFrom:
+    - secretRef:
         name: group-manager-env
-        key: NEO4J_URL
-    - name: NEO4J_USERNAME
-      valueFrom:
-      secretKeyRef:
-        name: group-manager-env
-        key: NEO4J_USERNAME
-    - name: NEO4J_PASSWORD
-      valueFrom:
-      secretKeyRef:
-        name: group-manager-env
-        key: NEO4J_PASSWORD
-    - name: IDENTIFICATION_URL
-      valueFrom:
-      secretKeyRef:
-        name: group-manager-env
-        key: IDENTIFICATION_URL
   gui:
     env:
       - name: VUE_APP_PUBLIC_PATH
         value: /groups
+      - name: VUE_APP_GROUP_MANAGER_API_URL
+        value: /groups/api
 
 # API Gateway
 kong:
