@@ -17,17 +17,14 @@ spec:
         image: {{ .Values.gui.image}}
         ports:
         - containerPort: 80
-        env:
+        envFrom:
+        - secretRef:
+            name: {{ include "group-manager.prefix" . }}-env
+        env:       
         {{- range .Values.gui.env }}
         - name: {{ .name }}
           value: {{ .value }}
         {{- end }}
-        - name: VUE_APP_GROUP_MANAGER_API_URL
-          value: /api
-        - name: VUE_APP_LOGIN_URL
-          value: /auth/auth/login
-        - name: VUE_APP_IDENTIFICATION_URL
-          value: /auth/users/self
         
 ---
 apiVersion: v1

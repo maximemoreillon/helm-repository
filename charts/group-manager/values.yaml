@@ -23,6 +23,10 @@ auth:
 
 gui:
   image: moreillon/group-manager-front:v3.3.1
+  apiUrl: /api
+  auth:
+    loginurl: /auth/auth/login
+    identificationUrl: /auth/users/self
   env: []
 
 # API Gateway
