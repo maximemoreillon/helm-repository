@@ -21,6 +21,9 @@ spec:
         envFrom:
         - secretRef:
             name: {{ include "group-manager.prefix" . }}-env
+          {{- with .Values.envFrom }}
+            {{- toYaml . | nindent 8 }}
+          {{- end }}
         env:
         {{- range .Values.gui.env }}
         - name: {{ .name }}

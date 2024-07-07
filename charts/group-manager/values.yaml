@@ -6,6 +6,9 @@ name: group-manager
 
 image: moreillon/group-manager:v4.9.0
 
+env: []
+envFrom: []
+
 service:
   type: ClusterIP
   nodePort: ""
@@ -16,7 +19,7 @@ neo4j:
   password: keyboardcat
 
 auth:
-  apiUrl: http://um-user-manager
+  apiUrl: http://um-user-manager-test
 
 gui:
   image: moreillon/group-manager-front:v3.3.1
