@@ -24,7 +24,9 @@ neo4j:
       mode: defaultStorageClass
 
 groups:
-  enabled: false
+  enabled: true
+  kong:
+    enabled: false
   env:
     - name: NEO4J_URL
       valueFrom:
@@ -46,8 +48,12 @@ groups:
       secretKeyRef:
         name: group-manager-env
         key: IDENTIFICATION_URL
-  kong:
-    enabled: false
+  gui:
+    env:
+      - name: VUE_APP_PUBLIC_PATH
+        secretKeyRef:
+          name: group-manager-env
+          key: VUE_APP_PUBLIC_PATH
 
 # API Gateway
 kong:

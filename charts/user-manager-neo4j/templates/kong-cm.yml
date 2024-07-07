@@ -22,4 +22,16 @@ data:
       - name: api
         paths:
         - /api
+    - name: groups-gui
+      url: http://{{ .Release.Name }}-groups-gui
+      routes:
+      - name: groups-gui
+        paths:
+        - /groups
+    - name: groups-api
+      url: http://{{ .Release.Name }}-groups-api
+      routes:
+      - name: groups-api
+        paths:
+        - /groups/api
 
