@@ -47,6 +47,31 @@ entries:
   camera-viewer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-03-23T10:24:49.111746393Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the camera-viewer aplication
+    digest: 79711eb06774ae8528d7bf8c334865af6d77d8eb83f804e642c7d21e4bd17738
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.2.1/camera-viewer-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-06-23T00:00:17.375357651Z"
     dependencies:
     - alias: auth
@@ -145,6 +170,27 @@ entries:
   face-recognition:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-03-23T10:24:49.257349395Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    description: A Helm chart for to deploy the Face-recognition API and its GUI
+    digest: e5b065518fb5d174b46f53a739864a8f8246fabfe7cd8a990ef6daa8388737fd
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.4/face-recognition-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T02:53:45.140421283Z"
     dependencies:
     - alias: auth
@@ -186,6 +232,23 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.2/face-recognition-0.2.2.tgz
     version: 0.2.2
   food-manager:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-03-23T10:24:49.418067827Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: d86fed652a7e01d9ae8390cefeb8f357d5f2ab3cb5b386a04f2628d25f2da578
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.4.1/food-manager-0.4.1.tgz
+    version: 0.4.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2024-06-19T23:18:06.300058287Z"
@@ -638,6 +701,30 @@ entries:
   mqtt-logger:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-03-23T10:24:49.568747082Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy MQTT Logger
+    digest: cb67c63444e3d754b9c6670b46337dee84d8904070039ef561e7a09b0f312620
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.3.1/mqtt-logger-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-06-23T00:00:17.497841814Z"
     dependencies:
     - condition: mongodb.enabled
@@ -793,6 +880,27 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/shcp-0.1.0/shcp-0.1.0.tgz
     version: 0.1.0
   user-manager-mongodb:
+  - apiVersion: v2
+    appVersion: v5.0.1
+    created: "2026-03-23T10:24:49.744210575Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    description: A Helm chart to deploy the User management and authentication microservice
+      (MongoDB version)
+    digest: 07e9f9aaf27e360ec7c38f5e8e610b89155cb108ee80658f4c6d97f261a36274
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png
+    name: user-manager-mongodb
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.6.2/user-manager-mongodb-0.6.2.tgz
+    version: 0.6.2
   - apiVersion: v2
     appVersion: v5.0.1
     created: "2024-06-19T23:17:26.330749132Z"
@@ -1345,4 +1453,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2024-07-07T06:56:45.122228012Z"
+generated: "2026-03-23T10:24:49.744383578Z"
