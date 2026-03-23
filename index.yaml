@@ -234,6 +234,23 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-03-23T11:29:32.711920766Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: 4556f3554e99fbc6a50ec0244bbfc911e37382eef2bcff20b3c07a74478cf234
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.5.0/food-manager-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2026-03-23T10:24:49.418067827Z"
     dependencies:
     - condition: mongodb.enabled
@@ -1453,4 +1470,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2026-03-23T10:24:49.744383578Z"
+generated: "2026-03-23T11:29:32.712065706Z"
