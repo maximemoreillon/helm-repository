@@ -9,6 +9,9 @@ service:
 
 mongodb:
   enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/mongodb
   persistence:
     size: 100Gi
   auth:

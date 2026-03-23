@@ -4,25 +4,15 @@ description: A Helm chart to deploy Food-manager, a calorie and macro tracking a
 
 type: application
 
-version: 0.3.1
+version: 0.4.1
 
-appVersion: "1.16.0"
+appVersion: "latest"
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
 
 dependencies:
-  - name: user-manager-mongodb
-    version: 0.3.5
-    repository: https://maximemoreillon.github.io/helm-repository
-    condition: auth.enabled
-    alias: auth
-
   - name: mongodb
     version: 13.18.5
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
 
-  - name: kong
-    version: 2.39.2
-    repository: https://charts.konghq.com
-    condition: kong.enabled

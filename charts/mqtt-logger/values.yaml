@@ -6,6 +6,9 @@ mqtt:
 # InfluxDB helm chart from the Bitnami repo
 influxdb:
   enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/influxdb
   auth:
     admin:
       username: admin
@@ -22,6 +25,9 @@ influxdb:
 # MongoDB subchart from Bitnami repo
 mongodb:
   enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/mongodb
   persistence:
     size: 10Gi
   auth:

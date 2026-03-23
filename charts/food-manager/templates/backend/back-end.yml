@@ -1,59 +1,45 @@
-{{ $fullName := printf "%s-api" (include "food-manager.fullName" .) | trunc 63 | trimSuffix "-" }}
-{{ $mongodbUrl := include "food-manager.mongodb.url" . }}
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{$fullName}}
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      # TODO: customizable
-      storage: 50Gi
----
+{{ $fullName := include "food-manager.fullName" . }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{$fullName}}
+  name: {{ $fullName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{$fullName}}
+      app: {{ $fullName }}
   template:
     metadata:
       labels:
-        app: {{$fullName}}
+        app: {{ $fullName }}
     spec:
       containers:
-        - name: {{$fullName}}
-          image: moreillon/food-manager:f062718f
-          env:
-            - name: MONGODB_URL
-              value: {{ include "food-manager.mongodb.url" . }}
-            {{- if .Values.auth.enabled }}
-            - name: IDENTIFICATION_URL
-              value: {{ printf "%s/users/self" (include "food-manager.auth.url" .) }}
-            {{- end }}
+        - name: {{ $fullName }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
-          volumeMounts:
-            - mountPath: /usr/src/app/uploads
-              name: {{$fullName}}
-      volumes:
-        - name: {{$fullName}}
-          persistentVolumeClaim:
-            claimName: {{$fullName}}
+          env:
+            - name: NUXT_MONGOOSE_URI
+              value: {{ include "food-manager.mongodb.url" . }}
+            {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          {{- with .Values.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{$fullName}}
+  name: {{ $fullName }}
 spec:
-  type: NodePort
+  type: {{ .Values.service.type }}
   selector:
-    app: {{$fullName}}
+    app: {{ $fullName }}
   ports:
     - port: 80
-      nodePort: 30022
+      {{- if and (eq .Values.service.type "NodePort") .Values.service.nodePort }}
+      nodePort: {{ .Values.service.nodePort }}
+      {{- end }}

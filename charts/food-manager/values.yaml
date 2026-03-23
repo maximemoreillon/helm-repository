@@ -1,36 +1,21 @@
+image:
+  repository: moreillon/food-manager
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  nodePort: 31081
+
+env: []
+envFrom: []
+
 mongodb:
   enabled: true
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/mongodb
   persistence:
     size: 100Gi
   auth:
     enabled: false
-
-auth:
-  enabled: false
-  mongodb:
-    enabled: false
-  ingress:
-    subdomain: auth
-  nodePorts:
-    gui: 30401
-    
-# API Gateway
-kong:
-  enabled: true
-  admin:
-    enabled: false # Do not create a service for the admin API
-  manager:
-    enabled: false # Do not create a service for Kong Manager
-  ingressController:
-    enabled: false
-  env:
-    database: "off"
-    dns_order: A,CNAME,LAST,SRV
-  dblessConfig:
-    configMap: kong-config
-  proxy:
-    type: NodePort
-    http:
-      nodePort: 31081
-    tls:
-      enabled: false
