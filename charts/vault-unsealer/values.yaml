@@ -1,0 +1,23 @@
+image:
+  repository: curlimages/curl
+  tag: "8.6.0"
+  pullPolicy: IfNotPresent
+
+schedule: "*/5 * * * *"
+
+# Environment variables injected into the unsealer container.
+# VAULT_URL and VAULT_UNSEAL_KEYS must be provided here or via envFrom.
+env:
+  - name: VAULT_URL
+    value: "http://vault:8200"
+  - name: VAULT_UNSEAL_KEYS
+    value: ""
+
+# Optional: reference existing ConfigMaps or Secrets for env vars.
+# Example:
+#   - secretRef:
+#       name: my-vault-unseal-secret
+envFrom: []
+
+nameOverride: ""
+fullnameOverride: ""

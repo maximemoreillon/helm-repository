@@ -1,0 +1,66 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "vault-unsealer.fullname" . }}
+  labels:
+    {{- include "vault-unsealer.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            {{- include "vault-unsealer.selectorLabels" . | nindent 12 }}
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: unsealer
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command:
+                - /bin/sh
+                - /unseal.sh
+              env:
+                {{- toYaml .Values.env | nindent 16 }}
+              {{- with .Values.envFrom }}
+              envFrom:
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+              volumeMounts:
+                - name: script
+                  mountPath: /unseal.sh
+                  subPath: unseal.sh
+          volumes:
+            - name: script
+              configMap:
+                name: {{ include "vault-unsealer.fullname" . }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "vault-unsealer.fullname" . }}
+  labels:
+    {{- include "vault-unsealer.labels" . | nindent 4 }}
+data:
+  unseal.sh: |
+    #!/bin/bash
+    sealed=$(curl -s ${VAULT_URL}/v1/sys/seal-status | grep '"sealed":true')
+
+    if [ -z "$sealed" ]; then
+        echo "Vault is already unsealed."
+        exit 0
+    fi
+
+    echo "Vault is sealed. Attempting to unseal..."
+
+    for key in $(echo "$VAULT_UNSEAL_KEYS" | tr "," " "); do
+        curl -s \
+          --request POST \
+          --header "Content-Type: application/json" \
+          --data "{\"key\": \"$key\"}" \
+          ${VAULT_URL}/v1/sys/unseal >/dev/null
+    done
+    echo "Unseal request completed."

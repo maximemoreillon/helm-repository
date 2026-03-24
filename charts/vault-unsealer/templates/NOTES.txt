@@ -1,0 +1,7 @@
+Vault Unsealer has been deployed.
+
+A CronJob running on schedule "{{ .Values.schedule }}" will periodically check and unseal Vault.
+
+Make sure the following environment variables are configured via .Values.env or .Values.envFrom:
+  - VAULT_URL        — URL of the Vault instance (e.g. http://vault:8200)
+  - VAULT_UNSEAL_KEYS — comma-separated unseal keys
