@@ -1470,4 +1470,15 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.4.0/user-manager-neo4j-0.4.0.tgz
     version: 0.4.0
-generated: "2026-03-23T11:29:32.712065706Z"
+  vault-unsealer:
+  - apiVersion: v2
+    appVersion: 8.6.0
+    created: "2026-03-24T10:02:07.963373401Z"
+    description: A Helm chart that periodically unseals HashiCorp Vault via a CronJob
+    digest: 95fd7989378a5aeb0d02d9efc77897db8ba48f6a3a8a1ee10210e6bcb8fc1d52
+    name: vault-unsealer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/vault-unsealer-0.1.0/vault-unsealer-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-03-24T10:02:07.963557376Z"
