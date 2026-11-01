@@ -1,10 +1,11 @@
 apiVersion: v2
 name: face-recognition
-description: A Helm chart for to deploy the Face-recognition API and its GUI
+description: "DEPRECATED: A Helm chart for to deploy the Face-recognition API and its GUI"
 
 type: application
 
-version: 0.2.4
+version: 0.2.5
+deprecated: true
 
 appVersion: 1.16.0
 

@@ -1,10 +1,11 @@
 apiVersion: v2
 name: group-manager
-description: A Helm chart to deploy Group-manager, a microservice to manage user groups
+description: "DEPRECATED: A Helm chart to deploy Group-manager, a microservice to manage user groups"
 
 type: application
 
-version: 0.4.5
+version: 0.4.6
+deprecated: true
 
 appVersion: 4.9.0
 

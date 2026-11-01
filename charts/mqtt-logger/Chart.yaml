@@ -1,10 +1,11 @@
 apiVersion: v2
 name: mqtt-logger
-description: A Helm chart to deploy MQTT Logger
+description: "DEPRECATED: A Helm chart to deploy MQTT Logger"
 
 type: application
 
-version: 0.3.1
+version: 0.3.2
+deprecated: true
 
 appVersion: "1.16.0"
 

@@ -1,8 +1,9 @@
 apiVersion: v2
 name: user-manager-neo4j
-description: A Helm chart to deploy the user management and authentication microservice (Neo4J version)
+description: "DEPRECATED: A Helm chart to deploy the user management and authentication microservice (Neo4J version)"
 type: application
-version: 0.9.7
+version: 0.9.8
+deprecated: true
 appVersion: "v5.0.2"
 
 icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png

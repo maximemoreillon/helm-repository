@@ -1,10 +1,11 @@
 apiVersion: v2
 name: mosquitto-user-manager
-description: A Helm chart to deploy Mosquitto with a web based user management system
+description: "DEPRECATED: A Helm chart to deploy Mosquitto with a web based user management system"
 
 type: application
 
-version: 0.2.1
+version: 0.2.2
+deprecated: true
 
 appVersion: 1.16.0
 
