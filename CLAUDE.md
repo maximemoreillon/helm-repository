@@ -55,7 +55,7 @@ Most charts compose several layers:
 1. **Kong API Gateway** (version ~2.39.2, from `kong` repo) — used in nearly all charts, always in db-less mode (`database: "off"`), exposed via `NodePort`
 2. **MongoDB** (Bitnami, ~13.x) or **Neo4j** (~5.20.0) — for persistent storage
 3. **Internal charts** — some charts depend on other charts in this repo:
-   - `camera-viewer`, `face-recognition`, `food-manager`, `mosquitto-user-manager` depend on `user-manager-mongodb`
+   - `camera-viewer`, `face-recognition`, `mosquitto-user-manager` depend on `user-manager-mongodb`
    - `user-manager-neo4j` depends on `group-manager`
 
 ### Multi-Component Charts

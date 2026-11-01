@@ -3,3 +3,11 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/moreillon)](https://artifacthub.io/packages/search?repo=moreillon)
 
 A collection of Helm charts
+
+## Development
+
+### Create a nw chart
+
+```
+helm create my-awesome-chart
+```

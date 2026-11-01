@@ -10,6 +10,7 @@ spec:
     {{- include "food-manager.selectorLabels" . | nindent 4 }}
   ports:
     - port: 80
+      targetPort: http
       {{- if and (eq .Values.service.type "NodePort") .Values.service.nodePort }}
       nodePort: {{ .Values.service.nodePort }}
       {{- end }}
