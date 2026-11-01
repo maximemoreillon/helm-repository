@@ -1,0 +1,18 @@
+apiVersion: v2
+name: kcalibre
+description: A Helm chart to deploy Kcalibre, a calorie and macro tracking application
+
+type: application
+
+version: 0.7.0
+
+appVersion: "v1.19.0"
+
+icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/kcalibre/icon.png
+
+dependencies:
+  - name: mongodb
+    version: 13.18.5
+    repository: https://charts.bitnami.com/bitnami
+    condition: mongodb.enabled
+

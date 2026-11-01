@@ -1,10 +1,11 @@
 apiVersion: v2
 name: food-manager
-description: A Helm chart to deploy Food-manager, a calorie and macro tracking application
+description: "DEPRECATED: renamed to kcalibre (moreillon/kcalibre). A Helm chart to deploy Food-manager, a calorie and macro tracking application"
 
 type: application
 
-version: 0.6.0
+version: 0.6.1
+deprecated: true
 
 appVersion: "v1.18.0"
 

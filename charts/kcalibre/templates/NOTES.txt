@@ -1,0 +1,5 @@
+Kcalibre
+
+{{- if eq .Values.service.type "NodePort" }}
+Available on NodePort {{ .Values.service.nodePort }}
+{{- end }}
