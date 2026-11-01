@@ -295,6 +295,24 @@ entries:
   food-manager:
   - apiVersion: v2
     appVersion: v1.18.0
+    created: "2026-11-01T02:24:59.04274429Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    deprecated: true
+    description: 'DEPRECATED: renamed to kcalibre (moreillon/kcalibre). A Helm chart
+      to deploy Food-manager, a calorie and macro tracking application'
+    digest: 3db6a68d7e965086d34e6df98e608f95b0e36e9fb2c57e5dcd00b48a9e166ca2
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.6.1/food-manager-0.6.1.tgz
+    version: 0.6.1
+  - apiVersion: v2
+    appVersion: v1.18.0
     created: "2026-11-01T01:57:23.501772189Z"
     dependencies:
     - condition: mongodb.enabled
@@ -778,6 +796,23 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.1.3/group-manager-0.1.3.tgz
     version: 0.1.3
+  kcalibre:
+  - apiVersion: v2
+    appVersion: v1.19.0
+    created: "2026-11-01T02:24:59.165653065Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    description: A Helm chart to deploy Kcalibre, a calorie and macro tracking application
+    digest: ab69efd88c4b22c835b410c89b4412de016d952e022ec8671ab4e257768b3e7b
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/kcalibre/icon.png
+    name: kcalibre
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/kcalibre-0.7.0/kcalibre-0.7.0.tgz
+    version: 0.7.0
   mosquitto-user-manager:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -1681,4 +1716,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/vault-unsealer-0.1.0/vault-unsealer-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-01T02:17:19.036348209Z"
+generated: "2026-11-01T02:24:59.165867012Z"
