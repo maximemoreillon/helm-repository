@@ -3,6 +3,18 @@ entries:
   api-proxy:
   - apiVersion: v2
     appVersion: 2373c195
+    created: "2026-11-01T01:57:22.850922721Z"
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart for Kubernetes'
+    digest: cd3a881ac87bcd86509c7715bc7fed4a9b8ca36442287a9fe946a409a355a5e9
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/api-proxy/icon.png
+    name: api-proxy
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/api-proxy-0.1.5/api-proxy-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 2373c195
     created: "2023-12-05T22:03:32.570259288Z"
     description: A Helm chart for Kubernetes
     digest: 794e24f94fa79708f16dbcf97d6a598fc4bdfd630854987098dc8afe8ad74d11
@@ -45,6 +57,32 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/api-proxy-0.1.1/api-proxy-0.1.1.tgz
     version: 0.1.1
   camera-viewer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2026-11-01T01:57:23.063781734Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy the camera-viewer aplication'
+    digest: f52be266a909c3d4a92023910ffa6180a333067c84d45a08a3c83ecf16951b09
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/camera-viewer/icon.png
+    name: camera-viewer
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/camera-viewer-0.2.2/camera-viewer-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2026-03-23T10:24:49.111746393Z"
@@ -170,6 +208,29 @@ entries:
   face-recognition:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-11-01T01:57:23.256555275Z"
+    dependencies:
+    - alias: auth
+      condition: auth.enabled
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart for to deploy the Face-recognition API
+      and its GUI'
+    digest: 04dec48cb1042b86d31c90a55b78c34f83dbb002eb05bb2a1b32677dabaeca42
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/face-recognition/icon.png
+    name: face-recognition
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.5/face-recognition-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2026-03-23T10:24:49.257349395Z"
     dependencies:
     - alias: auth
@@ -232,6 +293,23 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/face-recognition-0.2.2/face-recognition-0.2.2.tgz
     version: 0.2.2
   food-manager:
+  - apiVersion: v2
+    appVersion: v1.18.0
+    created: "2026-11-01T01:57:23.501772189Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    description: A Helm chart to deploy Food-manager, a calorie and macro tracking
+      application
+    digest: ce95adbc49fc012aa3785eb4d1240c1fa5d9a6e53c92536cd0e2a0952569b3b2
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/food-manager/icon.png
+    name: food-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/food-manager-0.6.0/food-manager-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v2
     appVersion: latest
     created: "2026-03-23T11:29:32.711920766Z"
@@ -497,6 +575,24 @@ entries:
   group-manager:
   - apiVersion: v2
     appVersion: 4.9.0
+    created: "2026-11-01T01:57:23.744788089Z"
+    dependencies:
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy Group-manager, a microservice
+      to manage user groups'
+    digest: 5f9923966294af95ba08574eef2579ea65a7b2cfa839c87cc6530aab4e0f567d
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/group-manager/icon.png
+    name: group-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/group-manager-0.4.6/group-manager-0.4.6.tgz
+    version: 0.4.6
+  - apiVersion: v2
+    appVersion: 4.9.0
     created: "2024-07-07T06:18:40.002250918Z"
     dependencies:
     - condition: kong.enabled
@@ -685,6 +781,24 @@ entries:
   mosquitto-user-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-11-01T01:57:24.000460724Z"
+    dependencies:
+    - alias: auth
+      name: user-manager-mongodb
+      repository: https://maximemoreillon.github.io/helm-repository/
+      version: 0.3.6
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy Mosquitto with a web based user
+      management system'
+    digest: 14e2b3dc6a8a9b20a1ab14a61b250418bef9a913cd9676cd2d336dcd1f61e648
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mosquitto-user-manager/icon.png
+    name: mosquitto-user-manager
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.2.2/mosquitto-user-manager-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-04T03:36:41.722041177Z"
     dependencies:
     - alias: auth
@@ -716,6 +830,31 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/mosquitto-user-manager-0.2.0/mosquitto-user-manager-0.2.0.tgz
     version: 0.2.0
   mqtt-logger:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2026-11-01T01:57:24.329298637Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.8.1
+    - condition: influxdb.enabled
+      name: influxdb
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.4.16
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy MQTT Logger'
+    digest: ebbf15113d6f10958be78e0b7699592484c1709225872d3dcdbfe5ce0f7ccc5b
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/mqtt-logger/icon.png
+    name: mqtt-logger
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/mqtt-logger-0.3.2/mqtt-logger-0.3.2.tgz
+    version: 0.3.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2026-03-23T10:24:49.568747082Z"
@@ -897,6 +1036,28 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/shcp-0.1.0/shcp-0.1.0.tgz
     version: 0.1.0
   user-manager-mongodb:
+  - apiVersion: v2
+    appVersion: v5.0.1
+    created: "2026-11-01T01:57:24.553699776Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.18.5
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy the User management and authentication
+      microservice (MongoDB version)'
+    digest: 911742a62327c92c4786ee10ebf194581eae053a2512c24d5d7b683d7b50f9e0
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-mongodb/icon.png
+    name: user-manager-mongodb
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.6.3/user-manager-mongodb-0.6.3.tgz
+    version: 0.6.3
   - apiVersion: v2
     appVersion: v5.0.1
     created: "2026-03-23T10:24:49.744210575Z"
@@ -1131,6 +1292,33 @@ entries:
     - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-mongodb-0.3.5/user-manager-mongodb-0.3.5.tgz
     version: 0.3.5
   user-manager-neo4j:
+  - apiVersion: v2
+    appVersion: v5.0.2
+    created: "2026-11-01T01:57:24.930712357Z"
+    dependencies:
+    - condition: neo4j.enabled
+      name: neo4j
+      repository: https://helm.neo4j.com/neo4j
+      version: 5.20.0
+    - alias: groups
+      condition: groups.enabled
+      name: group-manager
+      repository: https://maximemoreillon.github.io/helm-repository
+      version: 0.4.4
+    - condition: kong.enabled
+      name: kong
+      repository: https://charts.konghq.com
+      version: 2.39.2
+    deprecated: true
+    description: 'DEPRECATED: A Helm chart to deploy the user management and authentication
+      microservice (Neo4J version)'
+    digest: 2bd2c61380a90e01f365fe3524aacbbf5a40989a77775c6b4f94652afdda5f80
+    icon: https://raw.githubusercontent.com/maximemoreillon/helm-repository/master/charts/user-manager-neo4j/icon.png
+    name: user-manager-neo4j
+    type: application
+    urls:
+    - https://github.com/maximemoreillon/helm-repository/releases/download/user-manager-neo4j-0.9.8/user-manager-neo4j-0.9.8.tgz
+    version: 0.9.8
   - apiVersion: v2
     appVersion: v5.0.2
     created: "2024-07-07T06:56:45.122052114Z"
@@ -1481,4 +1669,4 @@ entries:
     urls:
     - https://github.com/maximemoreillon/helm-repository/releases/download/vault-unsealer-0.1.0/vault-unsealer-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-24T10:02:07.963557376Z"
+generated: "2026-11-01T01:57:24.931133442Z"
